@@ -24,7 +24,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 		<div >
 			<DefaultSeo
 				title="Learn"
-				description="Manage and schedule tutoring sessions with your students all in one place."
+				description="Arafa Tech is a non-profit organization that provides coding education and mentorship to underprivileged students, empowering them with technology skills for the future."
 				titleTemplate="%s | Arafa Tech"
 				openGraph={{
 					type: "website",
