@@ -1,0 +1,11 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.btn {
+	text-transform: unset !important;
+}
+
+html {
+	font-family: "Inter", sans-serif;
+}
