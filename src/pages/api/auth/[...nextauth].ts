@@ -23,6 +23,7 @@ export default NextAuth({
 			if (!session) return session;
 			// Send properties to the client, like an access_token from a provider.
 			await axios.put(
+				// @ts-ignore
 				`https://discord.com/api/guilds/877414872068001853/members/${session.user.id}`,
 				{
 					access_token: `Bearer ${token.accessToken}`,
