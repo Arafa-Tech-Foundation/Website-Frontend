@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Section from "./section";
+import { signIn } from "next-auth/react";
 
 const headerLinks = [
 	{
@@ -60,20 +61,14 @@ export default function Header() {
 							</nav>
 							<div className="flex items-center gap-4">
 								<div className="sm:flex sm:gap-4">
-									<a
+									<button
 										className="btn btn-primary"
-										href="/"
+										onClick={() => {
+											signIn("discord");
+										}}
 									>
 										Login
-									</a>
-									<div className="hidden sm:flex">
-										<a
-											className="btn btn-secondary btn-outline"
-											href="/"
-										>
-											Register
-										</a>
-									</div>
+									</button>
 								</div>
 								<div className="block md:hidden">
 									<button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">

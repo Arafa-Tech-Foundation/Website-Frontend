@@ -93,9 +93,6 @@ function Program({
 				{icon}
 			</span>
 			<h2 className="mt-2 font-bold">{title}</h2>
-			<p className="hidden sm:mt-1 sm:block sm:text-sm">
-				Lorem ipsum dolor sit amet consectetur.
-			</p>
 		</a>
 	);
 }
