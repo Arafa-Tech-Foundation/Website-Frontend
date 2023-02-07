@@ -3,7 +3,7 @@ import { FaGraduationCap } from "react-icons/fa";
 
 const programs = [
 	{
-		title: "Courses",
+		title: "Supportive Community",
 		icon: <FaGraduationCap />,
 	},
 	{
@@ -11,19 +11,19 @@ const programs = [
 		icon: <FaGraduationCap />,
 	},
 	{
-		title: "Courses",
+		title: "Hands-On Experience",
 		icon: <FaGraduationCap />,
 	},
 	{
-		title: "Courses",
+		title: "Personalized Support",
 		icon: <FaGraduationCap />,
 	},
 	{
-		title: "Courses",
+		title: "Collaborate",
 		icon: <FaGraduationCap />,
 	},
 	{
-		title: "Courses",
+		title: "Comprehensive Education",
 		icon: <FaGraduationCap />,
 	},
 ];
