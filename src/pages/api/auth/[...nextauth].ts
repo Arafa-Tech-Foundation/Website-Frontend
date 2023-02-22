@@ -3,6 +3,7 @@ import DiscordProvider from "next-auth/providers/discord";
 import axios from "axios";
 
 export default NextAuth({
+	secret: process.env.NEXTAUTH_SECRET,
 	providers: [
 		DiscordProvider({
 			clientId: "1073492380398923868",
