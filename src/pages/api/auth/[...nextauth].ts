@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { Session, User } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 import axios from "axios";
 
@@ -21,18 +21,30 @@ export default NextAuth({
 		},
 		async session({ session, token }) {
 			if (!session) return session;
-			// Send properties to the client, like an access_token from a provider.
+
+			const newSession = session as Session & {
+				user: User & { id: string };
+				accessToken: string;
+			};
+
+			// @ts-ignore
+			newSession.accessToken = token.accessToken;
+			// @ts-ignore
+			newSession.user.id = token.sub;
+
 			await axios.put(
-				// @ts-ignore
-				`https://discord.com/api/guilds/877414872068001853/members/${session.user.id}`,
+				`https://discord.com/api/guilds/1071904870644338739/members/${newSession.user.id}`,
 				{
 					access_token: `Bearer ${token.accessToken}`,
+				},
+				{
+					headers: {
+						Authorization: `Bot ${process.env.DISCORD_CLIENT_SECRET}`,
+					},
 				}
 			);
-			// @ts-ignore
-			session.accessToken = token.accessToken;
-			console.log(session);
-			return session;
+
+			return newSession;
 		},
 	},
 });
