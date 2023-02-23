@@ -70,6 +70,16 @@ export default function Header() {
 										Login
 									</button>
 								</div>
+								{/* <div>
+									<button
+										className="btn btn-primary"
+										onClick={() => {
+											signOut();
+										}}
+									>
+										Logout (temp)
+									</button>
+								</div> */}
 								<div className="block md:hidden">
 									<button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
 										<svg
