@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Section from "./section";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const headerLinks = [
 	{
@@ -22,6 +23,9 @@ const headerLinks = [
 ];
 
 export default function Header() {
+	const { data: session, status } = useSession({ required: false });
+	const router = useRouter();
+	console.log(session);
 	return (
 		<Section className="bg-base-100 sticky top-0 border-b py-2 z-[100]">
 			<header aria-label="Site Header">
@@ -64,10 +68,14 @@ export default function Header() {
 									<button
 										className="btn btn-primary"
 										onClick={() => {
-											signIn("discord");
+											status == "authenticated"
+												? router.push("/dashboard")
+												: signIn("discord");
 										}}
 									>
-										Login
+										{status == "authenticated"
+											? "Dashboard"
+											: "Login"}
 									</button>
 								</div>
 								{/* <div>
