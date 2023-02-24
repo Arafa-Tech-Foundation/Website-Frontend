@@ -3,7 +3,7 @@ export const GA_TRACKING_ID = "";
 
 export default function Document() {
 	return (
-		<Html lang="en-us" data-theme="light">
+		<Html lang="en-us">
 			<Head>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link

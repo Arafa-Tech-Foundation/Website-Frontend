@@ -1,30 +1,34 @@
 import Section from "@components/section";
-import { FaGraduationCap } from "react-icons/fa";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const programs = [
+const programs: {
+	title: string;
+	icon: IconProp;
+}[] = [
 	{
 		title: "Supportive Community",
-		icon: <FaGraduationCap />,
+		icon: "graduation-cap",
 	},
 	{
 		title: "Courses",
-		icon: <FaGraduationCap />,
+		icon: "graduation-cap",
 	},
 	{
 		title: "Hands-On Experience",
-		icon: <FaGraduationCap />,
+		icon: "graduation-cap",
 	},
 	{
 		title: "Personalized Support",
-		icon: <FaGraduationCap />,
+		icon: "graduation-cap",
 	},
 	{
 		title: "Collaborate",
-		icon: <FaGraduationCap />,
+		icon: "graduation-cap",
 	},
 	{
 		title: "Comprehensive Education",
-		icon: <FaGraduationCap />,
+		icon: "graduation-cap",
 	},
 ];
 
@@ -82,7 +86,7 @@ function Program({
 }: {
 	href?: string;
 	title: string;
-	icon: React.ReactNode;
+	icon: IconProp;
 }) {
 	return (
 		<a
@@ -90,7 +94,7 @@ function Program({
 			href={href || undefined}
 		>
 			<span className="inline-block rounded-lg bg-base-300 p-3">
-				{icon}
+				<FontAwesomeIcon icon={icon} />
 			</span>
 			<h2 className="mt-2 font-bold">{title}</h2>
 		</a>

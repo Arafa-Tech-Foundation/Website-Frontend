@@ -1,14 +1,12 @@
-import {
-	FaDiscord,
-	FaInstagram,
-	FaTwitter,
-	FaGithub,
-	FaTiktok,
-} from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
 	return (
-		<footer aria-label="Site Footer" className="bg-white border-t border-primary">
+		<footer
+			aria-label="Site Footer"
+			className="bg-base border-t border-primary"
+		>
 			<div className="max-w-screen-xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8">
 				<div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
 					<div>
@@ -73,7 +71,11 @@ export default function Footer() {
 									className="transition hover:opacity-75"
 								>
 									<span className="sr-only">Discord</span>
-									<FaDiscord className="w-6 h-6" />
+
+									<FontAwesomeIcon
+										icon={faDiscord}
+										className="w-6 h-6"
+									/>
 								</a>
 							</li>
 							<li>
@@ -84,7 +86,10 @@ export default function Footer() {
 									className="transition hover:opacity-75"
 								>
 									<span className="sr-only">Instagram</span>
-									<FaInstagram className="w-6 h-6" />
+									<FontAwesomeIcon
+										icon={faDiscord}
+										className="w-6 h-6"
+									/>
 								</a>
 							</li>
 							<li>
@@ -95,7 +100,10 @@ export default function Footer() {
 									className="transition hover:opacity-75"
 								>
 									<span className="sr-only">TikTok</span>
-									<FaTiktok className="w-6 h-6" />
+									<FontAwesomeIcon
+										icon={["fab", "discord"]}
+										className="w-6 h-6"
+									/>
 								</a>
 							</li>
 							<li>
@@ -106,7 +114,10 @@ export default function Footer() {
 									className="transition hover:opacity-75"
 								>
 									<span className="sr-only">GitHub</span>
-									<FaGithub className="w-6 h-6" />
+									<FontAwesomeIcon
+										icon={["fab", "discord"]}
+										className="w-6 h-6"
+									/>
 								</a>
 							</li>
 							<li>
@@ -117,7 +128,10 @@ export default function Footer() {
 									className="transition hover:opacity-75"
 								>
 									<span className="sr-only">Twitter</span>
-									<FaTwitter className="w-6 h-6" />
+									<FontAwesomeIcon
+										icon={["fab", "discord"]}
+										className="w-6 h-6"
+									/>
 								</a>
 							</li>
 						</ul>

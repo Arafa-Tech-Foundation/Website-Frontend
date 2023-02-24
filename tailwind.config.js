@@ -1,7 +1,7 @@
 const theme = {
-	primary: "#588157",
+	primary: "#a48cff",
 
-	secondary: "#a68a64",
+	secondary: "#383d49",
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -11,10 +11,10 @@ module.exports = {
 		styled: true,
 		themes: [
 			{
-				light: { ...theme, "base-100": "#FFFFFF" },
+				dark: { ...theme, "base-100": "#16161f" },
 			},
 			{
-				dark: { ...theme, "base-100": "#2A303C" },
+				light: { ...theme, "base-100": "#FFFFFF" },
 			},
 		],
 		base: true,

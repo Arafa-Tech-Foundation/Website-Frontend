@@ -111,7 +111,7 @@ function Testimonial({
 						type="radio"
 						name={`rating-${key}`}
 						className="mask mask-star-2 bg-secondary"
-						checked
+						// checked
 					/>
 					<input
 						type="radio"

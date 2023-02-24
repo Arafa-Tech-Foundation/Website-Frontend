@@ -6,7 +6,10 @@ import { useEffect } from "react";
 import { GA_TRACKING_ID } from "./_document";
 import { SessionProvider } from "next-auth/react";
 
-export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+export default function MyApp({
+	Component,
+	pageProps: { session, ...pageProps },
+}: AppProps) {
 	const router = useRouter();
 	useEffect(() => {
 		const handleRouteChange = (url: unknown) => {
@@ -22,7 +25,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
 	}, [router.events]);
 	useEffect(() => {}, []);
 	return (
-		<div>
+		<>
 			<DefaultSeo
 				title="Learn"
 				description="Arafa Tech is a non-profit organization that provides coding education and mentorship to underprivileged students, empowering them with technology skills for the future."
@@ -37,6 +40,6 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
 			<SessionProvider session={session}>
 				<Component {...pageProps} />
 			</SessionProvider>
-		</div>
+		</>
 	);
 }

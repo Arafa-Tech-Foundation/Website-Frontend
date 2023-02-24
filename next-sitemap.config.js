@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-	siteUrl: "https://v-core.org",
+	siteUrl: "https://arafa.tech",
 	generateRobotsTxt: true,
 };
