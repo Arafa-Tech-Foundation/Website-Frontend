@@ -1,5 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import {
+	faDiscord,
+	faGithub,
+	faInstagram,
+	faTiktok,
+	faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
 	return (
@@ -46,7 +52,7 @@ export default function Footer() {
 								>
 									<span className="sr-only">Instagram</span>
 									<FontAwesomeIcon
-										icon={faDiscord}
+										icon={faInstagram}
 										className="w-6 h-6"
 									/>
 								</a>
@@ -60,26 +66,26 @@ export default function Footer() {
 								>
 									<span className="sr-only">TikTok</span>
 									<FontAwesomeIcon
-										icon={["fab", "discord"]}
+										icon={faTiktok}
 										className="w-6 h-6"
 									/>
 								</a>
 							</li>
 							<li>
 								<a
-									href="/"
+									href="https://github.com/Arafa-Tech-Foundation"
 									rel="noreferrer"
 									target="_blank"
 									className="transition hover:opacity-75"
 								>
 									<span className="sr-only">GitHub</span>
 									<FontAwesomeIcon
-										icon={["fab", "discord"]}
+										icon={faGithub}
 										className="w-6 h-6"
 									/>
 								</a>
 							</li>
-							<li>
+							{/* <li>
 								<a
 									href="/"
 									rel="noreferrer"
@@ -88,11 +94,11 @@ export default function Footer() {
 								>
 									<span className="sr-only">Twitter</span>
 									<FontAwesomeIcon
-										icon={["fab", "discord"]}
+										icon={faTwitter}
 										className="w-6 h-6"
 									/>
 								</a>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 					<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
