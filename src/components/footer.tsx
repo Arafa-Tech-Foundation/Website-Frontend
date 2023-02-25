@@ -4,7 +4,6 @@ import {
 	faGithub,
 	faInstagram,
 	faTiktok,
-	faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
