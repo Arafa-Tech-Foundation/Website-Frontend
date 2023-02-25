@@ -1,5 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faBell, faX } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import { signIn, signOut, useSession } from "next-auth/react";
@@ -59,11 +59,20 @@ export default function DashboardLayout({
 								htmlFor="sidebar-drawer"
 								className="btn btn-square btn-ghost drawer-button lg:hidden mr-4"
 							>
-								<FontAwesomeIcon icon="bars" />
+								<FontAwesomeIcon icon={faBars} size="2x" />
 							</label>
 						</div>
 						<div className="flex justify-center items-center flex-1 lg:hidden">
-							Arafa Tech
+							<div className="flex justify-center items-center">
+								<img
+									src="/logos/transparent/main.png"
+									className="max-w-[4em]"
+									alt=""
+								/>
+								<h1 className="text-xl hidden sm:block">
+									Arafa Tech
+								</h1>
+							</div>
 						</div>
 						<div className="flex justify-end items-center flex-1 gap-4">
 							<button className="btn btn-primary btn-square btn-sm">
@@ -78,7 +87,9 @@ export default function DashboardLayout({
 									}
 									className="avatar avatar-sm mr-2 rounded-full w-8"
 								/>
-								{session?.user?.name}
+								<h3 className="hidden sm:inline">
+									{session?.user?.name}
+								</h3>
 							</div>
 						</div>
 					</header>
@@ -98,10 +109,10 @@ export default function DashboardLayout({
 							>
 								<div className="flex items-center justify-between lg:justify-center">
 									<div className="block lg:none flex-1" />
-									<div className="flex justify-center items-center">
+									<div className="flex justify-center items-center gap-4">
 										<img
 											src="/logos/transparent/main.png"
-											className="max-w-[8em]"
+											className="max-w-[4em]"
 											alt=""
 										/>
 										<h1 className="text-xl py-8">
@@ -109,10 +120,10 @@ export default function DashboardLayout({
 										</h1>
 									</div>
 
-									<div className="flex items-center justify-end flex-1">
+									<div className="flex justify-end items-center flex-1">
 										<label
 											htmlFor="sidebar-drawer"
-											className="btn btn-square btn-ghost drawer-button lg:hidden mr-4"
+											className="btn btn-square btn-ghost drawer-button lg:hidden"
 										>
 											<FontAwesomeIcon icon={faX} />
 										</label>
