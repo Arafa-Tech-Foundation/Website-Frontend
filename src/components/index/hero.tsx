@@ -16,7 +16,7 @@ export default function Hero() {
 			<button
 				className="btn btn-wide btn-primary"
 				onClick={() => {
-					signIn("discord");
+					signIn("discord", { callbackUrl: "/dashboard" });
 				}}
 			>
 				Get Started

@@ -70,7 +70,11 @@ export default function Header() {
 										onClick={() => {
 											status == "authenticated"
 												? router.push("/dashboard")
-												: signIn("discord");
+												: signIn("discord", {
+														callbackUrl:
+															"/dashboard",
+												  });
+
 										}}
 									>
 										{status == "authenticated"
