@@ -31,7 +31,7 @@ export default function Header() {
 	return (
 		<Section className="bg-base-100 sticky top-0 border-b py-2 z-[100]">
 			<header aria-label="Site Header">
-				<div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+				<div className="mx-auto max-w-screen-xl sm:px-6 lg:px-8">
 					<div className="flex h-16 items-center justify-between">
 						<div className="flex-1 md:flex md:items-center md:gap-12">
 							<Link
@@ -74,7 +74,6 @@ export default function Header() {
 														callbackUrl:
 															"/dashboard",
 												  });
-
 										}}
 									>
 										{status == "authenticated"
