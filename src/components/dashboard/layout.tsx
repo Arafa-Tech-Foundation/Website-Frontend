@@ -53,7 +53,7 @@ export default function DashboardLayout({
 					className="drawer-toggle"
 				/>
 				<div className="drawer-content">
-					<header className="p-6 mb-2 flex sticky top-0 z-[999] bg-base-200">
+					<header className="py-2 px-4 sm:p-6 mb-2 flex sticky top-0 z-[999] bg-base-200 border-b border-secondary">
 						<div className="flex justify-start items-center flex-1">
 							<label
 								htmlFor="sidebar-drawer"
@@ -102,7 +102,7 @@ export default function DashboardLayout({
 						className="drawer-overlay"
 					></label>
 					<section className="min-h-screen bg-base-200 min-w-[225px] max-h-screen top-0 sticky">
-						<nav className="h-full border-r">
+						<nav className="h-full border-r border-secondary">
 							<nav
 								className="h-full text-sm flex flex-col font-medium px-4"
 								aria-label="Main Navigation"
