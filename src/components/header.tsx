@@ -2,6 +2,8 @@ import Link from "next/link";
 import Section from "./section";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const headerLinks = [
 	{
@@ -42,7 +44,7 @@ export default function Header() {
 									className="max-w-[4em]"
 									alt="arafa tech's logo"
 								/>
-								<h1>Arafa Tech</h1>
+								<h1 className="hidden sm:block">Arafa Tech</h1>
 							</Link>
 						</div>
 						<div className="md:flex md:items-center md:gap-12">
@@ -87,7 +89,7 @@ export default function Header() {
 									</button>
 								</div> */}
 								<div className="block md:hidden">
-									<button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+									<button className="btn btn-primary btn-square transition">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
 											className="h-5 w-5"
@@ -96,11 +98,7 @@ export default function Header() {
 											stroke="currentColor"
 											strokeWidth={2}
 										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												d="M4 6h16M4 12h16M4 18h16"
-											/>
+											<FontAwesomeIcon icon={faBars} />
 										</svg>
 									</button>
 								</div>
