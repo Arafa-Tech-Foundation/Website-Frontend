@@ -33,10 +33,9 @@ export default function Hero() {
 				<p className="w-full max-w-xl text-center">
 					Arafa Tech is a non-profit organization that provides coding
 					education and mentorship to underprivileged students,
-					empowering them with technology skills for the future.
+					empowering them with technical skills for the future.
 				</p>
 				<button className="btn btn-wide btn-primary">Get Started</button>
-
 			</div>
 		</Section>
 	);
