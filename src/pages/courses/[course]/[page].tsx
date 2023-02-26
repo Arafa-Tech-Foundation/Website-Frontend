@@ -26,7 +26,7 @@ export async function getStaticProps({
 }: {
 	params: { course: string; page: string };
 }) {
-	const url = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/${params.course}/${params.page}.md`;
+	const url = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/${params.page}.md`;
 
 	const res = await axios.get(url);
 	if (res.status !== 200) {
@@ -40,6 +40,7 @@ export async function getStaticProps({
 
 	// TODO: add code highlighting plugin
 	const source = await serialize(content);
+
 	return {
 		props: {
 			source,
@@ -67,5 +68,6 @@ export async function getStaticPaths() {
 
 	return {
 		paths,
+		fallback: false,
 	};
 }

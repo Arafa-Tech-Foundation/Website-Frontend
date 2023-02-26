@@ -10,7 +10,7 @@ export async function getFolderContents(folder: string): Promise<string[]> {
 	}
 	const files = res.data.filter(
 		// filter out metadata files
-		(item: any) => item.type === "file" && !item.path.startsWith(".")
+		(item: any) => item.type === "file" && !item.name.startsWith(".")
 	);
 	return files.map((item: any) => item.name);
 }
