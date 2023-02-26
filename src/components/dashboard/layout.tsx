@@ -179,7 +179,7 @@ const navItems: {
 	},
 	{
 		label: "Discord",
-		href: "/dashboard/discord",
+		href: "https://discord.gg/HQvTe2pHym",
 		icon: "discord",
 	},
 ];

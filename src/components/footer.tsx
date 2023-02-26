@@ -29,7 +29,7 @@ export default function Footer() {
 						<ul className="flex gap-6 mt-8 text-secondary">
 							<li>
 								<a
-									href="/"
+									href="https://discord.gg/HQvTe2pHym"
 									rel="noreferrer"
 									target="_blank"
 									className="transition hover:opacity-75"
