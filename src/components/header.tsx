@@ -25,9 +25,8 @@ const headerLinks = [
 ];
 
 export default function Header() {
-	const { data: session, status } = useSession({ required: false });
+	const { status } = useSession({ required: false });
 	const router = useRouter();
-	console.log(session);
 	return (
 		<Section className="bg-base-100 sticky top-0 border-b py-2 z-[100]">
 			<header aria-label="Site Header">

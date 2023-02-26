@@ -39,9 +39,8 @@ export default NextAuth({
 							},
 						}
 					);
-					console.log("SUCCESSFULLY ADDED USER TO DISCORD SERVER");
 				} catch (e: any) {
-					console.log(e.response.data);
+					// console.log(e.response.data);
 				}
 			}
 			return token;
