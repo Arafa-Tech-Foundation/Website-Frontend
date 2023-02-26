@@ -36,11 +36,11 @@ When you are ready to submit your changes, create a pull request to the main bra
 
 Your pull request will be reviewed by the project maintainers, who may request changes or provide feedback. Once your changes have been approved, they will be merged into the main branch.
 
-Issues
+## Issues
 If you encounter any issues while using the website, please report them on the issue tracker. Please include a clear description of the issue and any steps to reproduce it.
 
-Code of Conduct
+## Code of Conduct
 Please note that this project has a Code of Conduct. By participating in this project, you agree to abide by its terms.
 
-License
+## License
 By contributing to this project, you agree to license your contributions under the MIT License.
