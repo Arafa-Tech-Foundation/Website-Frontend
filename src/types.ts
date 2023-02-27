@@ -6,7 +6,9 @@ type CourseMeta = {
 	order: string[];
 	title: string;
 	description: string;
-	minutes: number; // in minutes
+	minutes: number; // in minutes (not seconds) :0
 };
 
-export type { CourseMeta };
+type Matter = {};
+
+export type { CourseMeta, Matter };

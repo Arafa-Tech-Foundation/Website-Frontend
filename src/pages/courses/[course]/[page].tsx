@@ -1,6 +1,6 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
-import { CourseMeta } from "types";
+import { CourseMeta, Matter } from "types";
 import matter from "gray-matter";
 import axios from "axios";
 import { imageUrl } from "config";
@@ -11,11 +11,12 @@ import CoursesLayout from "@components/courses/layout";
 type Course = {
 	source: MDXRemoteProps;
 	meta: CourseMeta;
+	matter: Matter; // TODO: add matter type
 };
 
-export default function CoursePage({ source, meta }: Course) {
+export default function CoursePage({ source, meta, matter }: Course) {
 	return (
-		<CoursesLayout meta={meta}>
+		<CoursesLayout meta={meta} matter={matter}>
 			<MDXRemote {...source} />
 		</CoursesLayout>
 	);
@@ -27,8 +28,12 @@ export async function getStaticProps({
 	params: { course: string; page: string };
 }) {
 	const url = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/${params.page}.md`;
-
 	const res = await axios.get(url);
+
+	const metaUrl = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/.metadata.json`;
+	const metaRes = await axios.get(metaUrl);
+
+	const meta: CourseMeta = metaRes.data;
 
 	// replace relative image paths with absolute paths
 	const markdown = res.data.replaceAll('src="./', `src="${imageUrl}`);
@@ -41,7 +46,8 @@ export async function getStaticProps({
 	return {
 		props: {
 			source,
-			page: data,
+			meta,
+			matter: data,
 		},
 	};
 }
