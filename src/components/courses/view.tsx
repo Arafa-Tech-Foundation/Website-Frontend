@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 import { CourseMeta } from "types";
 
 export default function CoursesView({
@@ -18,16 +19,18 @@ export default function CoursesView({
 			</div>
 			<div className="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-4 mx-auto gap-6">
 				{courses.map((course) => (
-					<div
+					<Link
 						className={clsx(
 							"col-span-1 border-primary flex flex-col justify-center items-center h-[300px]",
 							"p-5 rounded-xl relative from-[#4a4a54] to-[#272733] bg-gradient-to-r",
 							"hover:scale-105 transition-transform duration-300 ease-in-out hover:cursor-pointer"
 						)}
+						href={`/dashboard/courses/${course.course}/${course.order[0]}`}
 					>
 						<img
-							className="w-10 grayscale"
-							src="https://cdn.iconscout.com/icon/free/png-256/python-3521655-2945099.png"
+							className="w-12 grayscale"
+							src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${course.course}/static/icon.svg`}
+							alt="Icon"
 						/>
 						<div className="w-full flex absolute bottom-0 p-4 items-center justify-between">
 							<div>
@@ -43,7 +46,7 @@ export default function CoursesView({
 									: "Hour"}
 							</h3>
 						</div>
-					</div>
+					</Link>
 				))}
 			</div>
 		</section>
