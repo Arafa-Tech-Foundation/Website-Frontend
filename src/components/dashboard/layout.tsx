@@ -8,8 +8,10 @@ import { useRouter } from "next/router";
 
 export default function DashboardLayout({
 	children = null,
+	title,
 }: {
 	children?: React.ReactNode;
+	title?: string;
 }) {
 	const { data: session, status } = useSession();
 	const router = useRouter();
@@ -69,11 +71,20 @@ export default function DashboardLayout({
 									className="max-w-[4em]"
 									alt=""
 								/>
-								<h1 className="text-xl hidden sm:block">
+								<h1 className="text-2xl ml-2 hidden sm:block">
 									Arafa Tech
 								</h1>
 							</div>
 						</div>
+						{title && (
+							<div className="justify-center items-center flex-1 hidden lg:flex">
+								<div className="flex justify-center items-center">
+									<h1 className="text-2xl ml-2 hidden sm:block">
+										{title}
+									</h1>
+								</div>
+							</div>
+						)}
 						<div className="flex justify-end items-center flex-1 gap-4">
 							<button className="btn btn-primary btn-square btn-sm">
 								<FontAwesomeIcon icon={faBell} />

@@ -29,9 +29,6 @@ export async function getStaticProps({
 	const url = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/${params.page}.md`;
 
 	const res = await axios.get(url);
-	if (res.status !== 200) {
-		// TODO: Handle error
-	}
 
 	// replace relative image paths with absolute paths
 	const markdown = res.data.replaceAll('src="./', `src="${imageUrl}`);

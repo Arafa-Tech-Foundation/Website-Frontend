@@ -4,6 +4,9 @@ type CourseMeta = {
 	languages: string[];
 	level: string;
 	order: string[];
+	title: string;
+	description: string;
+	minutes: number; // in minutes
 };
 
 export type { CourseMeta };
