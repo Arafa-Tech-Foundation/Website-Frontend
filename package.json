@@ -9,7 +9,7 @@
 		"clsx": "^1.2.1",
 		"daisyui": "^2.51.1",
 		"gray-matter": "^4.0.3",
-		"next": "^13.2.1",
+		"next": "^13.2.3",
 		"next-auth": "^4.19.2",
 		"next-mdx-remote": "^4.3.0",
 		"next-seo": "^5.15.0",
