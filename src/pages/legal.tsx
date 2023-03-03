@@ -7,8 +7,18 @@ export default function Legal() {
 		<>
 			<NextSeo title="Legal" />
 			<HomeLayout>
-				<Section />
+				<Section>
+					{documents.map((document) => (
+						
+					))}
+				</Section>
 			</HomeLayout>
 		</>
 	);
 }
+
+const documents = [
+	{
+		title: "Articles of Incorporation",
+	},
+];
