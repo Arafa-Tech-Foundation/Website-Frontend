@@ -110,7 +110,7 @@ export default function Footer() {
 								<ul className="space-y-4 text-sm">
 									<li>
 										<a
-											href="#"
+											href="/courses"
 											className="transition hover:opacity-75"
 										>
 											Courses
@@ -118,7 +118,7 @@ export default function Footer() {
 									</li>
 									<li>
 										<a
-											href="#"
+											href="/mentorship"
 											className="transition hover:opacity-75"
 										>
 											Mentorship
@@ -126,7 +126,7 @@ export default function Footer() {
 									</li>
 									<li>
 										<a
-											href="#"
+											href="/community"
 											className="transition hover:opacity-75"
 										>
 											Community
@@ -134,7 +134,7 @@ export default function Footer() {
 									</li>
 									<li>
 										<a
-											href="#"
+											href="/volunteer"
 											className="transition hover:opacity-75"
 										>
 											Volunteer
@@ -188,7 +188,7 @@ export default function Footer() {
 								<ul className="space-y-4 text-sm">
 									<li>
 										<a
-											href="#"
+											href="/contact"
 											className="transition hover:opacity-75"
 										>
 											Contact
@@ -196,7 +196,7 @@ export default function Footer() {
 									</li>
 									<li>
 										<a
-											href="#"
+											href="/faq"
 											className="transition hover:opacity-75"
 										>
 											FAQs
