@@ -29,7 +29,7 @@ export default function Legal() {
 const documents = [
 	{
 		title: "Articles of Incorporation",
-		href: "/documents/articles-of-incorporation.pdf",
+		href: "/documents/articles_of_incorporation.pdf",
 	},
 	{
 		title: "Bylaws",
