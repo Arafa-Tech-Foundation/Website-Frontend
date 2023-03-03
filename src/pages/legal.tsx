@@ -14,7 +14,7 @@ export default function Legal() {
 							<a
 								href={document.href}
 								target="_blank"
-								className="grid-item bg-primary text-primary-content px-4 py-2 rounded hover:scale-105 cursor-pointer"
+								className="grid-item bg-primary text-primary-content px-4 py-2 rounded hover:scale-105 cursor-pointer transition"
 							>
 								<h1 className="text-2xl">{document.title}</h1>
 							</a>
