@@ -27,7 +27,7 @@ export async function getStaticProps({
 }: {
 	params: { course: string; page: string };
 }) {
-	const url = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/${params.page}.md`;
+	const url = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/${params.page}.mdx`;
 	const res = await axios.get(url);
 
 	const metaUrl = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/.metadata.json`;
@@ -65,7 +65,7 @@ export async function getStaticPaths() {
 	const paths = courses.flatMap((course, index) => {
 		return pages[index].map((page) => ({
 			// remove filetype to prevent overlap in url
-			params: { course, page: page.replace(".md", "").replace(".mdx", "") },
+			params: { course, page: page.replace(".mdx", "") },
 		}));
 	});
 
