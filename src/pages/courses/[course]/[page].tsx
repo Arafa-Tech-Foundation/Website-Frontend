@@ -61,11 +61,11 @@ export async function getStaticPaths() {
 
 	const pages = await Promise.all(files);
 
-	// complile the courses into a flat array of paths
+	// compile the courses into a flat array of paths
 	const paths = courses.flatMap((course, index) => {
 		return pages[index].map((page) => ({
 			// remove filetype to prevent overlap in url
-			params: { course, page: page.replace(".md", "") },
+			params: { course, page: page.replace(".md", "").replace(".mdx", "") },
 		}));
 	});
 
