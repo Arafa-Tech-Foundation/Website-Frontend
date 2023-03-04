@@ -1,5 +1,5 @@
 <p align="center"><img width="192" alt="Arafa Tech Logo" src="https://arafa.tech/logos/main.png"></p>
-<h1 align="center"><a href="https://hackclub.com/">Arafa Tech Foundation's Site</a></h1>
+<h1 align="center"><a href="https://arafa.tech">Arafa Tech Foundation's Site</a></h1>
 <p align="center"><i>The source code for arafa.tech</i></p>
 
 Welcome to the frontend repository of Arafa Tech Foundation, a nonprofit organization working towards the advancement of technology education in underprivileged communities. This repository contains the code for the foundation's website, which can be found at [arafa.tech](https://arafa.tech).
@@ -10,7 +10,7 @@ To get started with the project, follow these steps:
 
 Clone the repository:
 
-```git clone https://github.com/arafa-tech-foundation/frontend.git```
+```git clone https://github.com/Arafa-Tech-Foundation/Website-Frontend.git```
 
 Navigate to the project directory:
 
