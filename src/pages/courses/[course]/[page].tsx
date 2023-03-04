@@ -49,6 +49,7 @@ export async function getStaticProps({
 			meta,
 			matter: data,
 		},
+		revalidate: 60 * 60,
 	};
 }
 
