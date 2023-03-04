@@ -123,6 +123,11 @@ export default function DashboardLayout({
 								{navItems.map((item) => (
 									<Link
 										href={item.href}
+										target={
+											item.href.includes("discord")
+												? "_blank"
+												: undefined
+										}
 										className={clsx(
 											"flex text-lg items-center rounded px-4 py-2 transition cursor-pointer group hover:bg-base-300",
 											router.pathname === item.href &&
@@ -169,7 +174,7 @@ const navItems: {
 	},
 	{
 		label: "Discord",
-		href: "https://discord.gg/HQvTe2pHym",
+		href: "/discord",
 		icon: "discord",
 	},
 ];
