@@ -3,15 +3,29 @@ import { faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signIn, useSession } from "next-auth/react";
 import { CourseMeta, Matter } from "types";
+import { useRouter } from "next/router";
+
 
 export default function CoursesLayout({
 	children,
 	meta,
+	page
 }: {
 	children: React.ReactNode;
 	meta: CourseMeta;
 	matter: Matter;
+	page: string;
 }) {
+
+	const router = useRouter();
+	function nextPage() {
+		router.push(`/courses/${meta.course}/${meta.order[meta.order.indexOf(page) + 1]}`)
+		window.scrollTo(0,0)
+	}
+	function previousPage() {
+		router.push(`/courses/${meta.course}/${meta.order[meta.order.indexOf(page) - 1]}`)
+		window.scrollTo(0,0)
+	}
 	const { data: session, status } = useSession();
 	if (status === "loading") {
 		// TODO: show full loading page
@@ -70,13 +84,23 @@ export default function CoursesLayout({
 							</div>
 						</div>
 					</header>
-					<main className="p-8 w-full prose mx-auto">{children}</main>
+					<main className="p-8 w-full prose mx-auto">
+						{children}
+						<div className="btn-group grid grid-cols-2">
+							{ meta.order.indexOf(page) > -1 ? 
+								<button className="btn btn-outline" onClick={previousPage} >Previous</button>
+								: null}
+							{ meta.order.indexOf(page) < meta.order.length ? 
+							   	<button className="btn btn-outline" onClick={nextPage}>Next</button> : null
+							}
+						</div>
+					</main>
 				</div>
 
 				<aside className="drawer-side">
 					<label
 						htmlFor="sidebar-drawer"
-						className="drawer-overlay"
+						className="drawer-overlay"	
 					></label>
 					<section className="min-h-screen bg-base-200 min-w-[225px] max-h-screen top-0 sticky">
 						<nav className="h-full border-r border-secondary">
@@ -106,20 +130,7 @@ export default function CoursesLayout({
 										</label>
 									</div>
 								</div>
-
-								{/* {navItems.map((item) => (
-									<Link
-										href={item.href}
-										className={clsx(
-											"flex text-lg items-center rounded px-4 py-2 transition cursor-pointer group hover:bg-base-300",
-											router.pathname === item.href &&
-												"bg-primary hover:!bg-primary-focus text-primary-content"
-										)}
-									>
-										<FontAwesomeIcon icon={item.icon} />
-										{item.label}
-									</Link>
-								))} */}
+							
 							</nav>
 						</nav>
 					</section>

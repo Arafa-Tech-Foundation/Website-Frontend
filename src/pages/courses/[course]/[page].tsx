@@ -12,11 +12,12 @@ type Course = {
 	source: MDXRemoteProps;
 	meta: CourseMeta;
 	matter: Matter; // TODO: add matter type
+	page: string;
 };
 
-export default function CoursePage({ source, meta, matter }: Course) {
+export default function CoursePage({ source, meta, matter, page }: Course) {
 	return (
-		<CoursesLayout meta={meta} matter={matter}>
+		<CoursesLayout meta={meta} matter={matter} page={page}>
 			<MDXRemote {...source} />
 		</CoursesLayout>
 	);
@@ -48,6 +49,7 @@ export async function getStaticProps({
 			source,
 			meta,
 			matter: data,
+			page: params.page
 		},
 		revalidate: 60 * 60,
 	};
