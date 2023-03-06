@@ -86,12 +86,12 @@ export default function CoursesLayout({
 					</header>
 					<main className="p-8 w-full prose mx-auto">
 						{children}
-						<div className="btn-group grid grid-cols-2">
+						<div className="btn-group flex flex-row w-full justify-center">
 							{ meta.order.indexOf(page) > -1 ? 
-								<button className="btn btn-outline" onClick={previousPage} >Previous</button>
+								<button className="btn btn-outline grow" onClick={previousPage} >Previous</button>
 								: null}
-							{ meta.order.indexOf(page) < meta.order.length ? 
-							   	<button className="btn btn-outline" onClick={nextPage}>Next</button> : null
+							{ meta.order.indexOf(page) < meta.order.length - 1 ? 
+							   	<button className="btn btn-outline grow" onClick={nextPage}>Next</button> : null
 							}
 						</div>
 					</main>
