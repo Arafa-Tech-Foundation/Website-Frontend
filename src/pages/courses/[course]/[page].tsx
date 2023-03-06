@@ -29,10 +29,18 @@ export async function getStaticProps({
 	params: { course: string; page: string };
 }) {
 	const url = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/${params.page}.mdx`;
-	const res = await axios.get(url);
+	const res = await axios.get(url, {
+		headers: {
+			Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+		}
+	});
 
 	const metaUrl = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/.metadata.json`;
-	const metaRes = await axios.get(metaUrl);
+	const metaRes = await axios.get(metaUrl, {
+		headers: {
+			Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+		}
+	});
 
 	const meta: CourseMeta = metaRes.data;
 
