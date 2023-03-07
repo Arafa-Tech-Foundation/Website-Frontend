@@ -9,6 +9,7 @@ import { getFolderContents } from "@pages/api/courses/folder";
 import CoursesLayout from "@components/courses/layout";
 import Prism from "prismjs";
 import Head from "next/head";
+import clsx from "clsx";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -48,7 +49,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 							return (
 								<pre className={props.className} tabIndex={0}>
 									<code
-										className={props.className}
+										className={clsx(props.className, "font-bold")}
 										dangerouslySetInnerHTML={{
 											__html: Prism.highlight(
 												props.children as string,
