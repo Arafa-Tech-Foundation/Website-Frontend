@@ -92,24 +92,22 @@ export default function CoursesLayout({
 					</header>
 					<main className="p-8 w-full prose mx-auto">
 						{children}
-						<div className="btn-group flex flex-row w-full justify-center">
+						<div className="flex flex-row w-full gap-4 justify-center">
 							{meta.order.indexOf(page) > 0 && (
 								<button
-									className="btn btn-outline grow"
+									className="btn btn-primary grow"
 									onClick={previousPage}
 								>
 									Previous Lesson:{" "}
-									{
-										prettify(meta.order[
-											meta.order.indexOf(page) - 1
-										])
-									}
+									{prettify(
+										meta.order[meta.order.indexOf(page) - 1]
+									)}
 								</button>
 							)}
 							{meta.order.indexOf(page) <
 								meta.order.length - 1 && (
 								<button
-									className="btn btn-outline grow"
+									className="btn btn-primary grow"
 									onClick={nextPage}
 								>
 									Next Lesson:{" "}

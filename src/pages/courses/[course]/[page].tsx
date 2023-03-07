@@ -18,7 +18,20 @@ type Course = {
 export default function CoursePage({ source, meta, matter, page }: Course) {
 	return (
 		<CoursesLayout meta={meta} matter={matter} page={page}>
-			<MDXRemote {...source} />
+			<MDXRemote
+				{...source}
+				components={{
+					a: (props) => (
+						<a target="_blank" rel="noreferrer" className="text-primary" {...props} />
+					),
+					code: (props) => (
+						<span
+							className="bg-primary font-bold text-primary-content px-2 py-0.5 rounded"
+							{...props}
+						/>
+					),
+				}}
+			/>
 		</CoursesLayout>
 	);
 }
