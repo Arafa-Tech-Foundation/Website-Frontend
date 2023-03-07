@@ -8,6 +8,7 @@ import { getRepositoryFolders } from "@pages/api/courses/repository";
 import { getFolderContents } from "@pages/api/courses/folder";
 import CoursesLayout from "@components/courses/layout";
 import Prism from "prismjs";
+import Head from "next/head";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -18,49 +19,57 @@ type Course = {
 
 export default function CoursePage({ source, meta, matter, page }: Course) {
 	return (
-		<CoursesLayout meta={meta} matter={matter} page={page}>
-			<MDXRemote
-				{...source}
-				components={{
-					a: (props) => (
-						<a
-							target="_blank"
-							rel="noreferrer"
-							className="text-primary"
-							{...props}
-						/>
-					),
-					pre: (props) => {
-						// @ts-ignore
-						props = props.children.props;
-						console.log(props);
-						const language =
-							props.className?.replace("language-", "") ??
-							"javascript";
-						return (
-							<pre className={props.className} tabIndex={0}>
-								<code
-									className={props.className}
-									dangerouslySetInnerHTML={{
-										__html: Prism.highlight(
-											props.children as string,
-											Prism.languages[language],
-											language
-										),
-									}}
-								/>
-							</pre>
-						);
-					},
-					code: (props) => (
-						<span
-							className="bg-primary font-bold text-primary-content px-2 py-0.5 rounded"
-							{...props}
-						/>
-					),
-				}}
-			/>
-		</CoursesLayout>
+		<>
+			<Head>
+				<link
+					rel="stylesheet"
+					href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
+				/>
+			</Head>
+			<CoursesLayout meta={meta} matter={matter} page={page}>
+				<MDXRemote
+					{...source}
+					components={{
+						a: (props) => (
+							<a
+								target="_blank"
+								rel="noreferrer"
+								className="text-primary"
+								{...props}
+							/>
+						),
+						pre: (props) => {
+							// @ts-ignore
+							props = props.children.props;
+							console.log(props);
+							const language =
+								props.className?.replace("language-", "") ??
+								"javascript";
+							return (
+								<pre className={props.className} tabIndex={0}>
+									<code
+										className={props.className}
+										dangerouslySetInnerHTML={{
+											__html: Prism.highlight(
+												props.children as string,
+												Prism.languages[language],
+												language
+											),
+										}}
+									/>
+								</pre>
+							);
+						},
+						code: (props) => (
+							<span
+								className="bg-primary font-bold text-primary-content px-2 py-0.5 rounded"
+								{...props}
+							/>
+						),
+					}}
+				/>
+			</CoursesLayout>
+		</>
 	);
 }
 

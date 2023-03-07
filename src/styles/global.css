@@ -9,3 +9,8 @@
 html {
 	font-family: "Inter", sans-serif;
 }
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: hsl(240, 17%, 8%);
+}
