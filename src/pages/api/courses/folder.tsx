@@ -2,9 +2,12 @@ import axios from "axios";
 
 export async function getFolderContents(folder: string): Promise<string[]> {
 	const res = await axios.get(
-		`https://api.github.com/repos/Arafa-Tech-Foundation/Courses/contents/${folder}?ref=main`, {headers: {
-			Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
-		}}
+		`https://api.github.com/repos/Arafa-Tech-Foundation/Courses/contents/${folder}?ref=main`,
+		{
+			headers: {
+				Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+			},
+		}
 	);
 
 	if (res.status !== 200) {

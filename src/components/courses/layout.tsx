@@ -5,26 +5,32 @@ import { signIn, useSession } from "next-auth/react";
 import { CourseMeta, Matter } from "types";
 import { useRouter } from "next/router";
 
-
 export default function CoursesLayout({
 	children,
 	meta,
-	page
+	page,
 }: {
 	children: React.ReactNode;
 	meta: CourseMeta;
 	matter: Matter;
 	page: string;
 }) {
-
 	const router = useRouter();
 	function nextPage() {
-		router.push(`/courses/${meta.course}/${meta.order[meta.order.indexOf(page) + 1]}`)
-		window.scrollTo(0,0)
+		router.push(
+			`/courses/${meta.course}/${
+				meta.order[meta.order.indexOf(page) + 1]
+			}`
+		);
+		window.scrollTo(0, 0);
 	}
 	function previousPage() {
-		router.push(`/courses/${meta.course}/${meta.order[meta.order.indexOf(page) - 1]}`)
-		window.scrollTo(0,0)
+		router.push(
+			`/courses/${meta.course}/${
+				meta.order[meta.order.indexOf(page) - 1]
+			}`
+		);
+		window.scrollTo(0, 0);
 	}
 	const { data: session, status } = useSession();
 	if (status === "loading") {
@@ -87,12 +93,31 @@ export default function CoursesLayout({
 					<main className="p-8 w-full prose mx-auto">
 						{children}
 						<div className="btn-group flex flex-row w-full justify-center">
-							{ meta.order.indexOf(page) > -1 ? 
-								<button className="btn btn-outline grow" onClick={previousPage} >Previous</button>
-								: null}
-							{ meta.order.indexOf(page) < meta.order.length - 1 ? 
-							   	<button className="btn btn-outline grow" onClick={nextPage}>Next</button> : null
-							}
+							{meta.order.indexOf(page) > 0 && (
+								<button
+									className="btn btn-outline grow"
+									onClick={previousPage}
+								>
+									Previous Lesson:{" "}
+									{
+										prettify(meta.order[
+											meta.order.indexOf(page) - 1
+										])
+									}
+								</button>
+							)}
+							{meta.order.indexOf(page) <
+								meta.order.length - 1 && (
+								<button
+									className="btn btn-outline grow"
+									onClick={nextPage}
+								>
+									Next Lesson:{" "}
+									{prettify(
+										meta.order[meta.order.indexOf(page) + 1]
+									)}
+								</button>
+							)}
 						</div>
 					</main>
 				</div>
@@ -100,7 +125,7 @@ export default function CoursesLayout({
 				<aside className="drawer-side">
 					<label
 						htmlFor="sidebar-drawer"
-						className="drawer-overlay"	
+						className="drawer-overlay"
 					></label>
 					<section className="min-h-screen bg-base-200 min-w-[225px] max-h-screen top-0 sticky">
 						<nav className="h-full border-r border-secondary">
@@ -130,7 +155,6 @@ export default function CoursesLayout({
 										</label>
 									</div>
 								</div>
-							
 							</nav>
 						</nav>
 					</section>
@@ -138,4 +162,11 @@ export default function CoursesLayout({
 			</div>
 		</>
 	);
+}
+
+function prettify(str: string) {
+	return str
+		.split("_")
+		.map((word) => word[0].toUpperCase() + word.slice(1))
+		.join(" ");
 }
