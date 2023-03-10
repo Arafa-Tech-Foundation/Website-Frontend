@@ -16,7 +16,6 @@ export default function CoursesLayout({
 	matter: Matter;
 	page: string;
 }) {
-	const router = useRouter();
 	const module = meta.schema.find(mod => mod.order.indexOf(page) != -1);
 	if (!module) throw Error("Module not found")
 
