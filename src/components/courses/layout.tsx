@@ -3,7 +3,6 @@ import { faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signIn, useSession } from "next-auth/react";
 import { CourseMeta, Matter } from "types";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function CoursesLayout({
