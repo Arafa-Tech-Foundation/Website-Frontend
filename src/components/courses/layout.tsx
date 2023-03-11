@@ -3,7 +3,7 @@ import { faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signIn, useSession } from "next-auth/react";
 import { CourseMeta, Matter } from "types";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function CoursesLayout({
 	children,
@@ -15,22 +15,43 @@ export default function CoursesLayout({
 	matter: Matter;
 	page: string;
 }) {
-	const router = useRouter();
-	function nextPage() {
-		router.push(
-			`/courses/${meta.course}/${
-				meta.order[meta.order.indexOf(page) + 1]
-			}`
-		);
-		window.scrollTo(0, 0);
+	const module = meta.schema.find(mod => mod.order.indexOf(page) != -1);
+	if (!module) throw Error("Module not found")
+
+	function getNextLesson() {
+		let mod = module;
+		if (mod!.order.indexOf(page) == mod!.order.length - 1) {
+			// go to first lesson of next mod
+			mod = meta.schema[meta.schema.indexOf(mod!) + 1]
+			return {
+				name: mod.order[mod.order.length - 1],
+				module: mod.name
+			}
+		} else {
+			return {
+				name: mod!.order[mod!.order.indexOf(page) + 1],
+				module: mod!.name
+			}
+		}
 	}
-	function previousPage() {
-		router.push(
-			`/courses/${meta.course}/${
-				meta.order[meta.order.indexOf(page) - 1]
-			}`
-		);
-		window.scrollTo(0, 0);
+	
+	
+	function getPreviousLesson() {
+		if(meta.schema.indexOf(module!) == 0 && module!.order.indexOf(page) == 0) return null
+		let mod = module;
+		if (mod!.order.indexOf(page) == 0) {
+			// go to last lesson of previous mod
+			mod = meta.schema[meta.schema.indexOf(mod!) - 1]
+			return {
+				name: mod!.order[mod.order.length - 1],
+				module: mod!.name
+			}
+		} else {
+			return {
+				name: mod!.order[mod!.order.indexOf(page) - 1],
+				module: mod!.name
+			}
+		}
 	}
 	const { data: session, status } = useSession();
 	if (status === "loading") {
@@ -93,29 +114,24 @@ export default function CoursesLayout({
 					<main className="p-8 w-full prose mx-auto">
 						{children}
 						<div className="flex flex-row w-full gap-4 justify-center">
-							{meta.order.indexOf(page) > 0 && (
-								<button
-									className="btn btn-primary grow"
-									onClick={previousPage}
+							{getPreviousLesson() && 
+								<Link
+								className="btn btn-primary grow"
+								href={`/courses/${meta.course}/${getPreviousLesson()?.name || ""}`}
 								>
 									Previous Lesson:{" "}
-									{prettify(
-										meta.order[meta.order.indexOf(page) - 1]
-									)}
-								</button>
-							)}
-							{meta.order.indexOf(page) <
-								meta.order.length - 1 && (
-								<button
-									className="btn btn-primary grow"
-									onClick={nextPage}
+
+									{prettify(getPreviousLesson()?.name || "")}
+								</Link>
+							}
+								<Link
+								className="btn btn-primary grow"
+								href={`/courses/${meta.course}/${getNextLesson().name}`}
+								// onClick={nextPage}
 								>
 									Next Lesson:{" "}
-									{prettify(
-										meta.order[meta.order.indexOf(page) + 1]
-									)}
-								</button>
-							)}
+									{prettify(getNextLesson().name)}
+								</Link>
 						</div>
 					</main>
 				</div>
@@ -153,6 +169,21 @@ export default function CoursesLayout({
 										</label>
 									</div>
 								</div>
+								<ul>
+									{meta.schema.map(module => 
+										<li>
+											<div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+												<input type="checkbox"/>
+												<div className="collapse-title text-xl font-medium">
+													{module.name}
+												</div>
+												<div className="collapse-content" tabIndex={0}> 
+													{module.order.map((lesson, i) => <Link href={`/courses/${meta.course}/${lesson}`} className="link link-primary block">{`Lesson ${i}: ${prettify(lesson)}`}</Link>)}
+												</div>
+											</div>					
+										</li>
+									)}
+								</ul>
 							</nav>
 						</nav>
 					</section>
