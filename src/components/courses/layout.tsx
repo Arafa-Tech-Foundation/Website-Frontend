@@ -1,70 +1,19 @@
 import Loading from "@components/auth/loading";
 import { faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { prettify } from "@pages/courses/[course]/[page]";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
-import { CourseMeta, CourseModule, Matter } from "types";
+import { CourseMeta, Matter } from "types";
 
 export default function CoursesLayout({
 	children,
 	meta,
-	page,
 }: {
 	children: React.ReactNode;
 	meta: CourseMeta;
 	matter: Matter;
-	page: string;
 }) {
-	const module = meta.modules.find((mod) =>
-		mod.lessons.find((lesson) => lesson.name == page)
-	) as CourseModule;
-	if (!module) throw Error("Module not found");
-
-	function getNextLesson() {
-		let mod = module;
-		if (
-			mod.lessons.findIndex((lesson) => lesson.name == page) ==
-			mod.lessons.length - 1
-		) {
-			// go to first lesson of next mod
-			mod = meta.modules[meta.modules.indexOf(mod!) + 1];
-			return {
-				name: mod.lessons[mod.lessons.length - 1].name,
-				module: mod.name,
-			};
-		} else {
-			return {
-				name: mod!.lessons[
-					mod.lessons.findIndex((lesson) => lesson.name == page) + 1
-				].name,
-				module: mod!.name,
-			};
-		}
-	}
-
-	function getPreviousLesson() {
-		if (
-			meta.modules.indexOf(module!) == 0 &&
-			module.lessons.findIndex((lesson) => lesson.name == page) == 0
-		)
-			return null;
-		let mod = module;
-		if (module.lessons.findIndex((lesson) => lesson.name == page) == 0) {
-			// go to last lesson of previous mod
-			mod = meta.modules[meta.modules.indexOf(mod) - 1];
-			return {
-				name: mod!.lessons[mod.lessons.length - 1].name,
-				module: mod!.name,
-			};
-		} else {
-			return {
-				name: mod!.lessons[
-					mod.lessons.findIndex((lesson) => lesson.name == page) - 1
-				].name,
-				module: mod!.name,
-			};
-		}
-	}
 	const { data: session, status } = useSession();
 	if (status === "loading") {
 		// TODO: show full loading page
@@ -123,31 +72,7 @@ export default function CoursesLayout({
 							</div>
 						</div>
 					</header>
-					<main className="p-8">
-						{children}
-						<div className="flex flex-row w-full gap-4 my-8 justify-center">
-							{getPreviousLesson() && (
-								<Link
-									className="btn btn-primary grow"
-									href={`/courses/${meta.course}/${
-										getPreviousLesson()?.name || ""
-									}`}
-								>
-									Previous Lesson:{" "}
-									{prettify(getPreviousLesson()?.name || "")}
-								</Link>
-							)}
-							<Link
-								className="btn btn-primary grow"
-								href={`/courses/${meta.course}/${
-									getNextLesson().name
-								}`}
-								// onClick={nextPage}
-							>
-								Next Lesson: {prettify(getNextLesson().name)}
-							</Link>
-						</div>
-					</main>
+					<main className="p-8">{children}</main>
 				</div>
 
 				<aside className="drawer-side">
@@ -235,11 +160,4 @@ export default function CoursesLayout({
 			</div>
 		</>
 	);
-}
-
-function prettify(str: string) {
-	return str
-		.split("_")
-		.map((word) => word[0].toUpperCase() + word.slice(1))
-		.join(" ");
 }
