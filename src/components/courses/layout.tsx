@@ -15,42 +15,45 @@ export default function CoursesLayout({
 	matter: Matter;
 	page: string;
 }) {
-	const module = meta.schema.find(mod => mod.order.indexOf(page) != -1);
-	if (!module) throw Error("Module not found")
+	const module = meta.schema.find((mod) => mod.order.indexOf(page) != -1);
+	if (!module) throw Error("Module not found");
 
 	function getNextLesson() {
 		let mod = module;
 		if (mod!.order.indexOf(page) == mod!.order.length - 1) {
 			// go to first lesson of next mod
-			mod = meta.schema[meta.schema.indexOf(mod!) + 1]
+			mod = meta.schema[meta.schema.indexOf(mod!) + 1];
 			return {
 				name: mod.order[mod.order.length - 1],
-				module: mod.name
-			}
+				module: mod.name,
+			};
 		} else {
 			return {
 				name: mod!.order[mod!.order.indexOf(page) + 1],
-				module: mod!.name
-			}
+				module: mod!.name,
+			};
 		}
 	}
-	
-	
+
 	function getPreviousLesson() {
-		if(meta.schema.indexOf(module!) == 0 && module!.order.indexOf(page) == 0) return null
+		if (
+			meta.schema.indexOf(module!) == 0 &&
+			module!.order.indexOf(page) == 0
+		)
+			return null;
 		let mod = module;
 		if (mod!.order.indexOf(page) == 0) {
 			// go to last lesson of previous mod
-			mod = meta.schema[meta.schema.indexOf(mod!) - 1]
+			mod = meta.schema[meta.schema.indexOf(mod!) - 1];
 			return {
 				name: mod!.order[mod.order.length - 1],
-				module: mod!.name
-			}
+				module: mod!.name,
+			};
 		} else {
 			return {
 				name: mod!.order[mod!.order.indexOf(page) - 1],
-				module: mod!.name
-			}
+				module: mod!.name,
+			};
 		}
 	}
 	const { data: session, status } = useSession();
@@ -114,24 +117,26 @@ export default function CoursesLayout({
 					<main className="p-8 w-full prose mx-auto">
 						{children}
 						<div className="flex flex-row w-full gap-4 justify-center">
-							{getPreviousLesson() && 
+							{getPreviousLesson() && (
 								<Link
-								className="btn btn-primary grow"
-								href={`/courses/${meta.course}/${getPreviousLesson()?.name || ""}`}
+									className="btn btn-primary grow"
+									href={`/courses/${meta.course}/${
+										getPreviousLesson()?.name || ""
+									}`}
 								>
 									Previous Lesson:{" "}
-
 									{prettify(getPreviousLesson()?.name || "")}
 								</Link>
-							}
-								<Link
+							)}
+							<Link
 								className="btn btn-primary grow"
-								href={`/courses/${meta.course}/${getNextLesson().name}`}
+								href={`/courses/${meta.course}/${
+									getNextLesson().name
+								}`}
 								// onClick={nextPage}
-								>
-									Next Lesson:{" "}
-									{prettify(getNextLesson().name)}
-								</Link>
+							>
+								Next Lesson: {prettify(getNextLesson().name)}
+							</Link>
 						</div>
 					</main>
 				</div>
@@ -170,20 +175,49 @@ export default function CoursesLayout({
 									</div>
 								</div>
 								<ul>
-									{meta.schema.map(module => 
+									{meta.schema.map((module) => (
 										<li>
-											<div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-												<input type="checkbox"/>
+											<div
+												tabIndex={0}
+												className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
+											>
+												<input type="checkbox" />
 												<div className="collapse-title text-lg font-medium bg-neutral my-2">
-													<p className="text-purple-400 font-bold">{module.name.split(": ")[0]}</p>
-													<span className="text-sm">{module.name.split(": ")[1]}</span>
+													<p className="text-purple-400 font-bold">
+														{
+															module.name.split(
+																": "
+															)[0]
+														}
+													</p>
+													<span className="text-sm">
+														{
+															module.name.split(
+																": "
+															)[1]
+														}
+													</span>
 												</div>
-												<div className="collapse-content space-y-2" tabIndex={0}> 
-													{module.order.map((lesson, i) => <Link href={`/courses/${meta.course}/${lesson}`} className="ml-8 block hover:text-gray-200">{`Lesson ${i}: ${prettify(lesson)}`}</Link>)}
+												<div
+													className="collapse-content space-y-2"
+													tabIndex={0}
+												>
+													{module.order.map(
+														(lesson, i) => (
+															<Link
+																href={`/courses/${meta.course}/${lesson}`}
+																className="ml-8 block hover:text-gray-200"
+															>{`Lesson ${
+																i + 1
+															}: ${prettify(
+																lesson
+															)}`}</Link>
+														)
+													)}
 												</div>
-											</div>					
+											</div>
 										</li>
-									)}
+									))}
 								</ul>
 							</nav>
 						</nav>
