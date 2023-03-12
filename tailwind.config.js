@@ -1,7 +1,7 @@
 const theme = {
+	tertiary: "#c2c2d6",
 	primary: "#a48cff",
-
-	secondary: "#383d49",
+	neutral: "#21202e",
 };
 
 /** @type {import('tailwindcss').Config} */

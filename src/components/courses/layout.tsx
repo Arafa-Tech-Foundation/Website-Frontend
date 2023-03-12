@@ -174,11 +174,12 @@ export default function CoursesLayout({
 										<li>
 											<div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
 												<input type="checkbox"/>
-												<div className="collapse-title text-xl font-medium">
-													{module.name}
+												<div className="collapse-title text-lg font-medium bg-neutral my-2">
+													<p className="text-purple-400 font-bold">{module.name.split(": ")[0]}</p>
+													<span className="text-sm">{module.name.split(": ")[1]}</span>
 												</div>
-												<div className="collapse-content" tabIndex={0}> 
-													{module.order.map((lesson, i) => <Link href={`/courses/${meta.course}/${lesson}`} className="link link-primary block">{`Lesson ${i}: ${prettify(lesson)}`}</Link>)}
+												<div className="collapse-content space-y-2" tabIndex={0}> 
+													{module.order.map((lesson, i) => <Link href={`/courses/${meta.course}/${lesson}`} className="ml-8 block hover:text-gray-200">{`Lesson ${i}: ${prettify(lesson)}`}</Link>)}
 												</div>
 											</div>					
 										</li>
