@@ -29,23 +29,30 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 	) as CourseModule;
 	if (!module) throw Error("Module not found");
 	function getNextLesson() {
-		let mod = module;
+		console.log(module);
 		if (
-			mod.lessons.findIndex((lesson) => lesson.name == page) ==
-			mod.lessons.length - 1
+			module.lessons.findIndex((lesson) => lesson.name == page) ==
+			module.lessons.length - 1
 		) {
 			// go to first lesson of next mod
-			mod = meta.modules[meta.modules.indexOf(mod!) + 1];
-			return {
-				name: mod.lessons[mod.lessons.length - 1].name,
-				module: mod.name,
-			};
+			const mod = meta.modules[meta.modules.indexOf(module!) + 1];
+			console.log(mod);
+			return mod
+				? {
+						name: mod.lessons[mod.lessons.length - 1].name,
+						module: mod.name,
+				  }
+				: {
+						name: module.lessons[0].name,
+						module: module.name,
+				  };
 		} else {
 			return {
-				name: mod!.lessons[
-					mod.lessons.findIndex((lesson) => lesson.name == page) + 1
+				name: module!.lessons[
+					module.lessons.findIndex((lesson) => lesson.name == page) +
+						1
 				].name,
-				module: mod!.name,
+				module: module!.name,
 			};
 		}
 	}
