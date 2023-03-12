@@ -26,7 +26,7 @@ export default function CoursesView({
 						"p-5 rounded-xl relative from-[#4a4a54] to-[#272733] bg-gradient-to-r",
 						"hover:scale-105 transition-transform duration-300 ease-in-out hover:cursor-pointer"
 						)}
-						href={`/courses/${course.course}/${course.schema[0]?.order[0]}`}
+						href={`/courses/${course.course}/${course.schema?.[0]?.lessons?.[0]?.name}`}
 						>
 						<img
 							className="w-12 grayscale"

@@ -49,7 +49,10 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 							return (
 								<pre className={props.className} tabIndex={0}>
 									<code
-										className={clsx(props.className, "font-bold")}
+										className={clsx(
+											props.className,
+											"font-bold"
+										)}
 										dangerouslySetInnerHTML={{
 											__html: Prism.highlight(
 												props.children as string,

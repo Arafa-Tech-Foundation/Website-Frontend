@@ -2,7 +2,7 @@ import Loading from "@components/auth/loading";
 import { faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signIn, useSession } from "next-auth/react";
-import { CourseMeta, Matter } from "types";
+import { CourseMeta, CourseModule, Matter } from "types";
 import Link from "next/link";
 
 export default function CoursesLayout({
@@ -15,21 +15,28 @@ export default function CoursesLayout({
 	matter: Matter;
 	page: string;
 }) {
-	const module = meta.schema.find((mod) => mod.order.indexOf(page) != -1);
+	const module = meta.schema.find((mod) =>
+		mod.lessons.find((lesson) => lesson.name == page)
+	) as CourseModule;
 	if (!module) throw Error("Module not found");
 
 	function getNextLesson() {
 		let mod = module;
-		if (mod!.order.indexOf(page) == mod!.order.length - 1) {
+		if (
+			mod.lessons.findIndex((lesson) => lesson.name == page) ==
+			mod.lessons.length - 1
+		) {
 			// go to first lesson of next mod
 			mod = meta.schema[meta.schema.indexOf(mod!) + 1];
 			return {
-				name: mod.order[mod.order.length - 1],
+				name: mod.lessons[mod.lessons.length - 1].name,
 				module: mod.name,
 			};
 		} else {
 			return {
-				name: mod!.order[mod!.order.indexOf(page) + 1],
+				name: mod!.lessons[
+					mod.lessons.findIndex((lesson) => lesson.name == page) + 1
+				].name,
 				module: mod!.name,
 			};
 		}
@@ -38,20 +45,22 @@ export default function CoursesLayout({
 	function getPreviousLesson() {
 		if (
 			meta.schema.indexOf(module!) == 0 &&
-			module!.order.indexOf(page) == 0
+			module.lessons.findIndex((lesson) => lesson.name == page) == 0
 		)
 			return null;
 		let mod = module;
-		if (mod!.order.indexOf(page) == 0) {
+		if (module.lessons.findIndex((lesson) => lesson.name == page) == 0) {
 			// go to last lesson of previous mod
-			mod = meta.schema[meta.schema.indexOf(mod!) - 1];
+			mod = meta.schema[meta.schema.indexOf(mod) - 1];
 			return {
-				name: mod!.order[mod.order.length - 1],
+				name: mod!.lessons[mod.lessons.length - 1].name,
 				module: mod!.name,
 			};
 		} else {
 			return {
-				name: mod!.order[mod!.order.indexOf(page) - 1],
+				name: mod!.lessons[
+					mod.lessons.findIndex((lesson) => lesson.name == page) - 1
+				].name,
 				module: mod!.name,
 			};
 		}
@@ -202,15 +211,15 @@ export default function CoursesLayout({
 													className="collapse-content space-y-2"
 													tabIndex={0}
 												>
-													{module.order.map(
+													{module.lessons.map(
 														(lesson, i) => (
 															<Link
-																href={`/courses/${meta.course}/${lesson}`}
+																href={`/courses/${meta.course}/${lesson.name}`}
 																className="ml-8 block hover:text-gray-200"
 															>{`Lesson ${
 																i + 1
 															}: ${prettify(
-																lesson
+																lesson.name
 															)}`}</Link>
 														)
 													)}
