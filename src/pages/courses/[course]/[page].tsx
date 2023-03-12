@@ -33,7 +33,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 			<CoursesLayout meta={meta} matter={matter} page={page}>
 				{lessonVideo && (
 					<video
-						src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${meta.course}/static/${lessonVideo}`}
+						src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lessonVideo}`}
 						controls
 					/>
 				)}
