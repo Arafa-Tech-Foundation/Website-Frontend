@@ -4,6 +4,8 @@ import {
 	faPersonChalkboard,
 	faEarthAmericas,
 	faBookAtlas,
+	faGraduationCap,
+	faPiggyBank,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Features() {
@@ -49,6 +51,25 @@ export default function Features() {
 				<FontAwesomeIcon icon={faBookAtlas} className="h-[4rem] mt-7" />
 			),
 		},
+		{
+			title: "Scholarship Programs",
+			description:
+				"We offer scholarships to help underprivileged students pursue higher education in tech-related fields. These scholarships can cover tuition, fees, and other expenses associated with attending a college or university.",
+			icon: (
+				<FontAwesomeIcon icon={faPiggyBank} className="h-[4rem] mt-7" />
+			),
+		},
+		{
+			title: "Outreach Programs",
+			description:
+				"Partnering with schools and community organizations to bring coding education to underprivileged students who may not have access to these resources otherwise. This can include after-school programs, summer camps, and other outreach initiatives.",
+			icon: (
+				<FontAwesomeIcon
+					icon={faGraduationCap}
+					className="h-[4rem] mt-7"
+				/>
+			),
+		},
 	];
 
 	const cards = featureCards.map((feature) => (
@@ -73,7 +94,7 @@ export default function Features() {
 				experience through exciting projects and challenges and achieve
 				your tech goals.
 			</p>
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 lg:gap-4 max-w-7xl mx-auto place-items-center">
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-7 lg:gap-4 max-w-7xl mx-auto place-items-center">
 				{cards}
 			</div>
 		</div>
