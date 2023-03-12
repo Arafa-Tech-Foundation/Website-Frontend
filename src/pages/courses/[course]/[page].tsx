@@ -8,8 +8,9 @@ import matter from "gray-matter";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
+import Link from "next/link";
 import Prism from "prismjs";
-import { CourseMeta, Matter } from "types";
+import { CourseMeta, CourseModule, Matter } from "types";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -22,6 +23,56 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 	const lessonVideo = meta.modules
 		.flatMap((module) => module.lessons.map((lesson) => lesson))
 		.find((lesson) => lesson.name === page)?.video;
+
+	const module = meta.modules.find((mod) =>
+		mod.lessons.find((lesson) => lesson.name == page)
+	) as CourseModule;
+	if (!module) throw Error("Module not found");
+	function getNextLesson() {
+		let mod = module;
+		if (
+			mod.lessons.findIndex((lesson) => lesson.name == page) ==
+			mod.lessons.length - 1
+		) {
+			// go to first lesson of next mod
+			mod = meta.modules[meta.modules.indexOf(mod!) + 1];
+			return {
+				name: mod.lessons[mod.lessons.length - 1].name,
+				module: mod.name,
+			};
+		} else {
+			return {
+				name: mod!.lessons[
+					mod.lessons.findIndex((lesson) => lesson.name == page) + 1
+				].name,
+				module: mod!.name,
+			};
+		}
+	}
+
+	function getPreviousLesson() {
+		if (
+			meta.modules.indexOf(module!) == 0 &&
+			module.lessons.findIndex((lesson) => lesson.name == page) == 0
+		)
+			return null;
+		let mod = module;
+		if (module.lessons.findIndex((lesson) => lesson.name == page) == 0) {
+			// go to last lesson of previous mod
+			mod = meta.modules[meta.modules.indexOf(mod) - 1];
+			return {
+				name: mod!.lessons[mod.lessons.length - 1].name,
+				module: mod!.name,
+			};
+		} else {
+			return {
+				name: mod!.lessons[
+					mod.lessons.findIndex((lesson) => lesson.name == page) - 1
+				].name,
+				module: mod!.name,
+			};
+		}
+	}
 	return (
 		<>
 			<Head>
@@ -30,14 +81,14 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 					href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
 				/>
 			</Head>
-			<CoursesLayout meta={meta} matter={matter} page={page}>
+			<CoursesLayout meta={meta} matter={matter}>
 				{lessonVideo && (
 					<video
 						src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lessonVideo}`}
 						controls
 					/>
 				)}
-				<article className="prose mx-auto">
+				<article className="prose mx-auto my-8">
 					<MDXRemote
 						{...source}
 						components={{
@@ -85,10 +136,39 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 							),
 						}}
 					/>
+					<div className="flex flex-row w-full gap-4 my-8 justify-center">
+						{getPreviousLesson() && (
+							<Link
+								className="btn btn-primary grow"
+								href={`/courses/${meta.course}/${
+									getPreviousLesson()?.name || ""
+								}`}
+							>
+								Previous Lesson:{" "}
+								{prettify(getPreviousLesson()?.name || "")}
+							</Link>
+						)}
+						<Link
+							className="btn btn-primary grow"
+							href={`/courses/${meta.course}/${
+								getNextLesson().name
+							}`}
+							// onClick={nextPage}
+						>
+							Next Lesson: {prettify(getNextLesson().name)}
+						</Link>
+					</div>
 				</article>
 			</CoursesLayout>
 		</>
 	);
+}
+
+export function prettify(str: string) {
+	return str
+		.split("_")
+		.map((word) => word[0].toUpperCase() + word.slice(1))
+		.join(" ");
 }
 
 export async function getStaticProps({
