@@ -3,7 +3,7 @@ type CourseMeta = {
 	type: string;
 	languages: string[];
 	level: string;
-	schema: CourseModule[];
+	modules: CourseModule[];
 	title: string;
 	description: string;
 	minutes: number; // in minutes (not seconds) :0

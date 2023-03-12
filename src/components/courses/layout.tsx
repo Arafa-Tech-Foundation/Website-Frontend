@@ -2,8 +2,8 @@ import Loading from "@components/auth/loading";
 import { faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signIn, useSession } from "next-auth/react";
-import { CourseMeta, CourseModule, Matter } from "types";
 import Link from "next/link";
+import { CourseMeta, CourseModule, Matter } from "types";
 
 export default function CoursesLayout({
 	children,
@@ -15,7 +15,7 @@ export default function CoursesLayout({
 	matter: Matter;
 	page: string;
 }) {
-	const module = meta.schema.find((mod) =>
+	const module = meta.modules.find((mod) =>
 		mod.lessons.find((lesson) => lesson.name == page)
 	) as CourseModule;
 	if (!module) throw Error("Module not found");
@@ -27,7 +27,7 @@ export default function CoursesLayout({
 			mod.lessons.length - 1
 		) {
 			// go to first lesson of next mod
-			mod = meta.schema[meta.schema.indexOf(mod!) + 1];
+			mod = meta.modules[meta.modules.indexOf(mod!) + 1];
 			return {
 				name: mod.lessons[mod.lessons.length - 1].name,
 				module: mod.name,
@@ -44,14 +44,14 @@ export default function CoursesLayout({
 
 	function getPreviousLesson() {
 		if (
-			meta.schema.indexOf(module!) == 0 &&
+			meta.modules.indexOf(module!) == 0 &&
 			module.lessons.findIndex((lesson) => lesson.name == page) == 0
 		)
 			return null;
 		let mod = module;
 		if (module.lessons.findIndex((lesson) => lesson.name == page) == 0) {
 			// go to last lesson of previous mod
-			mod = meta.schema[meta.schema.indexOf(mod) - 1];
+			mod = meta.modules[meta.modules.indexOf(mod) - 1];
 			return {
 				name: mod!.lessons[mod.lessons.length - 1].name,
 				module: mod!.name,
@@ -112,8 +112,8 @@ export default function CoursesLayout({
 								<img
 									src={session?.user?.image ?? "/logo.png"}
 									alt={
-										session?.user?.name +
-										"'s profile picture"
+										session?.user?.name ??
+										"Default" + "'s profile picture"
 									}
 									className="avatar avatar-sm mr-2 rounded-full w-8"
 								/>
@@ -123,9 +123,9 @@ export default function CoursesLayout({
 							</div>
 						</div>
 					</header>
-					<main className="p-8 w-full prose mx-auto">
+					<main className="p-8">
 						{children}
-						<div className="flex flex-row w-full gap-4 justify-center">
+						<div className="flex flex-row w-full gap-4 my-8 justify-center">
 							{getPreviousLesson() && (
 								<Link
 									className="btn btn-primary grow"
@@ -184,7 +184,7 @@ export default function CoursesLayout({
 									</div>
 								</div>
 								<ul>
-									{meta.schema.map((module) => (
+									{meta.modules.map((module) => (
 										<li>
 											<div
 												tabIndex={0}
@@ -192,7 +192,7 @@ export default function CoursesLayout({
 											>
 												<input type="checkbox" />
 												<div className="collapse-title text-lg font-medium bg-neutral my-2">
-													<p className="text-purple-400 font-bold">
+													<p className="text-primary font-bold">
 														{
 															module.name.split(
 																": "

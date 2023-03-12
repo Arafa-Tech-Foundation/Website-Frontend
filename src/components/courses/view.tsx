@@ -21,13 +21,13 @@ export default function CoursesView({
 			<div className="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-4 mx-auto gap-6">
 				{courses.map((course) => (
 					<Link
-					className={clsx(
-						"col-span-1 border-primary flex flex-col justify-center items-center h-[300px]",
-						"p-5 rounded-xl relative from-[#4a4a54] to-[#272733] bg-gradient-to-r",
-						"hover:scale-105 transition-transform duration-300 ease-in-out hover:cursor-pointer"
+						className={clsx(
+							"col-span-1 border-primary flex flex-col justify-center items-center h-[300px]",
+							"p-5 rounded-xl relative from-[#4a4a54] to-[#272733] bg-gradient-to-r",
+							"hover:scale-105 transition-transform duration-300 ease-in-out hover:cursor-pointer"
 						)}
-						href={`/courses/${course.course}/${course.schema?.[0]?.lessons?.[0]?.name}`}
-						>
+						href={`/courses/${course.course}/${course.modules?.[0]?.lessons?.[0]?.name}`}
+					>
 						<img
 							className="w-12 grayscale"
 							src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${course.course}/static/icon.svg`}

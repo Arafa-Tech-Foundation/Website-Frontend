@@ -1,15 +1,15 @@
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
-import { CourseMeta, Matter } from "types";
-import matter from "gray-matter";
-import axios from "axios";
-import { imageUrl } from "config";
-import { getRepositoryFolders } from "@pages/api/courses/repository";
-import { getFolderContents } from "@pages/api/courses/folder";
 import CoursesLayout from "@components/courses/layout";
-import Prism from "prismjs";
-import Head from "next/head";
+import { getFolderContents } from "@pages/api/courses/folder";
+import { getRepositoryFolders } from "@pages/api/courses/repository";
+import axios from "axios";
 import clsx from "clsx";
+import { imageUrl } from "config";
+import matter from "gray-matter";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import Head from "next/head";
+import Prism from "prismjs";
+import { CourseMeta, Matter } from "types";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -19,6 +19,9 @@ type Course = {
 };
 
 export default function CoursePage({ source, meta, matter, page }: Course) {
+	const lessonVideo = meta.modules
+		.flatMap((module) => module.lessons.map((lesson) => lesson))
+		.find((lesson) => lesson.name === page)?.video;
 	return (
 		<>
 			<Head>
@@ -28,50 +31,61 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 				/>
 			</Head>
 			<CoursesLayout meta={meta} matter={matter} page={page}>
-				<MDXRemote
-					{...source}
-					components={{
-						a: (props) => (
-							<a
-								target="_blank"
-								rel="noreferrer"
-								className="text-primary"
-								{...props}
-							/>
-						),
-						pre: (props) => {
-							// @ts-ignore
-							props = props.children.props;
-							console.log(props);
-							const language =
-								props.className?.replace("language-", "") ??
-								"javascript";
-							return (
-								<pre className={props.className} tabIndex={0}>
-									<code
-										className={clsx(
-											props.className,
-											"font-bold"
-										)}
-										dangerouslySetInnerHTML={{
-											__html: Prism.highlight(
-												props.children as string,
-												Prism.languages[language],
-												language
-											),
-										}}
-									/>
-								</pre>
-							);
-						},
-						code: (props) => (
-							<span
-								className="bg-primary font-bold text-primary-content px-2 py-0.5 rounded"
-								{...props}
-							/>
-						),
-					}}
-				/>
+				{lessonVideo && (
+					<video
+						src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${meta.course}/static/${lessonVideo}`}
+						controls
+					/>
+				)}
+				<article className="prose mx-auto">
+					<MDXRemote
+						{...source}
+						components={{
+							a: (props) => (
+								<a
+									target="_blank"
+									rel="noreferrer"
+									className="text-primary"
+									{...props}
+								/>
+							),
+							pre: (props) => {
+								// @ts-ignore
+								props = props.children.props;
+								console.log(props);
+								const language =
+									props.className?.replace("language-", "") ??
+									"javascript";
+								return (
+									<pre
+										className={props.className}
+										tabIndex={0}
+									>
+										<code
+											className={clsx(
+												props.className,
+												"font-bold"
+											)}
+											dangerouslySetInnerHTML={{
+												__html: Prism.highlight(
+													props.children as string,
+													Prism.languages[language],
+													language
+												),
+											}}
+										/>
+									</pre>
+								);
+							},
+							code: (props) => (
+								<span
+									className="bg-primary font-bold text-primary-content px-2 py-0.5 rounded"
+									{...props}
+								/>
+							),
+						}}
+					/>
+				</article>
 			</CoursesLayout>
 		</>
 	);
