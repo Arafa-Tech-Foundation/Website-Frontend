@@ -2,16 +2,13 @@ import CoursesLayout from "@components/courses/layout";
 import { getFolderContents } from "@pages/api/courses/folder";
 import { getRepositoryFolders } from "@pages/api/courses/repository";
 import axios from "axios";
-import clsx from "clsx"; 
 import { imageUrl } from "config";
 import matter from "gray-matter";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import Head from "next/head";
 import Link from "next/link";
 import { CourseMeta, CourseModule, Matter } from "types";
-import Highlight from "react-highlight"
-
+import Highlight from "react-highlight";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -22,9 +19,9 @@ type Course = {
 
 export default function CoursePage({ source, meta, matter, page }: Course) {
 	const lessonVideo = meta.modules
-	.flatMap((module) => module.lessons.map((lesson) => lesson))
-	.find((lesson) => lesson.name === page)?.video;
-	
+		.flatMap((module) => module.lessons.map((lesson) => lesson))
+		.find((lesson) => lesson.name === page)?.video;
+
 	const module = meta.modules.find((mod) =>
 		mod.lessons.find((lesson) => lesson.name == page)
 	) as CourseModule;
@@ -105,9 +102,10 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 							pre: (props) => {
 								// @ts-ignore
 								props = props.children.props;
-								const language = props.className?.replace("language-", "") ??
-								"javascript";
-								
+								const language =
+									props.className?.replace("language-", "") ??
+									"javascript";
+
 								return (
 									<pre
 										className={props.className + "p-0"}
