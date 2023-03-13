@@ -1,4 +1,5 @@
 import "@styles/global.css";
+import "highlight.js/styles/dracula.css"
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
