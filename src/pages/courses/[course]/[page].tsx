@@ -81,75 +81,79 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 	return (
 		<>
 			<CoursesLayout meta={meta} matter={matter}>
-				{lessonVideo && (
-					<video
-						src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lessonVideo}`}
-						controls
-					/>
-				)}
-				<article className="prose mx-auto my-8">
-					<MDXRemote
-						{...source}
-						components={{
-							a: (props) => (
-								<a
-									target="_blank"
-									rel="noreferrer"
-									className="text-primary"
-									{...props}
-								/>
-							),
-							pre: (props) => {
-								// @ts-ignore
-								props = props.children.props;
-								const language =
-									props.className?.replace("language-", "") ??
-									"javascript";
+				<div className="flex flex-col justify-center items-center">
+					{lessonVideo && (
+						<video
+							src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lessonVideo}`}
+							controls
+						/>
+					)}
+					<article className="prose mx-auto my-8">
+						<MDXRemote
+							{...source}
+							components={{
+								a: (props) => (
+									<a
+										target="_blank"
+										rel="noreferrer"
+										className="text-primary"
+										{...props}
+									/>
+								),
+								pre: (props) => {
+									// @ts-ignore
+									props = props.children.props;
+									const language =
+										props.className?.replace(
+											"language-",
+											""
+										) ?? "javascript";
 
-								return (
-									<pre
-										className={props.className + "p-0"}
-										tabIndex={0}
-									>
-										<Highlight
-											className={`language-${language}`}
+									return (
+										<pre
+											className={props.className + "p-0"}
+											tabIndex={0}
 										>
-											{props.children}
-										</Highlight>
-									</pre>
-								);
-							},
-							code: (props) => (
-								<span
-									className="bg-primary font-bold text-primary-content px-2 py-0.5 rounded"
-									{...props}
-								/>
-							),
-						}}
-					/>
-					<div className="flex flex-row w-full gap-4 my-8 justify-center">
-						{getPreviousLesson() && (
+											<Highlight
+												className={`language-${language}`}
+											>
+												{props.children}
+											</Highlight>
+										</pre>
+									);
+								},
+								code: (props) => (
+									<span
+										className="bg-primary font-bold text-primary-content px-2 py-0.5 rounded"
+										{...props}
+									/>
+								),
+							}}
+						/>
+						<div className="flex flex-row w-full gap-4 my-8 justify-center">
+							{getPreviousLesson() && (
+								<Link
+									className="btn btn-primary grow"
+									href={`/courses/${meta.course}/${
+										getPreviousLesson()?.name || ""
+									}`}
+								>
+									Previous Lesson:{" "}
+									{prettify(getPreviousLesson()?.name || "")}
+								</Link>
+							)}
 							<Link
 								className="btn btn-primary grow"
 								href={`/courses/${meta.course}/${
-									getPreviousLesson()?.name || ""
+									getNextLesson().name
 								}`}
+								// onClick={nextPage}
 							>
-								Previous Lesson:{" "}
-								{prettify(getPreviousLesson()?.name || "")}
+								Next Lesson: {prettify(getNextLesson().name)}
 							</Link>
-						)}
-						<Link
-							className="btn btn-primary grow"
-							href={`/courses/${meta.course}/${
-								getNextLesson().name
-							}`}
-							// onClick={nextPage}
-						>
-							Next Lesson: {prettify(getNextLesson().name)}
-						</Link>
-					</div>
-				</article>
+						</div>
+					</article>
+				</div>
 			</CoursesLayout>
 		</>
 	);
