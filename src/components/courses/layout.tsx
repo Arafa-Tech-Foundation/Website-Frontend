@@ -108,7 +108,7 @@ export default function CoursesLayout({
 										</label>
 									</div>
 								</div>
-								<ul>
+								<ul className="overflow-scroll">
 									{meta.modules.map((module) => (
 										<li>
 											<div
