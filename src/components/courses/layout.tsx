@@ -88,7 +88,10 @@ export default function CoursesLayout({
 							>
 								<div className="flex items-center justify-between lg:justify-center">
 									<div className="block lg:none flex-1" />
-									<div className="flex justify-center items-center gap-4">
+									<Link
+										className="flex justify-center items-center gap-4"
+										href="/"
+									>
 										<img
 											src="/logos/transparent/main.png"
 											className="max-w-[4em]"
@@ -97,7 +100,7 @@ export default function CoursesLayout({
 										<h1 className="text-xl py-8">
 											Arafa Tech
 										</h1>
-									</div>
+									</Link>
 
 									<div className="flex justify-end items-center flex-1">
 										<label
