@@ -1,3 +1,5 @@
+import HomeLayout from "@components/layout";
+
 export default function Courses() {
-	return null;
+	return <HomeLayout></HomeLayout>;
 }
