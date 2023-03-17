@@ -3,16 +3,100 @@
 @import "tailwindcss/utilities";
 
 .btn {
-	text-transform: unset !important;
+	text-transform: unset;
 }
 
 html {
 	font-family: "Inter", sans-serif;
 }
+
+:not(pre) > code[class*="language-"],
 pre[class*="language-"] {
 	background: hsl(240, 17%, 8%);
 }
+/* Styles for the FAQ page */
 
-code[class*="hljs"] {
-	background: #21202e;
+.animate-fade-in {
+	animation: fade-in 0.5s ease-out;
 }
+
+/* Question boxes */
+.question-box {
+	transition: all 0.5s ease-in-out;
+	color: #b493f0;
+}
+
+.question-box:hover h2 {
+	transition: all 0.02s ease-in-out;
+	text-shadow: 1px 1px #190b25;
+}
+
+.question-box:h2 {
+	text-shadow: 2px 2px #0a0909;
+}
+
+.question-box:hover,
+.question-box.active {
+	transform: scale(1.05);
+	background-color: #a48cff;
+	color: #6926a0;
+	padding: 16px;
+	border-radius: 1rem;
+
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075),
+		0 2px 4px rgba(255, 255, 255, 0.8) inset,
+		0 4px 8px rgba(49, 0, 91, 0.4) inset;
+}
+
+.question-box > div:first-of-type svg {
+	transition: all 0.5s ease-in-out;
+	border: 70px;
+}
+
+.question-box:hover > div:first-of-type svg,
+.question-box.active > div:first-of-type svg {
+	transform: scale(1.05) rotate(180deg);
+	color: #31005b;
+}
+
+.answer-box {
+	max-height: 0;
+	transition: all 0.5s ease-in-out;
+	padding: 16px;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.question-box.active .answer-box {
+	max-height: 1000px;
+}
+
+/* Search box */
+.search-icon-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	background-color: #b493f0;
+	color: #31005b;
+	padding: 0.5rem;
+	border-radius: 0 0.375rem 0.375rem 0;
+	border-left: none;
+	transition: background-color 0.2s ease;
+}
+
+.search-icon-container:hover {
+	background-color: #966edf;
+	color: #2a0750;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: translateY(50%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+/* FAQ section completed */
