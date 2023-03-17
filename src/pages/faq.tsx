@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Header from "@components/header";
-import Footer from "@components/footer";
-import Head from "next/head";
 import Section from "@components/section";
+import { NextSeo } from "next-seo";
+import HomeLayout from "@components/layout";
 
 const faqData = [
 	{
@@ -57,47 +56,45 @@ export default function FaqPage() {
 
 	return (
 		<>
-			<Head>
-				<title>FAQ | Arafa Tech</title>
-			</Head>
-			<Header />
-			<Section>
-				<h1
-					className="text-5xl font-bold mb-8 text-center animate-fade-in"
-					style={{ textShadow: "2px 2px #0a0909" }}
-				>
-					Frequently Asked Questions
-				</h1>
-				<div className="mx-auto">
-					<input
-						className="input input-bordered w-full mb-4"
-						placeholder="Search FAQs"
-						value={searchTerm}
-						onChange={(e) => setSearchTerm(e.target.value)}
-					/>
+			<NextSeo title="FAQ" />
+			<HomeLayout>
+				<Section>
+					<h1
+						className="text-5xl font-bold mb-8 text-center animate-fade-in"
+						style={{ textShadow: "2px 2px #0a0909" }}
+					>
+						Frequently Asked Questions
+					</h1>
+					<div className="mx-auto">
+						<input
+							className="input input-bordered w-full mb-4"
+							placeholder="Search FAQs"
+							value={searchTerm}
+							onChange={(e) => setSearchTerm(e.target.value)}
+						/>
 
-					<div className="transition">
-						{filteredFaqData.map((item, index) => (
-							<div
-								key={index}
-								tabIndex={0}
-								className="border-b py-4 collapse collapse-arrow"
-							>
-								<input type="checkbox" />
-								<div className="collapse-title">
-									<h2 className="text-xl font-bold text-primary">
-										{item.question}
-									</h2>
+						<div className="transition">
+							{filteredFaqData.map((item, index) => (
+								<div
+									key={index}
+									tabIndex={0}
+									className="border-b py-4 collapse collapse-arrow"
+								>
+									<input type="checkbox" />
+									<div className="collapse-title">
+										<h2 className="text-xl font-bold text-primary">
+											{item.question}
+										</h2>
+									</div>
+									<div className="collapse-content">
+										<p>{item.answer}</p>
+									</div>
 								</div>
-								<div className="collapse-content">
-									<p>{item.answer}</p>
-								</div>
-							</div>
-						))}
+							))}
+						</div>
 					</div>
-				</div>
-			</Section>
-			<Footer />
+				</Section>
+			</HomeLayout>
 		</>
 	);
 }

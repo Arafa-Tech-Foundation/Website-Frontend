@@ -116,22 +116,7 @@ export default function Footer() {
 											Courses
 										</a>
 									</li>
-									<li>
-										<a
-											href="/mentorship"
-											className="transition hover:opacity-75"
-										>
-											Mentorship
-										</a>
-									</li>
-									<li>
-										<a
-											href="/community"
-											className="transition hover:opacity-75"
-										>
-											Community
-										</a>
-									</li>
+
 									<li>
 										<a
 											href="/volunteer"
@@ -144,23 +129,17 @@ export default function Footer() {
 							</nav>
 						</div>
 						<div>
-							<p className="font-medium text-primary">Company</p>
+							<p className="font-medium text-primary">
+								Organization
+							</p>
 							<nav
-								aria-label="Footer Navigation - Company"
+								aria-label="Footer Navigation - Organization"
 								className="mt-6"
 							>
 								<ul className="space-y-4 text-sm">
 									<li>
 										<a
-											href="#"
-											className="transition hover:opacity-75"
-										>
-											About
-										</a>
-									</li>
-									<li>
-										<a
-											href="#"
+											href="/team"
 											className="transition hover:opacity-75"
 										>
 											Meet the Team

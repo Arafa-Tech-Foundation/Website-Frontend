@@ -28,7 +28,7 @@ export default function MyApp({
 	return (
 		<>
 			<DefaultSeo
-				title="Learn"
+				title="Free Coding / Programming Courses"
 				description="Arafa Tech is a non-profit organization that provides coding education and mentorship to underprivileged students, empowering them with technology skills for the future."
 				titleTemplate="%s | Arafa Tech"
 				openGraph={{
