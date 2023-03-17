@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Header from "@components/header";
 import Footer from "@components/footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Head from "next/head";
+import Section from "@components/section";
 
 const faqData = [
 	{
@@ -50,106 +49,55 @@ const faqData = [
 ];
 
 export default function FaqPage() {
-	const [activeIndex, setActiveIndex] = useState<number | null>(null);
 	const [searchTerm, setSearchTerm] = useState<string>("");
 
 	const filteredFaqData = faqData.filter((item) =>
 		item.question.toLowerCase().includes(searchTerm.toLowerCase())
 	);
 
-	let timeoutId: NodeJS.Timeout | null = null;
-
-	const handleMouseEnter = (index: number) => {
-		clearTimeout(timeoutId as NodeJS.Timeout);
-		setActiveIndex(index);
-	};
-
-	const handleMouseLeave = () => {
-		timeoutId = setTimeout(() => {
-			setActiveIndex(null);
-		}, 300);
-	};
-
 	return (
-		<div>
+		<>
 			<Head>
 				<title>FAQ | Arafa Tech</title>
 			</Head>
 			<Header />
-			<div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-				<div className="max-w-3xl mx-auto">
-					<h1
-						className="text-5xl font-bold mb-8 text-center animate-fade-in"
-						style={{ textShadow: "2px 2px #0a0909" }}
-					>
-						Learn more about Arafa Tech - FAQ
-					</h1>
+			<Section>
+				<h1
+					className="text-5xl font-bold mb-8 text-center animate-fade-in"
+					style={{ textShadow: "2px 2px #0a0909" }}
+				>
+					Frequently Asked Questions
+				</h1>
+				<div className="mx-auto">
+					<input
+						className="input input-bordered w-full mb-4"
+						placeholder="Search FAQs"
+						value={searchTerm}
+						onChange={(e) => setSearchTerm(e.target.value)}
+					/>
 
-					<div className="mb-4">
-						<label htmlFor="faq-search" className="sr-only"></label>
-						<div className="flex">
-							<input
-								type="text"
-								name="faq-search"
-								id="faq-search"
-								className="rounded-l-md flex-grow p-2 border border-gray-200"
-								placeholder="Search FAQs"
-								value={searchTerm}
-								onChange={(e) => setSearchTerm(e.target.value)}
-								style={{ color: "black" }}
-							/>
-							<div className="search-icon-container">
-								<FontAwesomeIcon icon={faSearch} />
-							</div>
-						</div>
-					</div>
-					<div className=" animate-fade-in">
+					<div className="transition">
 						{filteredFaqData.map((item, index) => (
 							<div
 								key={index}
-								className={`border-b border-gray-200 py-2 question-box ${
-									activeIndex === index ? "active" : ""
-								}`}
-								onMouseEnter={() => handleMouseEnter(index)}
-								onMouseLeave={handleMouseLeave}
+								tabIndex={0}
+								className="border-b py-4 collapse collapse-arrow"
 							>
-								<div className="flex justify-between items-center">
-									<h2 className="text-lg leading-6 font-medium font-semibold">
+								<input type="checkbox" />
+								<div className="collapse-title">
+									<h2 className="text-xl font-bold text-primary">
 										{item.question}
 									</h2>
-									<svg
-										className={`${
-											activeIndex === index
-												? "text-black"
-												: "text-gray-400"
-										} w-5 h-5`}
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 20 20"
-										fill="currentColor"
-										aria-hidden="true"
-									>
-										<path
-											fillRule="evenodd"
-											d="M15.293 8.293a1 1 0 00-1.414-1.414l-3.5 3.5a1 1 0 000 1.414l3.5 3.5a1 1 0 001.414-1.414L12.414 12H18a1 1 0 100-2h-5.586l2.293-2.293z"
-											clipRule="evenodd"
-										/>
-									</svg>
 								</div>
-								<p
-									className={`${
-										activeIndex === index
-											? "text-black"
-											: "text-gray-500"
-									} mt-2 pr-16`}
-								>
-									{item.answer}
-								</p>
+								<div className="collapse-content">
+									<p>{item.answer}</p>
+								</div>
 							</div>
 						))}
 					</div>
 				</div>
-			</div>
+			</Section>
 			<Footer />
-		</div>
+		</>
 	);
 }

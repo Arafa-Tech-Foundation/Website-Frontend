@@ -9,6 +9,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import Link from "next/link";
 import { CourseMeta, CourseModule, Matter } from "types";
 import Highlight from "react-highlight";
+import clsx from "clsx";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -111,11 +112,16 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 
 									return (
 										<pre
-											className={props.className + "p-0"}
+											className={clsx(
+												props.className,
+												"p-0"
+											)}
 											tabIndex={0}
 										>
 											<Highlight
-												className={`language-${language}`}
+												className={clsx(
+													`language-${language}`
+												)}
 											>
 												{props.children}
 											</Highlight>
