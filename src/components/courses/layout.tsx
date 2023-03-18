@@ -113,7 +113,7 @@ export default function CoursesLayout({
 								</div>
 								<ul className="overflow-scroll">
 									{meta.modules.map((module) => (
-										<li>
+										<li key={module.name}>
 											<div
 												tabIndex={0}
 												className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
@@ -142,6 +142,9 @@ export default function CoursesLayout({
 													{module.lessons.map(
 														(lesson, i) => (
 															<Link
+																key={
+																	lesson.name
+																}
 																href={`/courses/${meta.course}/${lesson.name}`}
 																className="ml-8 block hover:text-gray-200"
 															>{`Lesson ${

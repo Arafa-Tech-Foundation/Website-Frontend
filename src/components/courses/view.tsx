@@ -19,30 +19,31 @@ export default function CoursesView({
 			</div>
 
 			<div className="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-4 mx-auto gap-6">
-				{courses.map((course) => (
+				{courses.map((courseMeta) => (
 					<Link
+						key={courseMeta.course}
 						className={clsx(
 							"col-span-1 border-primary flex flex-col justify-center items-center h-[300px]",
 							"p-5 rounded-xl relative from-[#4a4a54] to-[#272733] bg-gradient-to-r",
 							"hover:scale-105 transition-transform duration-300 ease-in-out hover:cursor-pointer"
 						)}
-						href={`/courses/${course.course}/${course.modules?.[0]?.lessons?.[0]?.name}`}
+						href={`/courses/${courseMeta.course}/${courseMeta.modules?.[0]?.lessons?.[0]?.name}`}
 					>
 						<img
 							className="w-12 grayscale"
-							src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${course.course}/static/icon.svg`}
+							src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${courseMeta.course}/static/icon.svg`}
 							alt="Icon"
 						/>
 						<div className="w-full flex absolute bottom-0 p-4 items-center justify-between">
 							<div>
 								<h2 className="text-lg font-bold">
-									{course.title}
+									{courseMeta.title}
 								</h2>
-								<p className="text-sm">{course.description}</p>
+								<p className="text-sm">{courseMeta.description}</p>
 							</div>
 							<h3 className="whitespace-nowrap font-semibold pl-2">
-								{Math.round(course.minutes / 60)}{" "}
-								{Math.round(course.minutes / 60) > 1
+								{Math.round(courseMeta.minutes / 60)}{" "}
+								{Math.round(courseMeta.minutes / 60) > 1
 									? "Hours"
 									: "Hour"}
 							</h3>

@@ -63,7 +63,10 @@ export default function Features() {
 				</p>
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-7 lg:gap-4 max-w-7xl mx-auto place-items-center">
 					{featureCards.map((feature) => (
-						<div className="lg:min-h-[350px] rounded-md drop-shadow-lg bg-gradient-to-r from-[#614ab6b4] to-[#2b2664] p-5 transform hover:translate-y-[-0.5rem] transition">
+						<div
+							key={feature.title}
+							className="lg:min-h-[350px] rounded-md drop-shadow-lg bg-gradient-to-r from-[#614ab6b4] to-[#2b2664] p-5 transform hover:translate-y-[-0.5rem] transition"
+						>
 							<div className="text-center">
 								<FontAwesomeIcon
 									icon={feature.icon}
