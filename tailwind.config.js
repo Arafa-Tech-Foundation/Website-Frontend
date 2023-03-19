@@ -16,9 +16,6 @@ module.exports = {
 				footer: "hsl(var(--p)) 0 0 10px",
 				sm: "#000 0 0 10px",
 			},
-			letterSpacing: {
-				tightest: "-.06em",
-			},
 			gradientColorStops: {
 				"gradient-start": "hsl(var(--p))",
 				"gradient-end": "hsl(var(--s))",

@@ -24,7 +24,7 @@ export default function Footer() {
 							/>
 							Arafa Tech
 						</div>
-						<h1 className="text-center leading-none select-none tracking-tightest font-extrabold flex flex-row gap-2">
+						<h1 className="text-center leading-none select-none tracking-tight font-extrabold flex flex-row gap-2">
 							<span
 								data-content="Learn."
 								className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:bottom-0 before:left-0 before:text-center before:bg-white/5 before:bg-clip-text before:backdrop-blur-sm before:text-transparent before:animate-gradient-background-1 "

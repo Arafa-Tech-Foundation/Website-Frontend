@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 export default function Hero() {
 	return (
 		<Section>
-			<div className="flex flex-col items-center justify-center gap-8 py-20 min-h-[70vh]">
+			<div className="flex flex-col items-center justify-center gap-8 py-20 min-h-[60vh]">
 				<h1 className="text-[20vw] text-center md:text-6xl lg:text-7xl xl:text-8xl leading-none select-none tracking-tight font-bold flex flex-col md:flex-row">
 					<span
 						data-content="Learn."
