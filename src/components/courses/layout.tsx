@@ -1,5 +1,5 @@
 import Loading from "@components/auth/loading";
-import { faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { prettify } from "@pages/courses/[course]/[page]";
 import clsx from "clsx";
@@ -27,10 +27,7 @@ export default function CoursesLayout({
 		// TODO: show full loading page
 		return <Loading />;
 	}
-	if (status === "unauthenticated") {
-		signIn("discord");
-		return null;
-	}
+
 	const router = useRouter();
 
 	return (
@@ -59,14 +56,25 @@ export default function CoursesLayout({
 						<FontAwesomeIcon icon={faBell} />
 					</button>
 					<div>
-						<img
-							src={session?.user?.image ?? "/logo.png"}
-							alt={
-								session?.user?.name ??
-								"Default" + "'s profile picture"
-							}
-							className="avatar avatar-sm rounded-full w-8"
-						/>
+						{status === "unauthenticated" ? (
+							<button
+								className="btn btn-sm btn-primary"
+								onClick={() => {
+									signIn("discord");
+								}}
+							>
+								Login To Save Progress
+							</button>
+						) : (
+							<img
+								src={session?.user?.image ?? "/logo.png"}
+								alt={
+									session?.user?.name ??
+									"Default" + "'s profile picture"
+								}
+								className="avatar avatar-sm rounded-full w-8"
+							/>
+						)}
 						<h3 className="hidden sm:inline">
 							{session?.user?.name}
 						</h3>
@@ -76,25 +84,21 @@ export default function CoursesLayout({
 
 			<aside
 				className={clsx(
-					"fixed top-[100px] w-[450px] h-[calc(100vh-100px)] z-10 bg-base-200 transition duration-500 ease-[cubic-bezier(0.5, 0, 0, 1)]",
+					"fixed top-[100px]  w-[calc(100vw-75px)] sm:w-[400px] max-w-full h-[calc(100vh-100px)] z-10 transition duration-500 ease-[cubic-bezier(0.5, 0, 0, 1)]",
 					isOpen ? "translate-x-0" : "translate-x-[-100%]"
 				)}
 			>
 				<button
-					className="btn btn-square absolute left-full rounded-l-none"
+					className="btn btn-square absolute left-full rounded-2xl rounded-l-none"
 					onClick={() => {
 						setIsOpen((isOpen: any) => !isOpen);
 					}}
 				>
-					{isOpen ? (
-						<FontAwesomeIcon icon={faX} />
-					) : (
-						<FontAwesomeIcon icon={faBars} />
-					)}
+					<FontAwesomeIcon icon={isOpen ? faArrowLeft : faBars} className="h-[50%]" />
 				</button>
-				<div className="absolute left-[10px] bottom-[10px] w-[calc(100%-10px)] h-full overflow-hidden">
+				<div className="absolute left-[10px] bottom-[10px] w-[calc(100%-10px)] h-full overflow-hidden bg-base-200 rounded-lg">
 					<nav
-						className="absolute top-0 left-0 w-[calc(100% + 40px)] h-full overflow-y-scroll hidden-scrollbar"
+						className="absolute top-0 left-0 w-full h-full overflow-y-scroll hidden-scrollbar"
 						aria-label="Main Navigation"
 					>
 						{meta.modules.map((module) => (
