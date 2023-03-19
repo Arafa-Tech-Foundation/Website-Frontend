@@ -10,6 +10,7 @@ import Link from "next/link";
 import { CourseMeta, CourseModule, Matter } from "types";
 import Highlight from "react-highlight";
 import clsx from "clsx";
+import { useState } from "react";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -79,13 +80,20 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 			};
 		}
 	}
+	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<>
-			<CoursesLayout meta={meta} matter={matter}>
+			<CoursesLayout
+				isOpen={isOpen}
+				setIsOpen={setIsOpen}
+				meta={meta}
+				matter={matter}
+			>
 				<div className="flex flex-col justify-center items-center">
 					{lessonVideo && (
 						<video
 							src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lessonVideo}`}
+							className="max-h-[calc(100vh-100px)] h-full"
 							controls
 						/>
 					)}
@@ -136,10 +144,10 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 								),
 							}}
 						/>
-						<div className="flex flex-row w-full gap-4 my-8 justify-center">
+						<div className="flex flex-col-reverse w-full gap-4 my-8 justify-center sm:flex-row">
 							{getPreviousLesson() && (
 								<Link
-									className="btn btn-primary grow"
+									className="btn btn-primary flex-1"
 									href={`/courses/${meta.course}/${
 										getPreviousLesson()?.name || ""
 									}`}
@@ -149,7 +157,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 								</Link>
 							)}
 							<Link
-								className="btn btn-primary grow"
+								className="btn btn-primary flex-1"
 								href={`/courses/${meta.course}/${
 									getNextLesson().name
 								}`}

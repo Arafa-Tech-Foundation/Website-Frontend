@@ -15,6 +15,12 @@ html {
 	box-shadow: 0 0 75px -20px hsl(var(--p));
 }
 
+.hidden-scrollbar::-webkit-scrollbar {
+	display: none;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
 code[class*="hljs"] {
 	background: unset;
 }
