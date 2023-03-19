@@ -126,7 +126,7 @@ export default function Footer() {
 					</div>
 					<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
 						<div>
-							<p className="font-medium text-primary">Services</p>
+							<p className="font-bold text-primary">Services</p>
 							<nav
 								aria-label="Footer Navigation - Services"
 								className="mt-6"
@@ -153,7 +153,7 @@ export default function Footer() {
 							</nav>
 						</div>
 						<div>
-							<p className="font-medium text-primary">
+							<p className="font-bold text-primary">
 								Organization
 							</p>
 							<nav
@@ -181,7 +181,7 @@ export default function Footer() {
 							</nav>
 						</div>
 						<div>
-							<p className="font-medium text-primary">
+							<p className="font-bold text-primary">
 								Helpful Links
 							</p>
 							<nav

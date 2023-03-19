@@ -37,7 +37,7 @@ export default function Header() {
 				<div className="flex h-16 items-center justify-between">
 					<div className="flex-1 md:flex md:items-center md:gap-12">
 						<Link
-							className="flex items-center gap-4 text-primary"
+							className="flex items-center gap-4"
 							href="/"
 						>
 							<span className="sr-only">Home</span>
@@ -46,7 +46,9 @@ export default function Header() {
 								className="max-w-[4em]"
 								alt="arafa tech's logo"
 							/>
-							<h1 className="hidden sm:block">Arafa Tech</h1>
+							<h1 className="hidden text-xl md:block font-bold">
+								Arafa Tech
+							</h1>
 						</Link>
 					</div>
 					<div className="md:flex md:items-center md:gap-12">
@@ -118,7 +120,7 @@ function NavLink({
 	return (
 		<li>
 			<Link
-				className="text-primary transition hover:opacity-50"
+				className="text-primary transition hover:opacity-50 font-bold"
 				href={href}
 			>
 				{children}
