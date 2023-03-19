@@ -2,12 +2,17 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html {
+	font-family: "Inter", sans-serif;
+}
+
 .btn {
 	text-transform: unset;
 }
 
-html {
-	font-family: "Inter", sans-serif;
+.btn-primary:hover {
+	background: hsl(var(--p));
+	box-shadow: 0 0 75px -20px hsl(var(--p));
 }
 
 code[class*="hljs"] {

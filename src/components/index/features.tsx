@@ -70,7 +70,7 @@ export default function Features() {
 								"lg:min-h-[350px] rounded-md drop-shadow-lg bg-gradient-to-r p-5 transform hover:translate-y-[-0.5rem] transition",
 								index % 2 === 0
 									? "from-secondary"
-									: "from-primary"
+									: "from-gradient-start to-gradient-end"
 							)}
 						>
 							<div className="text-center">
