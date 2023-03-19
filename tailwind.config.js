@@ -13,6 +13,8 @@ module.exports = {
 		extend: {
 			textShadow: {
 				DEFAULT: "hsl(var(--p)) 0 0 100px",
+				footer: "hsl(var(--p)) 0 0 10px",
+				sm: "#000 0 0 10px",
 			},
 			letterSpacing: {
 				tightest: "-.06em",

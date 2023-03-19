@@ -23,9 +23,32 @@ export default function Footer() {
 							/>
 							Arafa Tech
 						</div>
-						<p className="max-w-xs mt-4 text-gray-500">
-							Learn. Develop. Succeed.
-						</p>
+						<h1 className="text-center leading-none select-none tracking-tightest font-extrabold flex flex-row gap-2">
+							<span
+								data-content="Learn."
+								className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:bottom-0 before:left-0 before:text-center before:bg-white/5 before:bg-clip-text before:backdrop-blur-sm before:text-transparent before:animate-gradient-background-1 "
+							>
+								<span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start to-gradient-end animate-gradient-foreground-1 text-shadow-footer">
+									Learn.
+								</span>
+							</span>
+							<span
+								data-content="Develop."
+								className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:bottom-0 before:left-0 before:text-center before:bg-white/5 before:bg-clip-text before:backdrop-blur-sm before:text-transparent before:animate-gradient-background-2"
+							>
+								<span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start to-gradient-end animate-gradient-foreground-2 text-shadow-footer">
+									Develop.
+								</span>
+							</span>
+							<span
+								data-content="Succeed."
+								className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:bottom-0 before:left-0 before:text-center before:bg-white/5 before:bg-clip-text before:backdrop-blur-sm before:text-transparent before:animate-gradient-background-3"
+							>
+								<span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start to-gradient-end animate-gradient-foreground-3 text-shadow-footer">
+									Succeed.
+								</span>
+							</span>
+						</h1>
 						<ul className="flex gap-6 mt-8 text-secondary">
 							<li>
 								<a
