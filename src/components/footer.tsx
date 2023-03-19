@@ -5,6 +5,7 @@ import {
 	faInstagram,
 	faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
 
 export default function Footer() {
 	return (
@@ -132,21 +133,21 @@ export default function Footer() {
 							>
 								<ul className="space-y-4 text-sm">
 									<li>
-										<a
+										<Link
 											href="/courses"
 											className="transition hover:opacity-75"
 										>
 											Courses
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											href="/volunteer"
 											className="transition hover:opacity-75"
 										>
 											Volunteer
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</nav>
@@ -161,20 +162,20 @@ export default function Footer() {
 							>
 								<ul className="space-y-4 text-sm">
 									<li>
-										<a
+										<Link
 											href="/team"
 											className="transition hover:opacity-75"
 										>
 											Meet the Team
-										</a>
+										</Link>
 									</li>
 									<li>
-										<a
+										<Link
 											href="/legal"
 											className="transition hover:opacity-75"
 										>
 											Legal
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</nav>
@@ -189,20 +190,20 @@ export default function Footer() {
 							>
 								<ul className="space-y-4 text-sm">
 									<li>
-										<a
+										<Link
 											href="/contact"
 											className="transition hover:opacity-75"
 										>
 											Contact
-										</a>
+										</Link>
 									</li>
 									<li>
-										<a
+										<Link
 											href="/faq"
 											className="transition hover:opacity-75"
 										>
 											FAQs
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</nav>
