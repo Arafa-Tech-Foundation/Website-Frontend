@@ -130,7 +130,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 								},
 								code: (props) => (
 									<span
-										className="bg-primary font-bold text-primary-content px-2 py-0.5 rounded"
+										className="bg-primary font-semibold text-primary-content px-1 py-0.5 rounded"
 										{...props}
 									/>
 								),
