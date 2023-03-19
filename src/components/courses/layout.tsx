@@ -1,5 +1,10 @@
 import Loading from "@components/auth/loading";
-import { faArrowLeft, faBars, faBell, faX } from "@fortawesome/free-solid-svg-icons";
+import {
+	faArrowLeft,
+	faBars,
+	faBell,
+	faX,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { prettify } from "@pages/courses/[course]/[page]";
 import clsx from "clsx";
@@ -63,7 +68,10 @@ export default function CoursesLayout({
 									signIn("discord");
 								}}
 							>
-								Login To Save Progress
+								{/* TODO: This only checks on a render. */}
+								{window.innerWidth > 768
+									? "Login To Save Progress"
+									: "Login"}
 							</button>
 						) : (
 							<img
@@ -94,7 +102,10 @@ export default function CoursesLayout({
 						setIsOpen((isOpen: any) => !isOpen);
 					}}
 				>
-					<FontAwesomeIcon icon={isOpen ? faArrowLeft : faBars} className="h-[50%]" />
+					<FontAwesomeIcon
+						icon={isOpen ? faArrowLeft : faBars}
+						className="h-[50%]"
+					/>
 				</button>
 				<div className="absolute left-[10px] bottom-[10px] w-[calc(100%-10px)] h-full overflow-hidden bg-base-200 rounded-lg">
 					<nav
