@@ -78,7 +78,7 @@ export default function CoursesLayout({
 								className="avatar avatar-sm rounded-full w-8"
 							/>
 						)}
-						<h3 className="hidden sm:inline">
+						<h3 className="hidden sm:inline ml-2">
 							{session?.user?.name}
 						</h3>
 					</div>
