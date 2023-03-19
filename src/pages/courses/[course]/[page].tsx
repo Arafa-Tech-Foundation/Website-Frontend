@@ -108,7 +108,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 										props.className?.replace(
 											"language-",
 											""
-										) ?? "javascript";
+										) ?? "plaintext";
 
 									return (
 										<pre
