@@ -160,6 +160,14 @@ export default function Footer() {
 									</li>
 									<li>
 										<Link
+											href="/donate"
+											className="transition hover:opacity-75"
+										>
+											Donate
+										</Link>
+									</li>
+									<li>
+										<Link
 											href="/faq"
 											className="transition hover:opacity-75"
 										>
