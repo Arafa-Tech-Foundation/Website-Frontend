@@ -32,14 +32,11 @@ export default function Header() {
 	const { status } = useSession({ required: false });
 	const router = useRouter();
 	return (
-		<Section className="bg-base-100 sticky top-0 shadow-[0_5px_200px_-30px_hsl(var(--p))] py-2 z-[100]">
+		<Section className="bg-base-100/5 backdrop-blur-lg sticky top-0 shadow-[0_5px_200px_-30px_hsl(var(--p))] py-2 z-[100]">
 			<header aria-label="Site Header">
 				<div className="flex h-16 items-center justify-between">
 					<div className="flex-1 md:flex md:items-center md:gap-12">
-						<Link
-							className="flex items-center gap-4"
-							href="/"
-						>
+						<Link className="flex items-center gap-4" href="/">
 							<span className="sr-only">Home</span>
 							<img
 								src="/logos/transparent/main.png"
@@ -120,7 +117,7 @@ function NavLink({
 	return (
 		<li>
 			<Link
-				className="text-primary transition hover:opacity-50 font-bold"
+				className="transition hover:opacity-50 font-bold"
 				href={href}
 			>
 				{children}
