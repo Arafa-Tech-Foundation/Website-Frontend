@@ -11,12 +11,12 @@ export default function Footer() {
 	return (
 		<footer
 			aria-label="Site Footer"
-			className="bg-base border-t border-primary"
+			className="bg-base shadow-[0_5px_300px_-100px_hsl(var(--p))] border-primary"
 		>
 			<div className="max-w-screen-xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8">
 				<div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
 					<div>
-						<div className="text-primary">
+						<div className="font-bold mb-2">
 							<img
 								src="/logos/transparent/main.png"
 								className="w-16"
@@ -51,63 +51,24 @@ export default function Footer() {
 							</span>
 						</h1>
 						<ul className="flex gap-6 mt-8 text-secondary">
-							<li>
-								<a
-									href="/discord"
-									rel="noreferrer"
-									target="_blank"
-									className="transition hover:opacity-75"
-								>
-									<span className="sr-only">Discord</span>
-
-									<FontAwesomeIcon
-										icon={faDiscord}
-										className="w-6 h-6"
-									/>
-								</a>
-							</li>
-							<li>
-								<a
-									href="/"
-									rel="noreferrer"
-									target="_blank"
-									className="transition hover:opacity-75"
-								>
-									<span className="sr-only">Instagram</span>
-									<FontAwesomeIcon
-										icon={faInstagram}
-										className="w-6 h-6"
-									/>
-								</a>
-							</li>
-							<li>
-								<a
-									href="/"
-									rel="noreferrer"
-									target="_blank"
-									className="transition hover:opacity-75"
-								>
-									<span className="sr-only">TikTok</span>
-									<FontAwesomeIcon
-										icon={faTiktok}
-										className="w-6 h-6"
-									/>
-								</a>
-							</li>
-							<li>
-								<a
-									href="https://github.com/Arafa-Tech-Foundation"
-									rel="noreferrer"
-									target="_blank"
-									className="transition hover:opacity-75"
-								>
-									<span className="sr-only">GitHub</span>
-									<FontAwesomeIcon
-										icon={faGithub}
-										className="w-6 h-6"
-									/>
-								</a>
-							</li>
+							{icons.map((icon) => (
+								<li key={icon.href}>
+									<a
+										href={icon.href}
+										rel="noreferrer"
+										target="_blank"
+										className="transition hover:opacity-50"
+									>
+										<span className="sr-only">
+											{icon.name}
+										</span>
+										<FontAwesomeIcon
+											icon={icon.icon}
+											className="w-6 h-6 "
+										/>
+									</a>
+								</li>
+							))}
 							{/* <li>
 								<a
 									href="/"
@@ -221,3 +182,26 @@ export default function Footer() {
 		</footer>
 	);
 }
+
+const icons = [
+	{
+		name: "Discord",
+		icon: faDiscord,
+		href: "https://discord.gg/6Z2Y4Z2",
+	},
+	{
+		name: "Instagram",
+		icon: faInstagram,
+		href: "https://www.instagram.com/arafatechfoundation/",
+	},
+	{
+		name: "TikTok",
+		icon: faTiktok,
+		href: "https://www.tiktok.com/@arafatechfoundation",
+	},
+	{
+		name: "GitHub",
+		icon: faGithub,
+		href: "https://github.com/Arafa-Tech-Foundation",
+	},
+];

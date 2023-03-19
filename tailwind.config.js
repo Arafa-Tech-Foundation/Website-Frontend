@@ -1,8 +1,8 @@
 const plugin = require("tailwindcss/plugin");
 
 const theme = {
-	primary: "#a48cff",
-	secondary: "#383d49",
+	primary: "#ee5d6c",
+	secondary: "#fb9062",
 	neutral: "#21202e",
 };
 
@@ -21,7 +21,7 @@ module.exports = {
 			},
 			gradientColorStops: {
 				"gradient-start": "hsl(var(--p))",
-				"gradient-end": "#46266D",
+				"gradient-end": "hsl(var(--s))",
 			},
 			keyframes: {
 				"gradient-foreground-1": {
