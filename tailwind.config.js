@@ -12,7 +12,7 @@ module.exports = {
 	theme: {
 		extend: {
 			textShadow: {
-				DEFAULT: "hsl(var(--p)) 0 0 100px",
+				DEFAULT: "hsl(var(--p)) 0 0 75px",
 				footer: "hsl(var(--p)) 0 0 10px",
 				sm: "#000 0 0 10px",
 			},

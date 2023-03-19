@@ -11,8 +11,12 @@ const headerLinks = [
 		href: "/",
 	},
 	{
-		name: "Services",
-		href: "/services",
+		name: "Courses",
+		href: "/courses",
+	},
+	{
+		name: "Volunteer",
+		href: "/volunteer",
 	},
 	{
 		name: "Blog",
