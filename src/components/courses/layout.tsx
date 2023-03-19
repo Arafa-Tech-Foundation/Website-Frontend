@@ -1,10 +1,5 @@
 import Loading from "@components/auth/loading";
-import {
-	faArrowLeft,
-	faBars,
-	faBell,
-	faX,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faBars, faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { prettify } from "@pages/courses/[course]/[page]";
 import clsx from "clsx";
@@ -44,7 +39,7 @@ export default function CoursesLayout({
 						className="max-w-[3em]"
 						alt="Course Icon"
 					/>
-					<h1 className="text-2xl ml-2 hidden sm:block">
+					<h1 className="text-2xl font-bold ml-2 hidden sm:block">
 						Arafa Tech
 					</h1>
 				</div>
