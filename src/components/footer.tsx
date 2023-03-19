@@ -132,6 +132,14 @@ export default function Footer() {
 									</li>
 									<li>
 										<Link
+											href="/blog"
+											className="transition hover:opacity-75"
+										>
+											Blog
+										</Link>
+									</li>
+									<li>
+										<Link
 											href="/legal"
 											className="transition hover:opacity-75"
 										>

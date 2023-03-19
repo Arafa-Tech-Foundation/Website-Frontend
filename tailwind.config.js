@@ -1,8 +1,8 @@
 const plugin = require("tailwindcss/plugin");
 
 const theme = {
-	primary: "#F2A007",
-	secondary: "#F2CB05",
+	primary: "#FF5F6D",
+	secondary: "#FFC371",
 	neutral: "#21202e",
 };
 

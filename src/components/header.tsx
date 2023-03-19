@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Section from "./section";
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+// import { signIn, useSession } from "next-auth/react";
+// import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -19,6 +19,10 @@ const headerLinks = [
 		href: "/volunteer",
 	},
 	{
+		name: "Donate",
+		href: "/donate",
+	},
+	{
 		name: "Blog",
 		href: "/blog",
 	},
@@ -29,8 +33,8 @@ const headerLinks = [
 ];
 
 export default function Header() {
-	const { status } = useSession({ required: false });
-	const router = useRouter();
+	// const { status } = useSession({ required: false });
+	// const router = useRouter();
 	return (
 		<Section className="bg-base-100/5 backdrop-blur-lg sticky top-0 shadow-[0_5px_200px_-30px_hsl(var(--p))] py-2 z-[100]">
 			<header aria-label="Site Header">
@@ -59,7 +63,7 @@ export default function Header() {
 							</ul>
 						</nav>
 						<div className="flex items-center gap-4">
-							<div className="sm:flex sm:gap-4">
+							{/* <div className="sm:flex sm:gap-4">
 								<button
 									className="btn btn-primary"
 									onClick={() => {
@@ -74,7 +78,7 @@ export default function Header() {
 										? "Dashboard"
 										: "Login"}
 								</button>
-							</div>
+							</div> */}
 							{/* <div>
 									<button
 										className="btn btn-primary"
