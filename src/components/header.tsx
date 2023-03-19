@@ -32,7 +32,7 @@ export default function Header() {
 	const { status } = useSession({ required: false });
 	const router = useRouter();
 	return (
-		<Section className="bg-base-100 sticky top-0 border-b py-2 z-[100]">
+		<Section className="bg-base-100 sticky top-0 shadow-[0_5px_200px_-30px_hsl(var(--p))] py-2 z-[100]">
 			<header aria-label="Site Header">
 				<div className="flex h-16 items-center justify-between">
 					<div className="flex-1 md:flex md:items-center md:gap-12">
