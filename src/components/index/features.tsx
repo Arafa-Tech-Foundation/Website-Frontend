@@ -8,6 +8,7 @@ import {
 	faPiggyBank,
 } from "@fortawesome/free-solid-svg-icons";
 import Section from "@components/section";
+import clsx from "clsx";
 
 export default function Features() {
 	const featureCards = [
@@ -55,17 +56,22 @@ export default function Features() {
 				<h1 className="text-4xl font-bold mb-4 text-center">
 					Empowering the Future
 				</h1>
-				<p className="mb-9 text-center max-w-[80ch]">
+				<p className="mb-9 text-center max-w-xl">
 					Unleash your coding potential with our innovative curriculum
 					and mentorship programs. Join our community to gain
 					real-world experience through exciting projects and
 					challenges and achieve your tech goals.
 				</p>
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-7 lg:gap-4 max-w-7xl mx-auto place-items-center">
-					{featureCards.map((feature) => (
+					{featureCards.map((feature, index) => (
 						<div
 							key={feature.title}
-							className="lg:min-h-[350px] rounded-md drop-shadow-lg bg-gradient-to-r from-[#614ab6b4] to-[#2b2664] p-5 transform hover:translate-y-[-0.5rem] transition"
+							className={clsx(
+								"lg:min-h-[350px] rounded-md drop-shadow-lg bg-gradient-to-r p-5 transform hover:translate-y-[-0.5rem] transition",
+								index % 2 === 0
+									? "from-secondary"
+									: "from-primary"
+							)}
 						>
 							<div className="text-center">
 								<FontAwesomeIcon
