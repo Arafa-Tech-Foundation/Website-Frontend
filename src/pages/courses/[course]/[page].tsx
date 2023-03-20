@@ -10,7 +10,7 @@ import Link from "next/link";
 import { CourseMeta, CourseModule, Matter } from "types";
 import Highlight from "react-highlight";
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -42,7 +42,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 		) {
 			// go to first lesson of next mod
 			const mod = meta.modules[meta.modules.indexOf(module!) + 1];
-			console.log(mod);
+
 			return {
 				name: mod.lessons[0].name,
 				module: mod,
@@ -89,27 +89,30 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 	const [videos, setVideos] = useState<{ name: string; duration: number }[]>(
 		[]
 	);
-	meta.modules?.forEach((module) => {
-		module.lessons?.forEach((lesson) => {
-			if (!lesson.video) return;
-			if (typeof window === "undefined") return;
+	useEffect(() => {
+		meta.modules?.forEach((module) => {
+			module.lessons?.forEach((lesson) => {
+				if (!lesson.video) return;
+				if (typeof window === "undefined") return;
 
-			const video = document.createElement("video");
-			video.src = `https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lesson.video}`;
-			console.log(video);
+				const video = document.createElement("video");
+				video.src = `https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lesson.video}`;
 
-			video.onloadedmetadata = () => {
-				if (videos.find((video) => video.name == lesson.video)) return;
-				setVideos((videos) => [
-					...videos,
-					{
-						name: lesson.video,
-						duration: Math.round(video.duration),
-					},
-				]);
-			};
+				video.onloadedmetadata = () => {
+					if (videos.find((video) => video.name == lesson.video))
+						return;
+					setVideos((videos) => [
+						...videos,
+						{
+							name: lesson.video,
+							duration: Math.round(video.duration),
+						},
+					]);
+				};
+			});
 		});
-	});
+	}, []);
+
 	return (
 		<>
 			<CoursesLayout

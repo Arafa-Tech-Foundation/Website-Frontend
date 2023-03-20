@@ -33,7 +33,6 @@ export default function CoursesLayout({
 
 	const router = useRouter();
 
-	console.log(videos);
 	return (
 		<>
 			<header className="py-1 sm:py-3 px-4 flex sticky top-0 z-[999] bg-base-200/75 backdrop-blur shadow-[0_5px_200px_-30px_hsl(var(--p))]">
