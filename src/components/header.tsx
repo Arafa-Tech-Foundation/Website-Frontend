@@ -47,7 +47,7 @@ export default function Header() {
 								className="max-w-[4em]"
 								alt="arafa tech's logo"
 							/>
-							<h1 className="hidden text-xl md:block font-bold">
+							<h1 className="hidden text-2xl md:block font-bold">
 								Arafa Tech
 							</h1>
 						</Link>
