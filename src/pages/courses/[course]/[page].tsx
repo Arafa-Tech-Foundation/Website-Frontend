@@ -142,7 +142,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 								},
 								code: (props) => (
 									<span
-										className="bg-primary font-semibold text-primary-content px-1 py-0.5 rounded"
+										className="bg-gradient-to-r from-primary to-secondary text-primary-content font-semibold px-1 py-0.5 rounded"
 										{...props}
 									/>
 								),
