@@ -122,16 +122,21 @@ export default function CoursesLayout({
 										key={lesson.name}
 										href={`/courses/${meta.course}/${lesson.name}`}
 										className={clsx(
-											"block hover:bg-gradient-to-r from-primary to-secondary hover:text-primary-content my-1 py-2 px-4 rounded",
+											"flex items-center hover:bg-gradient-to-r from-primary to-secondary hover:text-primary-content my-1 py-4 px-4 rounded",
 											router.asPath.includes(
 												lesson.name
 											) &&
 												"bg-gradient-to-r from-primary to-secondary text-primary-content"
 										)}
 										onClick={() => setIsOpen(false)}
-									>{`Lesson ${i + 1}: ${prettify(
-										lesson.name
-									)}`}</Link>
+									>
+										<span className="flex-1">
+											{`Lesson ${i + 1}: ${prettify(
+												lesson.name
+											)}`}
+										</span>
+										<span>04:42</span>
+									</Link>
 								))}
 							</section>
 						))}
