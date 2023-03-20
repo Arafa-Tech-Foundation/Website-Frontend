@@ -87,7 +87,7 @@ export default function Footer() {
 					</div>
 					<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
 						<div>
-							<p className="font-bold text-primary">Services</p>
+							<h3 className="font-bold text-primary">Services</h3>
 							<nav
 								aria-label="Footer Navigation - Services"
 								className="mt-6"
@@ -114,9 +114,9 @@ export default function Footer() {
 							</nav>
 						</div>
 						<div>
-							<p className="font-bold text-primary">
+							<h3 className="font-bold text-primary">
 								Organization
-							</p>
+							</h3>
 							<nav
 								aria-label="Footer Navigation - Organization"
 								className="mt-6"
@@ -150,9 +150,9 @@ export default function Footer() {
 							</nav>
 						</div>
 						<div>
-							<p className="font-bold text-primary">
+							<h3 className="font-bold text-primary">
 								Helpful Links
-							</p>
+							</h3>
 							<nav
 								aria-label="Footer Navigation - Company"
 								className="mt-6"

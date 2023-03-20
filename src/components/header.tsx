@@ -44,10 +44,10 @@ export default function Header() {
 							<span className="sr-only">Home</span>
 							<img
 								src="/logos/transparent/main.png"
-								className="max-w-[4em]"
+								className="max-w-[3em]"
 								alt="arafa tech's logo"
 							/>
-							<h1 className="hidden text-2xl md:block font-bold">
+							<h1 className="hidden text-xl md:block font-semibold tracking-widest uppercase">
 								Arafa Tech
 							</h1>
 						</Link>
@@ -121,7 +121,7 @@ function NavLink({
 	return (
 		<li>
 			<Link
-				className="transition hover:text-secondary font-bold"
+				className="transition hover:text-secondary font-semibold uppercase tracking-widest"
 				href={href}
 			>
 				{children}

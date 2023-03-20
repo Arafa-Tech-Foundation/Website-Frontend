@@ -6,10 +6,6 @@ html {
 	font-family: "Poppins", sans-serif;
 }
 
-.btn {
-	text-transform: unset;
-}
-
 .btn-primary {
 	background: linear-gradient(45deg, hsl(var(--p)), hsl(var(--s)));
 	border: none;
