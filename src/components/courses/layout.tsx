@@ -63,7 +63,7 @@ export default function CoursesLayout({
 									signIn("discord");
 								}}
 							>
-								{/* TODO: This only checks on a render. */}
+								{/* TODO: This only checks on a react render. */}
 								{window.innerWidth > 768
 									? "Login To Save Progress"
 									: "Login"}
@@ -113,7 +113,7 @@ export default function CoursesLayout({
 									<p className="text-sm font-semibold">
 										{module.name.split(": ")[0]}
 									</p>
-									<h2 className="text-2xl font-bold text-primary">
+									<h2 className="text-2xl font-bold text-transparent text-gradient">
 										{module.name.split(": ")[1]}
 									</h2>
 								</div>
@@ -122,11 +122,11 @@ export default function CoursesLayout({
 										key={lesson.name}
 										href={`/courses/${meta.course}/${lesson.name}`}
 										className={clsx(
-											"block hover:bg-primary hover:text-primary-content my-1 py-2 px-4 rounded",
+											"block hover:bg-gradient-to-r from-primary to-secondary hover:text-primary-content my-1 py-2 px-4 rounded",
 											router.asPath.includes(
 												lesson.name
 											) &&
-												"bg-primary text-primary-content"
+												"bg-gradient-to-r from-primary to-secondary text-primary-content"
 										)}
 										onClick={() => setIsOpen(false)}
 									>{`Lesson ${i + 1}: ${prettify(

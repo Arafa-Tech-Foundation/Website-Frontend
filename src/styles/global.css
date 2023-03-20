@@ -15,6 +15,13 @@ html {
 	box-shadow: 0 0 75px -20px hsl(var(--p));
 }
 
+.text-gradient {
+	background: linear-gradient(45deg, hsl(var(--p)), hsl(var(--s)));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
 .hidden-scrollbar::-webkit-scrollbar {
 	display: none;
 	-ms-overflow-style: none; /* IE and Edge */

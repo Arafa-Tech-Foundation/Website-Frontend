@@ -29,6 +29,12 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 	) as CourseModule;
 	if (!module) throw Error("Module not found");
 	function getNextLesson() {
+		if (
+			meta.modules.indexOf(module!) == 0 &&
+			module.lessons.findIndex((lesson) => lesson.name == page) ==
+				module.lessons.length - 1
+		)
+			return null;
 		console.log(module);
 		if (
 			module.lessons.findIndex((lesson) => lesson.name == page) ==
@@ -37,22 +43,17 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 			// go to first lesson of next mod
 			const mod = meta.modules[meta.modules.indexOf(module!) + 1];
 			console.log(mod);
-			return mod
-				? {
-						name: mod.lessons[mod.lessons.length - 1].name,
-						module: mod.name,
-				  }
-				: {
-						name: module.lessons[0].name,
-						module: module.name,
-				  };
+			return {
+				name: mod.lessons[mod.lessons.length - 1].name,
+				module: mod,
+			};
 		} else {
 			return {
 				name: module!.lessons[
 					module.lessons.findIndex((lesson) => lesson.name == page) +
 						1
 				].name,
-				module: module!.name,
+				module: module,
 			};
 		}
 	}
@@ -69,18 +70,21 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 			mod = meta.modules[meta.modules.indexOf(mod) - 1];
 			return {
 				name: mod!.lessons[mod.lessons.length - 1].name,
-				module: mod!.name,
+				module: mod,
 			};
 		} else {
 			return {
 				name: mod!.lessons[
 					mod.lessons.findIndex((lesson) => lesson.name == page) - 1
 				].name,
-				module: mod!.name,
+				module: mod,
 			};
 		}
 	}
 	const [isOpen, setIsOpen] = useState(false);
+
+	const nextLesson = getNextLesson();
+	const previousLesson = getPreviousLesson();
 	return (
 		<>
 			<CoursesLayout
@@ -105,7 +109,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 									<a
 										target="_blank"
 										rel="noreferrer"
-										className="text-primary"
+										className="text-gradient hover:text-primary hover:bg-none"
 										{...props}
 									/>
 								),
@@ -145,26 +149,26 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 							}}
 						/>
 						<div className="flex flex-col-reverse w-full gap-4 my-8 justify-center sm:flex-row">
-							{getPreviousLesson() && (
+							{previousLesson && (
 								<Link
 									className="btn btn-primary flex-1"
 									href={`/courses/${meta.course}/${
-										getPreviousLesson()?.name || ""
+										previousLesson.name || ""
 									}`}
 								>
 									Previous Lesson:{" "}
-									{prettify(getPreviousLesson()?.name || "")}
+									{prettify(previousLesson.name || "")}
 								</Link>
 							)}
-							<Link
-								className="btn btn-primary flex-1"
-								href={`/courses/${meta.course}/${
-									getNextLesson().name
-								}`}
-								// onClick={nextPage}
-							>
-								Next Lesson: {prettify(getNextLesson().name)}
-							</Link>
+							{nextLesson && (
+								<Link
+									className="btn btn-primary flex-1"
+									href={`/courses/${meta.course}/${nextLesson.name}`}
+									// onClick={nextPage}
+								>
+									Next Lesson: {prettify(nextLesson.name)}
+								</Link>
+							)}
 						</div>
 					</article>
 				</div>

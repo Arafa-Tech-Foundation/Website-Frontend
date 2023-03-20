@@ -10,7 +10,7 @@ export default function Hero() {
 						data-content="Learn."
 						className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:px-2 before:bottom-0 before:left-0 before:text-center before:bg-white/25 before:bg-clip-text before:backdrop-blur-sm before:text-transparent before:animate-gradient-background-1 "
 					>
-						<span className="px-2 text-transparent bg-clip-text bg-gradient-to-r from-gradient-start to-gradient-end animate-gradient-foreground-1 text-shadow leading-none">
+						<span className="px-2 text-transparent text-gradient animate-gradient-foreground-1 text-shadow leading-none">
 							Learn.
 						</span>
 					</span>
@@ -18,7 +18,7 @@ export default function Hero() {
 						data-content="Develop."
 						className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:px-2 before:bottom-0 before:left-0 before:text-center before:bg-white/25 before:bg-clip-text before:backdrop-blur-sm before:text-transparent before:animate-gradient-background-2"
 					>
-						<span className="px-2 text-transparent bg-clip-text bg-gradient-to-r from-gradient-start to-gradient-end animate-gradient-foreground-2 text-shadow leading-none">
+						<span className="px-2 text-transparent text-gradient animate-gradient-foreground-2 text-shadow leading-none">
 							Develop.
 						</span>
 					</span>
@@ -26,7 +26,7 @@ export default function Hero() {
 						data-content="Succeed."
 						className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:px-2 before:bottom-0 before:left-0 before:text-center before:bg-white/25 before:bg-clip-text before:backdrop-blur-sm before:text-transparent before:animate-gradient-background-3"
 					>
-						<span className="px-2 text-transparent bg-clip-text bg-gradient-to-r from-gradient-start to-gradient-end animate-gradient-foreground-3 text-shadow leading-none">
+						<span className="px-2 text-transparent text-gradient animate-gradient-foreground-3 text-shadow leading-none">
 							Succeed.
 						</span>
 					</span>

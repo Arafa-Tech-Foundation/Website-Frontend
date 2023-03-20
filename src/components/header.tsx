@@ -121,7 +121,7 @@ function NavLink({
 	return (
 		<li>
 			<Link
-				className="transition hover:opacity-50 font-bold"
+				className="transition hover:text-secondary font-bold"
 				href={href}
 			>
 				{children}
