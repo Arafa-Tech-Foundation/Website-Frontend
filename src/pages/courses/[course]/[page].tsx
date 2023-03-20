@@ -30,12 +30,12 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 	if (!module) throw Error("Module not found");
 	function getNextLesson() {
 		if (
-			meta.modules.indexOf(module!) == 0 &&
+			meta.modules.indexOf(module) == meta.modules.length - 1 &&
 			module.lessons.findIndex((lesson) => lesson.name == page) ==
 				module.lessons.length - 1
 		)
 			return null;
-		console.log(module);
+
 		if (
 			module.lessons.findIndex((lesson) => lesson.name == page) ==
 			module.lessons.length - 1
@@ -44,7 +44,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 			const mod = meta.modules[meta.modules.indexOf(module!) + 1];
 			console.log(mod);
 			return {
-				name: mod.lessons[mod.lessons.length - 1].name,
+				name: mod.lessons[0].name,
 				module: mod,
 			};
 		} else {
@@ -85,6 +85,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 
 	const nextLesson = getNextLesson();
 	const previousLesson = getPreviousLesson();
+
 	return (
 		<>
 			<CoursesLayout

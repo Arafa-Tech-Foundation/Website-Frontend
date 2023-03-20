@@ -39,7 +39,9 @@ export default function CoursesView({
 								<h2 className="text-lg font-bold">
 									{courseMeta.title}
 								</h2>
-								<p className="text-sm">{courseMeta.description}</p>
+								<p className="text-sm">
+									{courseMeta.description}
+								</p>
 							</div>
 							<h3 className="whitespace-nowrap font-semibold pl-2">
 								{Math.round(courseMeta.minutes / 60)}{" "}
