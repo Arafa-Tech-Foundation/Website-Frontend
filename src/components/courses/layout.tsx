@@ -33,7 +33,7 @@ export default function CoursesLayout({
 	return (
 		<>
 			<header className="py-1 sm:py-3 px-4 flex sticky top-0 z-[999] bg-base-200 shadow-[0_5px_200px_-30px_hsl(var(--p))]">
-				<div className="flex items-center flex-1">
+				<a href="/" className="flex items-center flex-1">
 					<img
 						src="/logos/transparent/main.png"
 						className="max-w-[3em]"
@@ -42,7 +42,7 @@ export default function CoursesLayout({
 					<h1 className="text-2xl font-bold ml-2 hidden sm:block">
 						Arafa Tech
 					</h1>
-				</div>
+				</a>
 				<div className="flex justify-center items-center flex-1">
 					<img
 						src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${meta.course}/static/icon.svg`}
@@ -110,7 +110,7 @@ export default function CoursesLayout({
 						{meta.modules.map((module) => (
 							<section key={module.name}>
 								<div className="rounded-lg py-4 px-8 bg-base-300">
-									<p className="text-sm">
+									<p className="text-sm font-semibold">
 										{module.name.split(": ")[0]}
 									</p>
 									<h2 className="text-2xl font-bold text-primary">
