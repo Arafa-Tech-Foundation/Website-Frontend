@@ -10,8 +10,13 @@ html {
 	text-transform: unset;
 }
 
+.btn-primary {
+	background: linear-gradient(45deg, hsl(var(--p)), hsl(var(--s)));
+	border: none;
+}
+
 .btn-primary:hover {
-	background: hsl(var(--p));
+	background: linear-gradient(45deg, hsl(var(--p)), hsl(var(--s)));
 	box-shadow: 0 0 75px -20px hsl(var(--p));
 }
 
@@ -30,10 +35,4 @@ html {
 
 code[class*="hljs"] {
 	background: unset;
-}
-
-canvas {
-	position: absolute;
-	top: 64px;
-	z-index: -1;
 }

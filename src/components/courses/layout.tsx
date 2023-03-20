@@ -32,7 +32,7 @@ export default function CoursesLayout({
 
 	return (
 		<>
-			<header className="py-1 sm:py-3 px-4 flex sticky top-0 z-[999] bg-base-200 shadow-[0_5px_200px_-30px_hsl(var(--p))]">
+			<header className="py-1 sm:py-3 px-4 flex sticky top-0 z-[999] bg-base-200/75 backdrop-blur shadow-[0_5px_200px_-30px_hsl(var(--p))]">
 				<a href="/" className="flex items-center flex-1">
 					<img
 						src="/logos/transparent/main.png"
@@ -87,7 +87,7 @@ export default function CoursesLayout({
 
 			<aside
 				className={clsx(
-					"fixed top-[100px]  w-[calc(100vw-75px)] sm:w-[400px] max-w-full h-[calc(100vh-100px)] z-10 transition duration-500 ease-[cubic-bezier(0.5, 0, 0, 1)]",
+					"fixed top-[100px] w-[calc(100vw-75px)] sm:w-[400px] max-w-full h-[calc(100vh-100px)] z-10 transition duration-500 ease-[cubic-bezier(0.5, 0, 0, 1)]",
 					isOpen ? "translate-x-0" : "translate-x-[-100%]"
 				)}
 			>
@@ -102,14 +102,14 @@ export default function CoursesLayout({
 						className="h-[50%]"
 					/>
 				</button>
-				<div className="absolute left-[10px] bottom-[10px] w-[calc(100%-10px)] h-full overflow-hidden bg-base-200 rounded-lg">
+				<div className="absolute left-[10px] bottom-[10px] w-[calc(100%-10px)] h-full overflow-hidden bg-base-200/75 backdrop-blur rounded-lg">
 					<nav
 						className="absolute top-0 left-0 w-full h-full overflow-y-scroll hidden-scrollbar"
 						aria-label="Main Navigation"
 					>
 						{meta.modules.map((module) => (
 							<section key={module.name}>
-								<div className="rounded-lg py-4 px-8 bg-base-300">
+								<div className="rounded-lg py-4 px-8 bg-base-300/50 backdrop-blur">
 									<p className="text-sm font-semibold">
 										{module.name.split(": ")[0]}
 									</p>
