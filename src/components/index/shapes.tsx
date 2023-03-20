@@ -76,19 +76,19 @@ function draw(p5: p5types) {
 		}
 
 		// detect collision with other shapes
-		const collidedElement = shapes.find((s, index) => {
-			return (
-				Math.abs(shape.x - s.x) < shape.length + 7 &&
-				Math.abs(shape.y - s.y) < shape.length + 7 &&
-				shape.id != s.id
-			);
-		});
-		if (collidedElement) {
-			// collidedElement.velX *= -1;
-			// collidedElement.velY *= -1;
-			shape.velX *= -1;
-			shape.velY *= -1;
-		}
+		// const collidedElement = shapes.find((s) => {
+		// 	return (
+		// 		Math.abs(shape.x - s.x) < shape.length + 15 &&
+		// 		Math.abs(shape.y - s.y) < shape.length + 15 &&
+		// 		shape.id != s.id
+		// 	);
+		// });
+		// if (collidedElement) {
+		// 	collidedElement.velX *= -1;
+		// 	collidedElement.velY *= -1;
+		// 	shape.velX *= -1;
+		// 	shape.velY *= -1;
+		// }
 
 		// render shape according to geometry
 		switch (shape.geom) {
@@ -109,10 +109,13 @@ function draw(p5: p5types) {
 					98,
 					107
 				);
+
 				break;
 
 			case "circle":
-				p5.circle(shape.x, shape.y, shape.length);
+				p5.circle(shape.x, shape.y, shape.length).fill(238, 98, 107);
+
+				break;
 		}
 		shape.x += shape.velX;
 		shape.y += shape.velY;
@@ -120,6 +123,7 @@ function draw(p5: p5types) {
 }
 
 function mouseMove(event: p5types) {
+	console.log(event.mouseY);
 	// slow down shapes when hovering over them
 	shapes.forEach((shape) => {
 		const relativeX = shape.x + event.width / 2;
