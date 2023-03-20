@@ -11,6 +11,7 @@ import { CourseMeta, CourseModule, Matter } from "types";
 import Highlight from "react-highlight";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
+import { NextSeo } from "next-seo";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -115,6 +116,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 
 	return (
 		<>
+			<NextSeo title={prettify(page)} />
 			<CoursesLayout
 				isOpen={isOpen}
 				setIsOpen={setIsOpen}
