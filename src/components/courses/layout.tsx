@@ -162,7 +162,7 @@ export default function CoursesLayout({
 							</section>
 						))}
 					</nav>
-					<div className="shadow-overlay" />
+					<div className="shadow-overlay top-[67%] absolute w-full h-[33%] bg-gradient-to-t from-black/75 overflow-auto pointer-events-none" />
 				</div>
 			</aside>
 			<main className="px-4">{children}</main>
