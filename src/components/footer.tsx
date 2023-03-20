@@ -189,7 +189,7 @@ export default function Footer() {
 				</div>
 				<div className="flex justify-between text-xs">
 					<p>
-						© {new Date().getFullYear()}. Arafa Tech Foundation. All
+						© {new Date().getFullYear()}. Arafa Tech Foundation, a 501(c)(3) non-profit. All
 						rights reserved.
 					</p>
 					<p>8 The Green, Dover, DE 1990 | EIN: 92-2523850</p>
