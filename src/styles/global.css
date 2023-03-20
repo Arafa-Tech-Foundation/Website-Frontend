@@ -31,3 +31,9 @@ html {
 code[class*="hljs"] {
 	background: unset;
 }
+
+canvas {
+	position: absolute;
+	top: 64px;
+	z-index: -1;
+}

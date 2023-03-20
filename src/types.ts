@@ -19,6 +19,20 @@ type Lesson = {
 	video: string;
 };
 
+type Shape = {
+	x: number;
+	y: number;
+	slowVelX: number;
+	slowVelY: number;
+	defaultVelX: number;
+	defaultVelY: number;
+	velX: number;
+	velY: number;
+	geom: string;
+	length: number;
+	id: number;
+};
+
 type Matter = {};
 
-export type { CourseMeta, CourseModule, Matter };
+export type { CourseMeta, CourseModule, Matter, Shape };
