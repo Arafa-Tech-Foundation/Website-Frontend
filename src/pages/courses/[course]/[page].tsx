@@ -86,6 +86,30 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 	const nextLesson = getNextLesson();
 	const previousLesson = getPreviousLesson();
 
+	const [videos, setVideos] = useState<{ name: string; duration: number }[]>(
+		[]
+	);
+	meta.modules?.forEach((module) => {
+		module.lessons?.forEach((lesson) => {
+			if (!lesson.video) return;
+			if (typeof window === "undefined") return;
+
+			const video = document.createElement("video");
+			video.src = `https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lesson.video}`;
+			console.log(video);
+
+			video.onloadedmetadata = () => {
+				if (videos.find((video) => video.name == lesson.video)) return;
+				setVideos((videos) => [
+					...videos,
+					{
+						name: lesson.video,
+						duration: Math.round(video.duration),
+					},
+				]);
+			};
+		});
+	});
 	return (
 		<>
 			<CoursesLayout
@@ -93,6 +117,7 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 				setIsOpen={setIsOpen}
 				meta={meta}
 				matter={matter}
+				videos={videos}
 			>
 				<div className="flex flex-col justify-center items-center">
 					{lessonVideo && (

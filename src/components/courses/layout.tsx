@@ -14,11 +14,14 @@ export default function CoursesLayout({
 	children,
 	isOpen,
 	setIsOpen,
+	videos,
+
 	meta,
 }: {
 	children: React.ReactNode;
 	isOpen: boolean;
 	setIsOpen: Dispatch<SetStateAction<boolean>>;
+	videos: { name: string; duration: number }[];
 	meta: CourseMeta;
 	matter: Matter;
 }) {
@@ -30,6 +33,7 @@ export default function CoursesLayout({
 
 	const router = useRouter();
 
+	console.log(videos);
 	return (
 		<>
 			<header className="py-1 sm:py-3 px-4 flex sticky top-0 z-[999] bg-base-200/75 backdrop-blur shadow-[0_5px_200px_-30px_hsl(var(--p))]">
@@ -135,7 +139,25 @@ export default function CoursesLayout({
 												lesson.name
 											)}`}
 										</span>
-										<span>04:42</span>
+										{lesson.video && (
+											<span>
+												{(() => {
+													const duration =
+														videos.find(
+															(video) =>
+																video.name ===
+																lesson.video
+														)?.duration;
+													if (!duration)
+														return "00:00";
+													const date = new Date(0);
+													date.setSeconds(duration);
+													return date
+														.toISOString()
+														.substring(14, 19);
+												})()}
+											</span>
+										)}
 									</Link>
 								))}
 							</section>
