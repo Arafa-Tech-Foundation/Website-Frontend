@@ -34,9 +34,10 @@ export default function Hero() {
 				</h1>
 
 				<p className="sm:text-sm md:text-md lg:text-lg xl:text-2xl w-full max-w-6xl text-center bg-white/60 bg-clip-text text-transparent">
-					Arafa Tech is a 501(c)(3) non-profit organization that provides coding
-					education and mentorship to underprivileged students,
-					empowering them with technical skills for the future.
+					Arafa Tech is a 501(c)(3) non-profit organization that
+					provides coding education and mentorship to underprivileged
+					students, empowering them with technical skills for the
+					future.
 				</p>
 				<button
 					className="btn btn-wide btn-primary"
