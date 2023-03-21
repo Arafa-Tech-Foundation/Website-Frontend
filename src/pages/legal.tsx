@@ -15,7 +15,7 @@ export default function Legal() {
 								key={document.href}
 								href={document.href}
 								target="_blank"
-								className="grid-item bg-primary text-primary-content px-4 py-2 rounded hover:scale-105 cursor-pointer transition"
+								className="grid-item bg-gradient-to-r from-primary to-secondary text-center text-primary-content px-4 py-2 rounded hover:scale-105 cursor-pointer transition"
 							>
 								<h1 className="text-2xl">{document.title}</h1>
 							</a>
@@ -35,6 +35,10 @@ const documents = [
 	{
 		title: "Bylaws",
 		href: "/documents/bylaws.pdf",
+	},
+	{
+		title: "501(c)(3) Determination Letter",
+		href: "/documents/501c3.pdf",
 	},
 	{
 		title: "EIN",
