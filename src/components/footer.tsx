@@ -203,7 +203,7 @@ const icons = [
 	{
 		name: "Discord",
 		icon: faDiscord,
-		href: "https://discord.gg/6Z2Y4Z2",
+		href: "/discord",
 	},
 	{
 		name: "Instagram",
