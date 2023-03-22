@@ -9,12 +9,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Why() {
 	return (
 		<Section>
+			<svg
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+				className="svg-settings w-0 h-0"
+			>
+				<defs>
+					<linearGradient id="linear">
+						<stop
+							style={{
+								stopColor: "hsl(var(--p))",
+							}}
+							offset="0%"
+						/>
+						<stop
+							style={{
+								stopColor: "hsl(var(--s))",
+							}}
+							offset="100%"
+						/>
+					</linearGradient>
+				</defs>
+			</svg>
 			<h2 className="text-center text-4xl mb-20">Why Arafa Tech?</h2>
 			<div className="flex flex-1">
 				<div className="flex gap-10">
 					<div className="flex flex-col justify-between">
 						{sections.map((section, index) => (
-							<div className="flex flex-col justify-center items-center">
+							<div
+								key={section.description}
+								className="flex flex-col justify-center items-center"
+							>
 								{index == sections.length - 1 && (
 									<div className="bg-primary-content w-1 h-full" />
 								)}
@@ -22,10 +47,7 @@ export default function Why() {
 									<div className="flex-1 bg-primary-content w-1" />
 								)}
 								<div className="flex items-center gap-4">
-									<div
-										key={section.description}
-										className="flex items-center justify-center w-16 h-16 rounded-full text-primary-content bg-gradient-to-r from-primary to-secondary shadow-[0_0px_20px_-2.5px_hsl(var(--p))]"
-									>
+									<div className="flex items-center justify-center w-16 h-16 rounded-full text-primary-content bg-gradient-to-r from-primary to-secondary shadow-[0_0px_20px_-2.5px_hsl(var(--p))]">
 										{index + 1}
 									</div>
 								</div>
@@ -38,6 +60,7 @@ export default function Why() {
 							</div>
 						))}
 					</div>
+
 					<div className="flex flex-col gap-8">
 						{sections.map((section) => (
 							<div
@@ -47,7 +70,7 @@ export default function Why() {
 								<FontAwesomeIcon
 									icon={section.icon}
 									size="3x"
-									className=""
+									fill="url(#linear)"
 								/>
 								<h3 className="bold text-3xl ">
 									{section.title}
@@ -59,7 +82,7 @@ export default function Why() {
 						))}
 					</div>
 				</div>
-				<div className="flex-1">
+				<div className="flex flex-1">
 					<img src="/logos/main.png" alt="Why Arafa Tech" />
 				</div>
 			</div>
@@ -72,7 +95,10 @@ const sections = [
 		title: (
 			<>
 				Learn From Our{" "}
-				<span className="text-gradient text-shadow">Free</span> Courses
+				<span className="text-gradient text-shadow font-bold">
+					Free
+				</span>{" "}
+				Courses
 			</>
 		),
 		description:
@@ -82,7 +108,10 @@ const sections = [
 	{
 		title: (
 			<>
-				Place <span className="text-gradient">Holder</span>
+				Place{" "}
+				<span className="text-gradient text-shadow font-bold">
+					Holder
+				</span>
 			</>
 		),
 		description:
@@ -92,7 +121,10 @@ const sections = [
 	{
 		title: (
 			<>
-				Place <span className="text-gradient">Holder</span>
+				Place{" "}
+				<span className="text-gradient text-shadow font-bold">
+					Holder
+				</span>
 			</>
 		),
 		description:
