@@ -1,8 +1,8 @@
 import Section from "@components/section";
-import Learn from "./learn";
-import Develop from "./develop";
-import Succeed from "./succeed";
 import clsx from "clsx";
+import Develop from "./develop";
+import Learn from "./learn";
+import Succeed from "./succeed";
 
 const sections = [1, 2, 3];
 
@@ -46,10 +46,11 @@ export default function ThreeSections() {
 						))}
 					</div>
 				</div>
-				<div>
+				<div className="w-full">
 					<h2 className="text-center text-lg">Why Arafa Tech?</h2>
 					<div className="flex flex-col gap-20">
 						<Learn />
+
 						<Develop />
 						<Succeed />
 					</div>
@@ -59,7 +60,13 @@ export default function ThreeSections() {
 	);
 }
 
-function Bubble({ selected = false, children = 0 }) {
+export function Bubble({
+	selected = false,
+	children = "1",
+}: {
+	selected?: boolean;
+	children?: React.ReactNode;
+}) {
 	return (
 		<div className="flex items-center">
 			<div
@@ -72,6 +79,17 @@ function Bubble({ selected = false, children = 0 }) {
 			>
 				{children}
 			</div>
+		</div>
+	);
+}
+
+export function BubbleTitle({ number = "0", title = "Learn" }) {
+	return (
+		<div className="flex flex-col items-center justify-center mb-10 mt-3">
+			<Bubble selected>{number}</Bubble>
+			<h1 className="text-5xl text-gradient text-shadow-sm font-bold mt-4">
+				{title}
+			</h1>
 		</div>
 	);
 }

@@ -4,6 +4,7 @@ import {
 	faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { BubbleTitle } from "./3 steps";
 
 export default function Learn() {
 	return (
@@ -30,6 +31,7 @@ export default function Learn() {
 					</linearGradient>
 				</defs>
 			</svg> */}
+			<BubbleTitle number="1" title="Learn" />
 
 			<div className="flex flex-1">
 				<div className="flex flex-col gap-8">
@@ -40,16 +42,14 @@ export default function Learn() {
 								size="3x"
 								fill="url(#linear)"
 							/>
-							<h3 className="bold text-3xl ">{section.title}</h3>
+							<h2 className="bold text-3xl">{section.title}</h2>
 							<p className="max-w-[60ch] font-light">
 								{section.description}
 							</p>
 						</div>
 					))}
 				</div>
-				<div className="flex flex-1">
-					<img src="/logos/main.png" alt="Why Arafa Tech" />
-				</div>
+				<div className="flex flex-1"></div>
 			</div>
 		</div>
 	);
@@ -60,7 +60,7 @@ const sections = [
 		title: (
 			<>
 				Learn From Our{" "}
-				<span className="text-gradient text-shadow font-bold">
+				<span className="text-gradient text-shadow-sm font-bold">
 					Free
 				</span>{" "}
 				Courses
@@ -74,7 +74,7 @@ const sections = [
 		title: (
 			<>
 				Place{" "}
-				<span className="text-gradient text-shadow font-bold">
+				<span className="text-gradient text-shadow-sm font-bold">
 					Holder
 				</span>
 			</>
@@ -87,7 +87,7 @@ const sections = [
 		title: (
 			<>
 				Place{" "}
-				<span className="text-gradient text-shadow font-bold">
+				<span className="text-gradient text-shadow-sm font-bold">
 					Holder
 				</span>
 			</>

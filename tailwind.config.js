@@ -14,7 +14,7 @@ module.exports = {
 			textShadow: {
 				DEFAULT: "hsl(var(--p)) 0 0 75px",
 				footer: "hsl(var(--p)) 0 0 10px",
-				sm: "#000 0 0 10px",
+				sm: "hsl(var(--p)) 0 0 40px",
 			},
 			gradientColorStops: {
 				"gradient-start": "hsl(var(--p))",
