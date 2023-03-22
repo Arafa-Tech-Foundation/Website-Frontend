@@ -7,10 +7,10 @@ export default function HomeLayout({
 	children?: React.ReactNode;
 }) {
 	return (
-		<>
+		<div className="min-h-screen relative w-full">
 			<Header />
 			{children}
 			<Footer />
-		</>
+		</div>
 	);
 }

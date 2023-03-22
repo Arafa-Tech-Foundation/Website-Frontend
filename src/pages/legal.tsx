@@ -9,7 +9,7 @@ export default function Legal() {
 			<HomeLayout>
 				<Section>
 					<h1 className="text-3xl text-center mb-10">Legal</h1>
-					<div className="grid grid-cols-3 gap-4 py-10">
+					<div className="flex flex-col gap-4 md:grid md:grid-cols-3">
 						{documents.map((document) => (
 							<a
 								key={document.href}

@@ -11,7 +11,7 @@ export default function Footer() {
 	return (
 		<footer
 			aria-label="Site Footer"
-			className="bg-base shadow-[0_5px_300px_-100px_hsl(var(--p))] border-primary"
+			className="bg-base shadow-[0_5px_300px_-100px_hsl(var(--p))] border-primary relative bottom-0 w-full"
 		>
 			<div className="max-w-screen-xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8">
 				<div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -189,8 +189,8 @@ export default function Footer() {
 				</div>
 				<div className="flex justify-between text-xs">
 					<p>
-						© {new Date().getFullYear()}. Arafa Tech Foundation, a 501(c)(3) non-profit. All
-						rights reserved.
+						© {new Date().getFullYear()}. Arafa Tech Foundation, a
+						501(c)(3) non-profit. All rights reserved.
 					</p>
 					<p>8 The Green, Dover, DE 1990 | EIN: 92-2523850</p>
 				</div>
