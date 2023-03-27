@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
-export const GA_TRACKING_ID = "";
+export const GA_TRACKING_ID = "G-KKLVRHN6XP";
 
 export default function Document() {
 	return (
