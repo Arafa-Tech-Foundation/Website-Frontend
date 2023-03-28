@@ -241,7 +241,6 @@ export async function getStaticProps({
 
 	const { content, data } = matter(markdown);
 
-	// TODO: add code highlighting plugin
 	const source = await serialize(content);
 
 	return {
@@ -271,6 +270,8 @@ export async function getStaticPaths() {
 			params: { course, page: page.replace(".mdx", "") },
 		}));
 	});
+
+	console.log(paths);
 
 	return {
 		paths,

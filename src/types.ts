@@ -9,6 +9,13 @@ type CourseMeta = {
 	minutes: number; // in minutes (not seconds) :0
 };
 
+type BlogMatter = {
+	title: string;
+	description: string;
+	author: string;
+	date: number; // unix
+};
+
 type CourseModule = {
 	name: string;
 	lessons: Lesson[];
@@ -33,6 +40,7 @@ type Shape = {
 	id: number;
 };
 
+// this is a type that is used in the course page to read the meta data of the markdown file
 type Matter = {};
 
-export type { CourseMeta, CourseModule, Matter, Shape };
+export type { CourseMeta, CourseModule, Matter, Shape, Lesson, BlogMatter };
