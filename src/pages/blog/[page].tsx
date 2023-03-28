@@ -16,6 +16,7 @@ type Blog = {
 };
 
 export default function BlogPost({ source, matter, page }: Blog) {
+	console.log(matter)
 	return (
 		<>
 			<NextSeo title={prettifyName(page)} />
