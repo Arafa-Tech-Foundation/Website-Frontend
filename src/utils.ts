@@ -64,7 +64,7 @@ export function getNextLesson(
 	}
 }
 
-export function prettifyLessonName(str: string) {
+export function prettifyName(str: string) {
 	return str
 		.split("_")
 		.map((word) => word[0].toUpperCase() + word.slice(1))

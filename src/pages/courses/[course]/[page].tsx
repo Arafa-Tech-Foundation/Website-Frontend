@@ -1,3 +1,6 @@
+import A from "@components/blog/a";
+import Code from "@components/blog/code";
+import Pre from "@components/blog/pre";
 import CoursesLayout from "@components/courses/layout";
 import { getFolderContents } from "@pages/api/courses/folder";
 import { getRepositoryFolders } from "@pages/api/courses/repository";
@@ -5,14 +8,11 @@ import axios from "axios";
 import { imageUrl } from "config";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import Link from "next/link";
-import { CourseMeta, CourseModule } from "types";
-import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
-import { getNextLesson, getPreviousLesson, prettifyLessonName } from "utils";
-import A from "@components/blog/a";
-import Pre from "@components/blog/pre";
-import Code from "@components/blog/code";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { CourseMeta, CourseModule } from "types";
+import { getNextLesson, getPreviousLesson, prettifyName } from "utils";
 
 type Course = {
 	source: MDXRemoteProps;
@@ -64,7 +64,7 @@ export default function CoursePage({ source, meta, page }: Course) {
 
 	return (
 		<>
-			<NextSeo title={prettifyLessonName(page)} />
+			<NextSeo title={prettifyName(page)} />
 			<CoursesLayout
 				isOpen={isOpen}
 				setIsOpen={setIsOpen}
@@ -97,9 +97,7 @@ export default function CoursePage({ source, meta, page }: Course) {
 									}`}
 								>
 									Previous Lesson:{" "}
-									{prettifyLessonName(
-										previousLesson.name || ""
-									)}
+									{prettifyName(previousLesson.name || "")}
 								</Link>
 							)}
 							{nextLesson && (
@@ -108,8 +106,7 @@ export default function CoursePage({ source, meta, page }: Course) {
 									href={`/courses/${meta.course}/${nextLesson.name}`}
 									// onClick={nextPage}
 								>
-									Next Lesson:{" "}
-									{prettifyLessonName(nextLesson.name)}
+									Next Lesson: {prettifyName(nextLesson.name)}
 								</Link>
 							)}
 						</div>

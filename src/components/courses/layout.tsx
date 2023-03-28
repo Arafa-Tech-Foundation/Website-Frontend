@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
 
 import { CourseMeta } from "types";
-import { prettifyLessonName } from "utils";
+import { prettifyName } from "utils";
 
 export default function CoursesLayout({
 	children,
@@ -133,9 +133,7 @@ export default function CoursesLayout({
 										onClick={() => setIsOpen(false)}
 									>
 										<span className="flex-1">
-											{`Lesson ${
-												i + 1
-											}: ${prettifyLessonName(
+											{`Lesson ${i + 1}: ${prettifyName(
 												lesson.name
 											)}`}
 										</span>

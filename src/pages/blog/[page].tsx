@@ -1,13 +1,13 @@
+import HomeLayout from "@components/layout";
 import { getRepositoryFolders } from "@pages/api/blog/repository";
 import axios from "axios";
 import { imageUrl } from "config";
 import matter from "gray-matter";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import { BlogMatter } from "types";
 import { NextSeo } from "next-seo";
-import HomeLayout from "@components/layout";
-import { prettify } from "@pages/courses/[course]/[page]";
+import { BlogMatter } from "types";
+import { prettifyName } from "utils";
 
 type Blog = {
 	source: MDXRemoteProps;
@@ -18,7 +18,7 @@ type Blog = {
 export default function BlogPost({ source, matter, page }: Blog) {
 	return (
 		<>
-			<NextSeo title={prettify(page)} />
+			<NextSeo title={prettifyName(page)} />
 			<HomeLayout>
 				<article className="prose mx-auto my-8">
 					<MDXRemote {...source} />
