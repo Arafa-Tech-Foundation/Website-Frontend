@@ -1,14 +1,14 @@
 import Loading from "@components/auth/loading";
 import { faArrowLeft, faBars, faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { prettify } from "@pages/courses/[course]/[page]";
 import clsx from "clsx";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
 
-import { CourseMeta, Matter } from "types";
+import { CourseMeta } from "types";
+import { prettifyLessonName } from "utils";
 
 export default function CoursesLayout({
 	children,
@@ -23,7 +23,6 @@ export default function CoursesLayout({
 	setIsOpen: Dispatch<SetStateAction<boolean>>;
 	videos: { name: string; duration: number }[];
 	meta: CourseMeta;
-	matter: Matter;
 }) {
 	const { data: session, status } = useSession();
 	if (status === "loading") {
@@ -134,7 +133,9 @@ export default function CoursesLayout({
 										onClick={() => setIsOpen(false)}
 									>
 										<span className="flex-1">
-											{`Lesson ${i + 1}: ${prettify(
+											{`Lesson ${
+												i + 1
+											}: ${prettifyLessonName(
 												lesson.name
 											)}`}
 										</span>

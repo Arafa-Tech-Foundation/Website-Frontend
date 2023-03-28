@@ -3,24 +3,25 @@ import { getFolderContents } from "@pages/api/courses/folder";
 import { getRepositoryFolders } from "@pages/api/courses/repository";
 import axios from "axios";
 import { imageUrl } from "config";
-import matter from "gray-matter";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Link from "next/link";
-import { CourseMeta, CourseModule, Matter } from "types";
-import Highlight from "react-highlight";
-import clsx from "clsx";
+import { CourseMeta, CourseModule } from "types";
 import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
+import { getNextLesson, getPreviousLesson, prettifyLessonName } from "utils";
+import A from "@components/blog/a";
+import Pre from "@components/blog/pre";
+import Code from "@components/blog/code";
 
 type Course = {
 	source: MDXRemoteProps;
 	meta: CourseMeta;
-	matter: Matter; // TODO: add matter type
+
 	page: string;
 };
 
-export default function CoursePage({ source, meta, matter, page }: Course) {
+export default function CoursePage({ source, meta, page }: Course) {
 	const lessonVideo = meta.modules
 		.flatMap((module) => module.lessons.map((lesson) => lesson))
 		.find((lesson) => lesson.name === page)?.video;
@@ -28,64 +29,11 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 	const module = meta.modules.find((mod) =>
 		mod.lessons.find((lesson) => lesson.name == page)
 	) as CourseModule;
-	if (!module) throw Error("Module not found");
-	function getNextLesson() {
-		if (
-			meta.modules.indexOf(module) == meta.modules.length - 1 &&
-			module.lessons.findIndex((lesson) => lesson.name == page) ==
-				module.lessons.length - 1
-		)
-			return null;
 
-		if (
-			module.lessons.findIndex((lesson) => lesson.name == page) ==
-			module.lessons.length - 1
-		) {
-			// go to first lesson of next mod
-			const mod = meta.modules[meta.modules.indexOf(module!) + 1];
-
-			return {
-				name: mod.lessons[0].name,
-				module: mod,
-			};
-		} else {
-			return {
-				name: module!.lessons[
-					module.lessons.findIndex((lesson) => lesson.name == page) +
-						1
-				].name,
-				module: module,
-			};
-		}
-	}
-
-	function getPreviousLesson() {
-		if (
-			meta.modules.indexOf(module!) == 0 &&
-			module.lessons.findIndex((lesson) => lesson.name == page) == 0
-		)
-			return null;
-		let mod = module;
-		if (module.lessons.findIndex((lesson) => lesson.name == page) == 0) {
-			// go to last lesson of previous mod
-			mod = meta.modules[meta.modules.indexOf(mod) - 1];
-			return {
-				name: mod!.lessons[mod.lessons.length - 1].name,
-				module: mod,
-			};
-		} else {
-			return {
-				name: mod!.lessons[
-					mod.lessons.findIndex((lesson) => lesson.name == page) - 1
-				].name,
-				module: mod,
-			};
-		}
-	}
 	const [isOpen, setIsOpen] = useState(false);
 
-	const nextLesson = getNextLesson();
-	const previousLesson = getPreviousLesson();
+	const nextLesson = getNextLesson(meta, module, page);
+	const previousLesson = getPreviousLesson(meta, module, page);
 
 	const [videos, setVideos] = useState<{ name: string; duration: number }[]>(
 		[]
@@ -116,12 +64,11 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 
 	return (
 		<>
-			<NextSeo title={prettify(page)} />
+			<NextSeo title={prettifyLessonName(page)} />
 			<CoursesLayout
 				isOpen={isOpen}
 				setIsOpen={setIsOpen}
 				meta={meta}
-				matter={matter}
 				videos={videos}
 			>
 				<div className="flex flex-col justify-center items-center">
@@ -136,47 +83,9 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 						<MDXRemote
 							{...source}
 							components={{
-								a: (props) => (
-									<a
-										target="_blank"
-										rel="noreferrer"
-										className="text-gradient hover:text-primary hover:bg-none"
-										{...props}
-									/>
-								),
-								pre: (props) => {
-									// @ts-ignore
-									props = props.children.props;
-									const language =
-										props.className?.replace(
-											"language-",
-											""
-										) ?? "plaintext";
-
-									return (
-										<pre
-											className={clsx(
-												props.className,
-												"p-0"
-											)}
-											tabIndex={0}
-										>
-											<Highlight
-												className={clsx(
-													`language-${language}`
-												)}
-											>
-												{props.children}
-											</Highlight>
-										</pre>
-									);
-								},
-								code: (props) => (
-									<span
-										className="bg-primary font-semibold text-primary-content px-1 py-0.5 rounded"
-										{...props}
-									/>
-								),
+								a: (props) => <A {...props} />,
+								pre: (props) => <Pre {...props} />,
+								code: (props) => <Code {...props} />,
 							}}
 						/>
 						<div className="flex flex-col-reverse w-full gap-4 my-8 justify-center sm:flex-row">
@@ -188,7 +97,9 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 									}`}
 								>
 									Previous Lesson:{" "}
-									{prettify(previousLesson.name || "")}
+									{prettifyLessonName(
+										previousLesson.name || ""
+									)}
 								</Link>
 							)}
 							{nextLesson && (
@@ -197,7 +108,8 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 									href={`/courses/${meta.course}/${nextLesson.name}`}
 									// onClick={nextPage}
 								>
-									Next Lesson: {prettify(nextLesson.name)}
+									Next Lesson:{" "}
+									{prettifyLessonName(nextLesson.name)}
 								</Link>
 							)}
 						</div>
@@ -206,13 +118,6 @@ export default function CoursePage({ source, meta, matter, page }: Course) {
 			</CoursesLayout>
 		</>
 	);
-}
-
-export function prettify(str: string) {
-	return str
-		.split("_")
-		.map((word) => word[0].toUpperCase() + word.slice(1))
-		.join(" ");
 }
 
 export async function getStaticProps({
@@ -239,16 +144,13 @@ export async function getStaticProps({
 	// replace relative image paths with absolute paths
 	const markdown = res.data.replaceAll('src="./', `src="${imageUrl}`);
 
-	const { content, data } = matter(markdown);
-
 	// TODO: add code highlighting plugin
-	const source = await serialize(content);
+	const source = await serialize(markdown);
 
 	return {
 		props: {
 			source,
 			meta,
-			matter: data,
 			page: params.page,
 		},
 		revalidate: 60 * 60,
