@@ -192,7 +192,7 @@ export default function Footer() {
 						© {new Date().getFullYear()}. Arafa Tech Foundation, a
 						501(c)(3) non-profit. All rights reserved.
 					</p>
-					<p>8 The Green, Dover, DE 1990 | EIN: 92-2523850</p>
+					<p>8 The Green, Dover, DE 19901 | EIN: 92-2523850</p>
 				</div>
 			</div>
 		</footer>
