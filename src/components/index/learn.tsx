@@ -9,29 +9,7 @@ import { BubbleTitle } from "./3 steps";
 export default function Learn() {
 	return (
 		<div className="flex flex-col">
-			{/* <svg
-				version="1.1"
-				xmlns="http://www.w3.org/2000/svg"
-				className="svg-settings w-0 h-0"
-			>
-				<defs>
-					<linearGradient id="linear">
-						<stop
-							style={{
-								stopColor: "hsl(var(--p))",
-							}}
-							offset="0%"
-						/>
-						<stop
-							style={{
-								stopColor: "hsl(var(--s))",
-							}}
-							offset="100%"
-						/>
-					</linearGradient>
-				</defs>
-			</svg> */}
-			<BubbleTitle number="1" title="Learn" />
+			<BubbleTitle title="Learn" />
 
 			<div className="flex flex-1">
 				<div className="flex flex-col gap-8">
@@ -40,16 +18,18 @@ export default function Learn() {
 							<FontAwesomeIcon
 								icon={section.icon}
 								size="3x"
-								fill="url(#linear)"
+								className="text-primary"
+								/* TODO: Make the icon background gradient */
 							/>
-							<h2 className="bold text-3xl">{section.title}</h2>
+							<h2 className="font-semibold h3 uppercase tracking-[0.2em]">
+								{section.title}
+							</h2>
 							<p className="max-w-[60ch] font-light">
 								{section.description}
 							</p>
 						</div>
 					))}
 				</div>
-				<div className="flex flex-1"></div>
 			</div>
 		</div>
 	);

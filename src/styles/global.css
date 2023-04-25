@@ -36,3 +36,68 @@ html {
 code[class*="hljs"] {
 	background: unset;
 }
+
+.transparent-fade {
+	-webkit-mask-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		from(rgba(0, 0, 0, 0.05)),
+		to(rgba(0, 0, 0, 0))
+	);
+	mask-image: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.05),
+		rgba(0, 0, 0, 0)
+	);
+}
+
+.text-glow {
+	@apply text-transparent text-gradient text-shadow-sm leading-none;
+}
+
+.background-glow {
+	@apply bg-transparent bg-gradient-to-b from-transparent to-black;
+}
+
+.h0 {
+	@apply text-3xl md:text-5xl;
+}
+
+.h1 {
+	@apply text-2xl md:text-4xl;
+}
+
+.h2 {
+	@apply text-xl md:text-3xl;
+}
+
+.h3 {
+	@apply text-lg md:text-2xl;
+}
+
+.h4 {
+	@apply text-base md:text-lg;
+}
+
+.h5 {
+	@apply text-sm md:text-base;
+}
+
+.h6 {
+	@apply text-xs md:text-sm;
+}
+
+.text-glass {
+	/* Text Glass Efffect */
+	background: linear-gradient(
+		104.02deg,
+		rgba(255, 255, 255, 0.4) -7.31%,
+		#ffffff -7.3%,
+		rgba(255, 255, 255, 0.4) 112.94%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}

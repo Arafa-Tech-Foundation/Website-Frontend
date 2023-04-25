@@ -9,29 +9,7 @@ import { BubbleTitle } from "./3 steps";
 export default function Develop() {
 	return (
 		<div className="flex flex-col">
-			{/* <svg
-				version="1.1"
-				xmlns="http://www.w3.org/2000/svg"
-				className="svg-settings w-0 h-0"
-			>
-				<defs>
-					<linearGradient id="linear">
-						<stop
-							style={{
-								stopColor: "hsl(var(--p))",
-							}}
-							offset="0%"
-						/>
-						<stop
-							style={{
-								stopColor: "hsl(var(--s))",
-							}}
-							offset="100%"
-						/>
-					</linearGradient>
-				</defs>
-			</svg> */}
-			<BubbleTitle number="2" title="Develop" />
+			<BubbleTitle title="Develop" />
 
 			<div className="flex flex-1">
 				<div className="flex flex-1"></div>

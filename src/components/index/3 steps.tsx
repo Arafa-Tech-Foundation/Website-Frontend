@@ -47,10 +47,11 @@ export default function ThreeSections() {
 					</div>
 				</div>
 				<div className="w-full">
-					<h2 className="text-center text-lg">Why Arafa Tech?</h2>
+					<h2 className="text-center text-glass text-lg uppercase tracking-[0.2em] font-semibold">
+						Why Arafa Tech?
+					</h2>
 					<div className="flex flex-col gap-20">
 						<Learn />
-
 						<Develop />
 						<Succeed />
 					</div>
@@ -83,12 +84,11 @@ export function Bubble({
 	);
 }
 
-export function BubbleTitle({ number = "0", title = "Learn" }) {
+export function BubbleTitle({ title = "Learn" }) {
 	return (
 		<div className="flex flex-col items-center justify-center mb-10 mt-3">
-			<Bubble selected>{number}</Bubble>
 			<h1 className="text-5xl text-gradient text-shadow-sm font-bold mt-4">
-				{title}
+				{title}.
 			</h1>
 		</div>
 	);
