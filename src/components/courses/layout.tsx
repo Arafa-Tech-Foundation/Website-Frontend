@@ -47,7 +47,7 @@ export default function CoursesLayout({
 				</a>
 				<div className="flex justify-center items-center flex-1">
 					<img
-						src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${meta.course}/static/icon.svg`}
+						src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${meta.name}/static/icon.svg`}
 						className="max-w-[3em]"
 						alt="Course Icon"
 					/>
@@ -122,7 +122,7 @@ export default function CoursesLayout({
 								{module.lessons.map((lesson, i) => (
 									<Link
 										key={lesson.name}
-										href={`/courses/${meta.course}/${lesson.name}`}
+										href={`/courses/${meta.name}/${lesson.name}`}
 										className={clsx(
 											"flex items-center hover:bg-gradient-to-r from-primary to-secondary hover:text-primary-content my-1 py-4 px-4 rounded",
 											router.asPath.includes(

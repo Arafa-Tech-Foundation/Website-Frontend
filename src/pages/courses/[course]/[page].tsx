@@ -45,7 +45,7 @@ export default function CoursePage({ source, meta, page }: Course) {
 				if (typeof window === "undefined") return;
 
 				const video = document.createElement("video");
-				video.src = `https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lesson.video}`;
+				video.src = `https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.name}/static/${lesson.video}`;
 
 				video.onloadedmetadata = () => {
 					if (videos.find((video) => video.name == lesson.video))
@@ -74,7 +74,7 @@ export default function CoursePage({ source, meta, page }: Course) {
 				<div className="flex flex-col justify-center items-center">
 					{lessonVideo && (
 						<video
-							src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.course}/static/${lessonVideo}`}
+							src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.name}/static/${lessonVideo}`}
 							className="max-h-[calc(100vh-100px)] h-full"
 							controls
 						/>
@@ -92,7 +92,7 @@ export default function CoursePage({ source, meta, page }: Course) {
 							{previousLesson && (
 								<Link
 									className="btn btn-primary flex-1"
-									href={`/courses/${meta.course}/${
+									href={`/courses/${meta.name}/${
 										previousLesson.name || ""
 									}`}
 								>
@@ -103,7 +103,7 @@ export default function CoursePage({ source, meta, page }: Course) {
 							{nextLesson && (
 								<Link
 									className="btn btn-primary flex-1"
-									href={`/courses/${meta.course}/${nextLesson.name}`}
+									href={`/courses/${meta.name}/${nextLesson.name}`}
 									// onClick={nextPage}
 								>
 									Next Lesson: {prettifyName(nextLesson.name)}

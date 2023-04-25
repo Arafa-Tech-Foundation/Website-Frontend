@@ -1,6 +1,6 @@
 type CourseMeta = {
-	course: string;
-	type: string;
+	name: string;
+	type: "essential" | "application";
 	languages: string[];
 	level: string;
 	modules: CourseModule[];
