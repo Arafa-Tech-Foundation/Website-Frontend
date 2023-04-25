@@ -1,99 +1,28 @@
-import {
-	faBell,
-	faMagnifyingGlass,
-	faUser,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BubbleTitle } from "./3 steps";
 
 export default function Succeed() {
 	return (
 		<div className="flex flex-col">
-			{/* <svg
-				version="1.1"
-				xmlns="http://www.w3.org/2000/svg"
-				className="svg-settings w-0 h-0"
-			>
-				<defs>
-					<linearGradient id="linear">
-						<stop
-							style={{
-								stopColor: "hsl(var(--p))",
-							}}
-							offset="0%"
-						/>
-						<stop
-							style={{
-								stopColor: "hsl(var(--s))",
-							}}
-							offset="100%"
-						/>
-					</linearGradient>
-				</defs>
-			</svg> */}
-			<BubbleTitle number="3" title="Succeed" />
+			<BubbleTitle title="Succeed" />
 
-			<div className="flex flex-1">
-				<div className="flex flex-col gap-8">
-					{sections.map((section) => (
-						<div key={section.description} className="space-y-4">
-							<FontAwesomeIcon
-								icon={section.icon}
-								size="3x"
-								fill="url(#linear)"
-							/>
-							<h3 className="bold text-3xl ">{section.title}</h3>
-							<p className="max-w-[60ch] font-light">
-								{section.description}
-							</p>
-						</div>
-					))}
+			<div className="flex flex-col lg:flex-row">
+				<img src="/logos/kody/main.png" className="max-w-[350px]" />
+				<div className="text-right">
+					<h3 className="h3 uppercase tracking-[0.2em] mb-3 mt-1">
+						<span className="text-glow">succeed</span> with our
+						community
+					</h3>
+					<p className="py-5 mb-5">
+						Thrive with your coding skills by building a strong
+						foundation through our courses, receiving experienced
+						guidance, and participating in hands-on projects that
+						prepare you for real-world challenges.
+					</p>
+					<button className="btn btn-primary btn-wide">
+						Join Us!
+					</button>
 				</div>
-				<div className="flex flex-1"></div>
 			</div>
 		</div>
 	);
 }
-
-const sections = [
-	{
-		title: (
-			<>
-				Learn From Our{" "}
-				<span className="text-gradient text-shadow-sm font-bold">
-					Free
-				</span>{" "}
-				Courses
-			</>
-		),
-		description:
-			"Join our friendly community committed to providing coding education and mentorship to underprivileged students. Learn valuable technical skills, expand your network, and make new friends.",
-		icon: faUser,
-	},
-	{
-		title: (
-			<>
-				Place{" "}
-				<span className="text-gradient text-shadow-sm font-bold">
-					Holder
-				</span>
-			</>
-		),
-		description:
-			"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 1",
-		icon: faMagnifyingGlass,
-	},
-	{
-		title: (
-			<>
-				Place{" "}
-				<span className="text-gradient text-shadow-sm font-bold">
-					Holder
-				</span>
-			</>
-		),
-		description:
-			"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 2",
-		icon: faBell,
-	},
-];

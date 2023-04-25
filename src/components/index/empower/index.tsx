@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { cardData } from "./data";
+import Section from "@components/section";
 
 function Card({
 	title,
@@ -32,13 +33,13 @@ function Card({
 
 export default function Empower() {
 	return (
-		<div className="my-10">
+		<Section className="my-10">
 			<h1 className="text-center uppercase h2 tracking-[0.2em] mb-10">
 				Empowering the Future
 			</h1>
 			<div
 				className={clsx(
-					"flex justify-between w-[90%] mx-auto max-w-[1200px]",
+					"flex justify-between",
 					"flex-wrap gap-8",
 					"flex-col lg:flex-row"
 				)}
@@ -47,6 +48,6 @@ export default function Empower() {
 					<Card key={card.title} {...card} />
 				))}
 			</div>
-		</div>
+		</Section>
 	);
 }

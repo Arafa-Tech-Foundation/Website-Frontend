@@ -27,6 +27,10 @@ html {
 	color: transparent;
 }
 
+.background-gradient {
+	background: linear-gradient(45deg, hsl(var(--p)), hsl(var(--s)));
+}
+
 .hidden-scrollbar::-webkit-scrollbar {
 	display: none;
 	-ms-overflow-style: none; /* IE and Edge */
@@ -54,10 +58,6 @@ code[class*="hljs"] {
 
 .text-glow {
 	@apply text-transparent text-gradient text-shadow-sm leading-none;
-}
-
-.background-glow {
-	@apply bg-transparent bg-gradient-to-b from-transparent to-black;
 }
 
 .h0 {
@@ -100,4 +100,22 @@ code[class*="hljs"] {
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 	text-fill-color: transparent;
+}
+
+.background-glass {
+	background: linear-gradient(
+		107.39deg,
+		rgba(255, 255, 255, 0.2) 20.65%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	/* Glass Shadow */
+
+	box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(20px);
+	/* Note: backdrop-filter has minimal browser support */
+}
+
+.drop-glow {
+	filter: drop-shadow(0px 0px 39.96px #854c4c);
 }

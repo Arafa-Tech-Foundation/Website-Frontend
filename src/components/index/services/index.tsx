@@ -1,5 +1,5 @@
+import Section from "@components/section";
 import clsx from "clsx";
-import { BubbleTitle } from "./3 steps";
 
 function Card({
 	title,
@@ -12,7 +12,7 @@ function Card({
 }) {
 	const [title1, title2] = title.split(" ");
 	return (
-		<div className="background-glass h-fit lg:max-w-[300px] py-10 shadow-lg p-6 rounded-[45px]">
+		<div className="background-glass lg:max-w-[350px] py-10 shadow-lg p-6 rounded-[45px]">
 			<div className="text-white background-gradient p-3 rounded-xl w-fit">
 				{icon}
 			</div>
@@ -24,30 +24,28 @@ function Card({
 	);
 }
 
-export default function Develop() {
+export default function Services() {
 	return (
-		<div className="flex flex-col">
-			<BubbleTitle title="Develop" />
-
+		<Section>
 			<div
 				className={clsx(
-					"flex justify-between w-[90%] lg:w-full mx-auto max-w-[1000px] lg:[&>*:nth-child(even)]:mt-40",
-					"flex-col lg:flex-row items-center gap-8 lg:gap-0"
+					"grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-20",
+					"w-[90%] lg:w-full mx-auto"
 				)}
 			>
 				{sections.map((section) => (
 					<Card key={section.description} {...section} />
 				))}
 			</div>
-		</div>
+		</Section>
 	);
 }
 
 const sections = [
 	{
-		title: "Develop teams",
+		title: "Coding courses",
 		description:
-			"Software development is a team sport, and as you learn to code, you'll develop the skills to work collaboratively with others. ",
+			"Arafa Tech provides coding education courses to underprivileged students of all ages, with the goal of empowering them with technical skills for the future. These classes can be offered in a variety of formats, including online and in-person, and can cover a range of topics such as web development, mobile app development, and software engineering.",
 		icon: (
 			<svg
 				className="w-8 h-8"
@@ -63,9 +61,9 @@ const sections = [
 		),
 	},
 	{
-		title: "Develop projects",
+		title: "mentorship program",
 		description:
-			"Join the community of developers who contribute to open-source software projects. Share your skills and help build tools and technologies that benefit others!",
+			"Arafa Tech's mentorship program connects students with experienced professionals in the tech industry, providing them with guidance and support as they develop their technical skills. Mentors can provide feedback on projects, help students prepare for job interviews, and offer advice on career development.",
 		icon: (
 			<svg
 				className="w-8 h-8"
@@ -81,9 +79,9 @@ const sections = [
 		),
 	},
 	{
-		title: "Develop products",
+		title: "job placement",
 		description:
-			"Learning to code enables you to turn your ideas into real-world products. Develop the skills to build solutions to real-world problems. ",
+			"Arafa Tech helps connect students with job opportunities in the tech industry through partnerships with companies and organizations. This can include resume and cover letter reviews, job search assistance, and interview preparation.",
 		icon: (
 			<svg
 				className="w-8 h-8"

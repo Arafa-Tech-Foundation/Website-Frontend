@@ -93,3 +93,4 @@ export function BubbleTitle({ title = "Learn" }) {
 		</div>
 	);
 }
+

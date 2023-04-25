@@ -11,7 +11,7 @@ export default function Learn() {
 		<div className="flex flex-col">
 			<BubbleTitle title="Learn" />
 
-			<div className="flex flex-1">
+			<div className="flex flex-1 items-center flex-col lg:flex-row">
 				<div className="flex flex-col gap-8">
 					{sections.map((section) => (
 						<div key={section.description} className="space-y-4">
@@ -30,6 +30,10 @@ export default function Learn() {
 						</div>
 					))}
 				</div>
+				<img
+					src="/logos/kody/main.png"
+					className="max-w-[400px] object-contain"
+				/>
 			</div>
 		</div>
 	);
