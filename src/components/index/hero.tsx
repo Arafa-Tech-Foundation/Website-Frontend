@@ -1,5 +1,6 @@
 import Section from "@components/section";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 
 export default function Hero() {
 	return (
@@ -44,14 +45,15 @@ export default function Hero() {
 					students, empowering them with technical skills for the
 					future.
 				</p>
-				<button
+				<Link
+					href="/discord"
 					className="btn btn-wide btn-primary"
 					onClick={() => {
 						signIn("discord", { callbackUrl: "/courses" });
 					}}
 				>
 					Get Started
-				</button>
+				</Link>
 			</div>
 		</Section>
 	);

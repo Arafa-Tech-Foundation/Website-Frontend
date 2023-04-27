@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { cardData } from "./data";
 import Section from "@components/section";
+import Link from "next/link";
 
 function Card({
 	title,
@@ -23,9 +24,9 @@ function Card({
 			</h3>
 			<p>{description}</p>
 			{button && (
-				<button className="btn btn-primary mt-4 btn-wide">
+				<Link href="/discord" className="btn btn-primary mt-4 btn-wide">
 					{button}
-				</button>
+				</Link>
 			)}
 		</div>
 	);

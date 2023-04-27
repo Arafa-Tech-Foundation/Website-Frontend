@@ -1,4 +1,5 @@
 import Section from "@components/section";
+import Link from "next/link";
 
 export default function CallToAction() {
 	return (
@@ -10,7 +11,7 @@ export default function CallToAction() {
 						src="/logos/transparent/main.png"
 					/>
 				</div>
-				<h1 className="z-10 text-[20vw] text-center md:text-6xl lg:text-7xl xl:text-8xl leading-none select-none font-bold flex flex-col md:flex-row ">
+				<h1 className="z-10 text-[20vw] text-center h0 md:text-6xl lg:text-7xl xl:text-8xl font-bold">
 					Join
 					<span>
 						<span className="px-2 text-glow">Community.</span>
@@ -20,9 +21,9 @@ export default function CallToAction() {
 				<p className="z-10 sm:text-sm md:text-md lg:text-lg xl:text-2xl w-full max-w-6xl text-center bg-white/60 bg-clip-text text-transparent">
 					Begin the next step in your programming adventure!
 				</p>
-				<button className="btn btn-wide btn-primary">
+				<Link href="/discord" className="btn btn-wide btn-primary">
 					Get Started
-				</button>
+				</Link>
 			</div>
 		</Section>
 	);

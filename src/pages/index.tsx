@@ -1,7 +1,7 @@
 import HomeLayout from "@components/layout";
 import Hero from "@components/index/hero";
 import React from "react";
-import ThreeSections from "@components/index/3 steps";
+import ThreeSections from "@components/index/steps/3 steps";
 import Empower from "@components/index/empower";
 import Services from "@components/index/services";
 import Community from "@components/index/community";

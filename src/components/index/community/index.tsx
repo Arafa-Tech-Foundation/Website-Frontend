@@ -1,4 +1,5 @@
 import Section from "@components/section";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Community() {
@@ -49,7 +50,10 @@ export default function Community() {
 							placeholder="Your message"
 							onChange={(e) => setMessage(e.target.value)}
 						/>
-						{/* Lets get visual effects / blinking effect */}
+						<Link href="/discord" className="btn btn-primary btn-wide">
+							Send
+						</Link>
+						{/* TODO: Lets get visual effects / blinking effect */}
 					</div>
 				</div>
 			</div>

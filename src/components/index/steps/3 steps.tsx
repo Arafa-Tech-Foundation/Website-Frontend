@@ -22,7 +22,7 @@ export default function ThreeSections() {
 	return (
 		<Section>
 			<div className="flex gap-10 sticky">
-				<div className="block sticky top-[25%] self-start">
+				<div className="hidden md:block sticky top-[25%] self-start">
 					<p className="mb-4 uppercase font-light">Easy As</p>
 					<div className="flex flex-col justify-between ">
 						{sections.map((section, index) => (

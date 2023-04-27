@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BubbleTitle } from "./3 steps";
 
 export default function Succeed() {
@@ -6,7 +7,7 @@ export default function Succeed() {
 			<BubbleTitle title="Succeed" />
 
 			<div className="flex flex-col lg:flex-row">
-				<img src="/logos/kody/main.png" className="max-w-[350px]" />
+				<img src="/logos/kody/secondary.png" className="w-[90%] mx-auto max-w-[350px]" />
 				<div className="text-right">
 					<h3 className="h3 uppercase tracking-[0.2em] mb-3 mt-1">
 						<span className="text-glow">succeed</span> with our
@@ -18,9 +19,9 @@ export default function Succeed() {
 						guidance, and participating in hands-on projects that
 						prepare you for real-world challenges.
 					</p>
-					<button className="btn btn-primary btn-wide">
+					<Link href="/discord" className="btn btn-primary btn-wide">
 						Join Us!
-					</button>
+					</Link>
 				</div>
 			</div>
 		</div>
