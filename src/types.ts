@@ -1,5 +1,6 @@
 type CourseMeta = {
 	name: string;
+	instructor: string;
 	type: "essential" | "application";
 	languages: string[];
 	level: string;
@@ -7,6 +8,7 @@ type CourseMeta = {
 	title: string;
 	description: string;
 	minutes: number; // in minutes (not seconds) :0
+	skills: string[];
 };
 
 type BlogMatter = {
