@@ -150,7 +150,7 @@ export default function Volunteer() {
 				</Section>
 				<Section>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-[90%] max-w-[1200px] mx-auto">
-						<div className="background-glass rounded-xl space-y-2">
+						<div className="background-glass rounded-xl space-y-2 whitespace-pre-wrap">
 							{jobs
 								.filter(
 									(j) => j.type === filter || filter === "All"
@@ -172,8 +172,9 @@ export default function Volunteer() {
 										<h3 className="h5">{j.subTitle}</h3>
 									</button>
 								))}
-							{jobs.filter((j) => j.type === filter).length ===
-								0 && (
+							{jobs.filter(
+								(j) => j.type === filter || filter === "All"
+							).length === 0 && (
 								<div>
 									<h1 className="h4 font-semibold mx-auto p-4">
 										No jobs found. Check back later!
