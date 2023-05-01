@@ -187,7 +187,7 @@ export default function Footer() {
 						</div>
 					</div>
 				</div>
-				<div className="flex justify-between text-xs">
+				<div className="flex flex-col space-y-2 lg:flex-row justify-between text-xs">
 					<p>
 						© {new Date().getFullYear()}. Arafa Tech Foundation, a
 						501(c)(3) non-profit. All rights reserved.
