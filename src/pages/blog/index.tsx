@@ -13,7 +13,7 @@ export default function Blog() {
 	);
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 	return {
 		props: {}, // will be passed to the page component as props
 		revalidate: 3600,
