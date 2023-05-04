@@ -23,7 +23,7 @@ function Item({
 }
 
 export default function Testimonials() {
-	const testimonalMap = testimonialData
+	const testimonialMap = testimonialData
 		.map((_, index) => {
 			// maps the array into arrays of 2
 			return index % 2 === 0
@@ -40,7 +40,7 @@ export default function Testimonials() {
 
 			<div className="mx-auto mt-16 flex max-w-6xl items-start">
 				<Carousel>
-					{testimonalMap.map((quote, index) => (
+					{testimonialMap.map((quote, index) => (
 						<CarouselItem key={index}>
 							<div className="flex flex-col lg:flex-row gap-10">
 								{quote && quote[0] && <Item {...quote[0]} />}
