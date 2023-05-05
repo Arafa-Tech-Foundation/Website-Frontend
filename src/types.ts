@@ -1,4 +1,4 @@
-type CourseMeta = {
+export type CourseMeta = {
 	name: string;
 	instructor: string;
 	type: "essential" | "application";
@@ -11,24 +11,24 @@ type CourseMeta = {
 	skills: string[];
 };
 
-type BlogMatter = {
+export type BlogMatter = {
 	title: string;
 	description: string;
 	author: string;
 	date: number; // unix
 };
 
-type CourseModule = {
+export type CourseModule = {
 	name: string;
 	lessons: Lesson[];
 };
 
-type Lesson = {
+export type Lesson = {
 	name: string;
 	video: string;
 };
 
-type Shape = {
+export type Shape = {
 	x: number;
 	y: number;
 	slowVelX: number;
@@ -42,7 +42,16 @@ type Shape = {
 	id: number;
 };
 
-// this is a type that is used in the course page to read the meta data of the markdown file
-type Matter = {};
+export type StaffMember = {
+	name: string;
+	avatar: string;
+	role: string;
+	links: {
+		linkedIn?: string;
+		github?: string;
+		website?: string;
+	};
+};
 
-export type { CourseMeta, CourseModule, Matter, Shape, Lesson, BlogMatter };
+// this is a type that is used in the course page to read the meta data of the markdown file
+export type Matter = {};

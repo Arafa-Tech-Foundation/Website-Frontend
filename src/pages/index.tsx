@@ -7,6 +7,7 @@ import Services from "@components/index/services";
 import Community from "@components/index/community";
 import CallToAction from "@components/index/cta";
 import Testimonials from "@components/index/testimonials";
+import { Client } from "@notionhq/client";
 
 export default function Home() {
 	return (
@@ -21,3 +22,7 @@ export default function Home() {
 		</HomeLayout>
 	);
 }
+
+export const notion = new Client({
+	auth: process.env.NOTION_TOKEN,
+});
