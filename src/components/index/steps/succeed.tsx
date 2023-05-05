@@ -1,13 +1,15 @@
 import Link from "next/link";
-import { BubbleTitle } from "./3 steps";
+import StepLayout from "./layout";
 
 export default function Succeed() {
 	return (
-		<div className="flex flex-col">
-			<BubbleTitle title="Succeed" />
+		<StepLayout title="Succeed" number={3}>
 
 			<div className="flex flex-col lg:flex-row">
-				<img src="/logos/kody/secondary.png" className="w-[90%] mx-auto max-w-[350px]" />
+				<img
+					src="/logos/kody/secondary.png"
+					className="w-[90%] mx-auto max-w-[350px]"
+				/>
 				<div className="text-right">
 					<h3 className="h3 uppercase tracking-[0.2em] mb-3 mt-1">
 						<span className="text-glow">succeed</span> with our
@@ -24,6 +26,6 @@ export default function Succeed() {
 					</Link>
 				</div>
 			</div>
-		</div>
+		</StepLayout>
 	);
 }
