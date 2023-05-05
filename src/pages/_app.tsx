@@ -29,7 +29,7 @@ export default function MyApp({
 		<>
 			<DefaultSeo
 				title="Free Coding / Programming Courses"
-				description="Arafa Tech is a non-profit organization that provides coding education and mentorship to underprivileged students, empowering them with technology skills for the future."
+				description="Arafa Tech is a 501(c)(3) non-profit organization that provides coding education and mentorship to underprivileged students, empowering them with technical skills for the future."
 				titleTemplate="%s | Arafa Tech"
 				openGraph={{
 					type: "website",
