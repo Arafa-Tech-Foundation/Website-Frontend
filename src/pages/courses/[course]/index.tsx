@@ -1,6 +1,5 @@
 import HomeLayout from "@components/layout";
 import Section from "@components/section";
-import UnderConstruction from "@components/underConstruction";
 import { getCourse } from "@pages/api/courses/[course]";
 import { getCourseList } from "@pages/api/courses/list";
 import { GetStaticPathsResult } from "next";
@@ -8,7 +7,14 @@ import { NextSeo } from "next-seo";
 import { CourseMeta } from "types";
 import NextLink from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIdCardAlt, faStopwatch } from "@fortawesome/free-solid-svg-icons";
+import {
+	faBriefcase,
+	faCertificate,
+	faCheck,
+	faGlasses,
+	faIdCardAlt,
+	faStopwatch,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Courses({ course }: { course: CourseMeta }) {
 	const prettyCourseName =
@@ -17,8 +23,8 @@ export default function Courses({ course }: { course: CourseMeta }) {
 		<>
 			<NextSeo title={prettyCourseName} />
 			<HomeLayout>
-				<Section>
-					<div className="flex">
+				<Section className="mt-20 mb-40">
+					<div className="flex gap-8">
 						<div className="flex flex-col justify-center gap-4">
 							<h1 className="text-3xl font-bold">
 								{prettyCourseName}
@@ -28,7 +34,7 @@ export default function Courses({ course }: { course: CourseMeta }) {
 								Course Outline
 							</h2>
 
-							<ol className="list bg-base-300 px-4 py-2 rounded">
+							<ol className="list bg-base-300 px-4 py-2 rounded-lg">
 								{course.modules.map((module) => (
 									<li key={module.name}>
 										<NextLink
@@ -41,30 +47,53 @@ export default function Courses({ course }: { course: CourseMeta }) {
 								))}
 							</ol>
 
-							{/* <h3 className="uppercase text-gradient font-bold">
+							<h2 className="uppercase text-gradient font-bold">
 								You Will Get
-							</h3>	 */}
+							</h2>
+							<div className="flex flex-col gap-4">
+								<div className="flex gap-4">
+									<FontAwesomeIcon
+										icon={faGlasses}
+										className="text-primary"
+										size="xl"
+									/>
+									<p>Basic Understanding of {course.name}</p>
+								</div>
+								<div className="flex gap-4">
+									<FontAwesomeIcon
+										icon={faCertificate}
+										className="text-primary"
+										size="xl"
+									/>
+									<p>Certificate of Completion</p>
+								</div>
+								<div className="flex gap-4">
+									<FontAwesomeIcon
+										icon={faBriefcase}
+										className="text-primary"
+										size="xl"
+									/>
+									<p>Job Placement Assistance</p>
+								</div>
+							</div>
 
 							<NextLink
-								className="btn btn-primary"
+								className="btn btn-primary mt-4"
 								href={`/courses/${course.name}/${course.modules[0].lessons[0].name}`}
 							>
 								Get Started
 							</NextLink>
 						</div>
-						<div className="px-4 py-2">
+						<div className="px-8 py-12 flex-1 bg-base-300 rounded-lg">
 							<h2 className="uppercase text-gradient font-bold">
 								Code With Kody!
 							</h2>
 							<h1 className="text-5xl font-bold">
-								{course.type === "essential"
-									? "Introduction to"
-									: "Advanced"}
-								{` ${prettyCourseName}`}
+								{course.title}
 							</h1>
 
 							<p className="mt-4">{course.description}</p>
-							<div className="flex gap-4 mt-4">
+							<div className="flex gap-4 mt-4 ">
 								<div className="flex items-center justify-center gap-2">
 									<FontAwesomeIcon
 										icon={faStopwatch}
@@ -73,7 +102,14 @@ export default function Courses({ course }: { course: CourseMeta }) {
 									/>
 									<p>
 										{course.minutes / 60} hour
-										{course.minutes / 60 != 1 && "s"}
+										{course.minutes / 60 != 1 && "s"},{" "}
+										{course.modules
+											.map(
+												(module) =>
+													module.lessons.length
+											)
+											.reduce((a, b) => a + b)}{" "}
+										lessons
 									</p>
 								</div>
 								<div className="flex items-center justify-center gap-2">
@@ -84,17 +120,47 @@ export default function Courses({ course }: { course: CourseMeta }) {
 									/>
 									<p>
 										Instructed by
-										<span className="text-gradient font-semibold">
+										<span className="text-gradient text-shadow-footer font-semibold">
 											{" "}
-											{"Hazim O. Arafa"}
+											{course.instructor}
 										</span>
 									</p>
 								</div>
 							</div>
+							<h2 className="font-bold mt-8 text-lg">
+								This Course is for you
+							</h2>
+							<p className="mt-1">
+								Join our Python course today! Designed for
+								beginners, our course will teach you the
+								fundamentals of Python in a practical and
+								engaging way. With the guidance of our
+								experienced instructors and the support of a
+								vibrant community, you'll develop the skills you
+								need to pursue a career in tech.
+							</p>
+
+							<div className="mt-8 from-[#4a4a54] to-[#272733] bg-gradient-to-r rounded-lg px-2 py-4">
+								<h2 className="uppercase text-center text-gradient text-shadow-footer font-bold">
+									What you will learn
+								</h2>
+								{course.skills.map((skill) => (
+									<div
+										key={skill}
+										className="flex items-center justify-center gap-2 p-2"
+									>
+										<FontAwesomeIcon
+											icon={faCheck}
+											className="text-primary"
+											size="xl"
+										/>
+										<p>{skill}</p>
+									</div>
+								))}
+							</div>
 						</div>
 					</div>
 				</Section>
-				<UnderConstruction />
 			</HomeLayout>
 		</>
 	);

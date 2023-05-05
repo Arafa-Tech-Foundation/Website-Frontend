@@ -1,13 +1,15 @@
 import HomeLayout from "@components/layout";
 import { NextSeo } from "next-seo";
-import ContactHero from "@components/contact";
+import Contact from "@components/contact";
+import Faq from "@components/contact/faq";
 
-export default function Contact() {
+export default function ContactPage() {
 	return (
 		<>
 			<NextSeo title="Contact" />
 			<HomeLayout>
-				<ContactHero />
+				<Contact />
+				<Faq />
 			</HomeLayout>
 		</>
 	);

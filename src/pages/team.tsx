@@ -1,14 +1,110 @@
 import HomeLayout from "@components/layout";
-import UnderConstruction from "@components/underConstruction";
+import Section from "@components/section";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NextSeo } from "next-seo";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+
+const icons = {
+	linkedIn: faLinkedin,
+	github: faGithub,
+	website: faGlobe,
+};
 
 export default function Team() {
 	return (
 		<>
 			<NextSeo title="Team" />
 			<HomeLayout>
-				<UnderConstruction />
+				<Section>
+					<h1 className="text-4xl font-bold text-center ">
+						Our Team
+					</h1>
+					<p className="mt-2 text-center">
+						Meet the team behind the platform.
+					</p>
+					<div className="grid grid-cols-3 gap-8">
+						{staff.map((staffMember) => (
+							<div className="flex flex-col items-center justify-center w-full p-4 mx-auto my-4 bg-gradient rounded-lg shadow-lg ">
+								<img
+									className="object-cover w-32 h-32 rounded-full"
+									src={staffMember.avatar}
+									alt={staffMember.name}
+								/>
+								<div className="mt-4 text-center">
+									<p className="text-lg font-medium ">
+										{staffMember.name}
+									</p>
+									<p className="mt-2 text-sm text-gray-500">
+										{staffMember.title}
+									</p>
+								</div>
+								<div className="flex justify-center mt-4 space-x-3">
+									{Object.entries(staffMember.links).map(
+										([key, value]) => (
+											<a
+												key={key}
+												href={value}
+												target="_blank"
+												rel="noreferrer"
+												className="text-gray-500 transition duration-300 hover:text-gray-800"
+											>
+												<span className="sr-only">
+													{key}
+												</span>
+												<FontAwesomeIcon
+													// @ts-ignore
+													icon={icons[key]}
+													className="w-5 h-5"
+												/>
+											</a>
+										)
+									)}
+								</div>
+							</div>
+						))}
+					</div>
+				</Section>
 			</HomeLayout>
 		</>
 	);
 }
+
+const staff = [
+	{
+		name: "Hazim O. Arafa",
+		description:
+			"Hazim is a software engineer and entrepreneur. He is the founder of the company and the lead developer of the platform.",
+		title: "Founder & Chief Executive Officer",
+		avatar: "/images/team/hazim.jpg",
+		links: {
+			linkedIn: "https://www.linkedin.com/in/hazim-arafa/",
+			github: "https://github.com/HazimAr",
+			website: "https://hazim.tech",
+		},
+	},
+	{
+		name: "Nikolas Keller Schaefer",
+		description:
+			"Hazim is a software engineer and entrepreneur. He is the founder of the company and the lead developer of the platform.",
+		title: "Chief Financial Officer",
+		avatar: "/images/team/hazim.jpg",
+		links: {
+			linkedIn: "https://www.linkedin.com/in/hazim-arafa/",
+			github: "https://github.com/HazimAr",
+			website: "https://hazim.tech",
+		},
+	},
+	{
+		name: "Param S. Patil",
+		description:
+			"Hazim is a software engineer and entrepreneur. He is the founder of the company and the lead developer of the platform.",
+		title: "Chief Advancements Officer",
+		avatar: "/images/team/hazim.jpg",
+		links: {
+			linkedIn: "https://www.linkedin.com/in/hazim-arafa/",
+			github: "https://github.com/HazimAr",
+			website: "https://hazim.tech",
+		},
+	},
+];

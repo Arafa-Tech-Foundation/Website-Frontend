@@ -17,7 +17,6 @@ import { getNextLesson, getPreviousLesson, prettifyName } from "utils";
 type Course = {
 	source: MDXRemoteProps;
 	meta: CourseMeta;
-
 	page: string;
 };
 
@@ -169,8 +168,6 @@ export async function getStaticPaths() {
 			params: { course, page: page.replace(".mdx", "") },
 		}));
 	});
-
-	console.log(paths);
 
 	return {
 		paths,
