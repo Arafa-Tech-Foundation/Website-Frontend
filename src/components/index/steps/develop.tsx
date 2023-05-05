@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { BubbleTitle } from "./3 steps";
+import StepLayout from "./layout";
 
 function Card({
 	title,
@@ -26,9 +26,7 @@ function Card({
 
 export default function Develop() {
 	return (
-		<div className="flex flex-col">
-			<BubbleTitle title="Develop" />
-
+		<StepLayout title="Develop" number={2}>
 			<div
 				className={clsx(
 					"flex justify-between w-[90%] lg:w-full mx-auto max-w-[1000px] lg:[&>*:nth-child(even)]:mt-40",
@@ -39,7 +37,7 @@ export default function Develop() {
 					<Card key={section.description} {...section} />
 				))}
 			</div>
-		</div>
+		</StepLayout>
 	);
 }
 

@@ -43,6 +43,7 @@ export type Shape = {
 };
 
 export type StaffMember = {
+	title: string;
 	name: string;
 	avatar: string;
 	role: string;

@@ -5,6 +5,7 @@ import { NextSeo } from "next-seo";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { notion } from ".";
+import { StaffMember } from "types";
 
 const icons = {
 	linkedIn: faLinkedin,
@@ -45,7 +46,7 @@ export default function Team({ staff }: { staff: StaffMember[] }) {
 										([key, value]) => (
 											<a
 												key={key}
-												href={value || "/"}
+												href={`${value || "/"}`}
 												target="_blank"
 												rel="noreferrer"
 												className="text-gray-500 transition duration-300 hover:text-gray-800"
