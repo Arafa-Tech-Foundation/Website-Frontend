@@ -13,17 +13,17 @@ const icons = {
 	website: faGlobe,
 };
 
-export default function Team({ staff }: { staff: StaffMember[] }) {
+export default function Leadership({ staff }: { staff: StaffMember[] }) {
 	return (
 		<>
-			<NextSeo title="Team" />
+			<NextSeo title="Leadership" />
 			<HomeLayout>
 				<Section>
 					<h1 className="text-4xl font-bold text-center ">
-						Our Team
+						Leadership
 					</h1>
 					<p className="mt-2 text-center">
-						Meet the team behind the platform.
+						Meet the leaders behind the platform.
 					</p>
 					<div className="grid grid-cols-3 gap-8">
 						{staff.map((staffMember) => (
