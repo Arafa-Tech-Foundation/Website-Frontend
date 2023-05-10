@@ -9,7 +9,7 @@
 		"autoprefixer": "^10.4.14",
 		"axios": "^1.4.0",
 		"clsx": "^1.2.1",
-		"daisyui": "^2.51.5",
+		"daisyui": "^2.51.6",
 		"gray-matter": "^4.0.3",
 		"next": "^13.4.1",
 		"next-auth": "^4.22.1",
