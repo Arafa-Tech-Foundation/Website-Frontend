@@ -37,7 +37,7 @@ export default function Volunteer() {
 						))}
 					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-[90%] max-w-[1200px] mx-auto">
-						<div className="background-glass rounded-xl space-y-2 whitespace-pre-wrap">
+						<div className="background-glass rounded-xl space-y-2 whitespace-pre-wrap h-fit">
 							{filteredJobs.map((j, i) => (
 								<button
 									key={j.title + i}
