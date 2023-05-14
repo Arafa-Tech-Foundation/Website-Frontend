@@ -80,8 +80,8 @@ export default function Post({
 					</div>
 				</a>
 
-				<div className="mt-8 px-6 py-6 rounded-lg text-center bg-gray-800 md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center">
-					<div className="xl:w-0 xl:flex-1">
+				<div className="mt-8 px-6 py-6 rounded-lg text-center bg-gray-800 md:py-12 md:px-12 lg:py-16 lg:px-16  xl:items-center">
+					<div className="">
 						<h2 className="text-2xl font-extrabold leading-8 tracking-tight text-white sm:text-3xl sm:leading-9">
 							Ready to make a difference?
 						</h2>
@@ -90,7 +90,7 @@ export default function Post({
 							on our latest projects, and make a real impact
 						</p>
 					</div>
-					<div className="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
+					<div className="mt-8 sm:w-full sm:max-w-md xl:ml-8">
 						<div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
 							<Link
 								href="/discord"
