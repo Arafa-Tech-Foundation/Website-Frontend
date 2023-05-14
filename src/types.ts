@@ -20,6 +20,7 @@ export type BlogMatter = {
 	author: string;
 	link: string;
 	date: number; // unix
+	slug?: string;
 };
 
 export type CourseModule = {

@@ -1,4 +1,4 @@
-import Post from "@components/blog/post";
+import Post from "@components/blog/post/post";
 import HomeLayout from "@components/layout";
 import { getRepositoryFolders } from "@pages/api/blog/repository";
 import axios from "axios";
