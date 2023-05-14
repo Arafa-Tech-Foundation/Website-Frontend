@@ -29,7 +29,7 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 						{staff.map((staffMember) => (
 							<div
 								key={staffMember.name}
-								className="flex flex-col items-center justify-center w-full p-4 mx-auto my-4 bg-gradient rounded-lg shadow-lg "
+								className="background-glass flex flex-col items-center justify-center w-full p-4 mx-auto my-4 rounded-lg shadow-lg "
 							>
 								<img
 									className="object-cover w-32 h-32 rounded-full"
@@ -37,10 +37,10 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 									alt={staffMember.name}
 								/>
 								<div className="mt-4 text-center">
-									<p className="text-lg font-medium ">
+									<p className="text-lg font-medium text-glow">
 										{staffMember.name}
 									</p>
-									<p className="mt-2 text-sm text-gray-500">
+									<p className="mt-2 text-sm">
 										{staffMember.title}
 									</p>
 								</div>
@@ -52,7 +52,7 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 												href={`${value || "/"}`}
 												target="_blank"
 												rel="noreferrer"
-												className="text-gray-500 transition duration-300 hover:text-gray-800"
+												className="text-gray-500 transition duration-200 hover:text-primary"
 											>
 												<span className="sr-only">
 													{key}
@@ -74,45 +74,6 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 		</>
 	);
 }
-
-// const staff = [
-// 	{
-// 		name: "Hazim O. Arafa",
-// 		description:
-// 			"Hazim is a software engineer and entrepreneur. He is the founder of the company and the lead developer of the platform.",
-// 		title: "Founder & Chief Executive Officer",
-// 		avatar: "/images/team/hazim.jpg",
-// 		links: {
-// 			linkedIn: "https://www.linkedin.com/in/hazim-arafa/",
-// 			github: "https://github.com/HazimAr",
-// 			website: "https://hazim.tech",
-// 		},
-// 	},
-// 	{
-// 		name: "Nikolas K. Schaefer",
-// 		description:
-// 			"Hazim is a software engineer and entrepreneur. He is the founder of the company and the lead developer of the platform.",
-// 		title: "Chief Financial Officer",
-// 		avatar: "/images/team/hazim.jpg",
-// 		links: {
-// 			linkedIn: "https://www.linkedin.com/in/hazim-arafa/",
-// 			github: "https://github.com/HazimAr",
-// 			website: "https://hazim.tech",
-// 		},
-// 	},
-// 	{
-// 		name: "Param S. Patil",
-// 		description:
-// 			"Hazim is a software engineer and entrepreneur. He is the founder of the company and the lead developer of the platform.",
-// 		title: "Chief Advancements Officer",
-// 		avatar: "/images/team/hazim.jpg",
-// 		links: {
-// 			linkedIn: "https://www.linkedin.com/in/hazim-arafa/",
-// 			github: "https://github.com/HazimAr",
-// 			website: "https://hazim.tech",
-// 		},
-// 	},
-// ];
 
 export async function getStaticProps() {
 	const result = await notion.databases.query({
@@ -146,7 +107,6 @@ export async function getStaticProps() {
 		})
 		.sort((a, b) => a.position - b.position);
 
-	console.log(staff);
 	return {
 		props: {
 			staff,
