@@ -18,6 +18,7 @@ export type BlogMatter = {
 	background: string;
 	type: string;
 	author: string;
+	link: string;
 	date: number; // unix
 };
 
