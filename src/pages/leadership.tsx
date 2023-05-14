@@ -27,7 +27,10 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 					</p>
 					<div className="grid grid-cols-3 gap-8">
 						{staff.map((staffMember) => (
-							<div className="flex flex-col items-center justify-center w-full p-4 mx-auto my-4 bg-gradient rounded-lg shadow-lg ">
+							<div
+								key={staffMember.name}
+								className="flex flex-col items-center justify-center w-full p-4 mx-auto my-4 bg-gradient rounded-lg shadow-lg "
+							>
 								<img
 									className="object-cover w-32 h-32 rounded-full"
 									src={staffMember.avatar}
@@ -115,24 +118,36 @@ export async function getStaticProps() {
 	const result = await notion.databases.query({
 		database_id: "fdbaed7b0b594b689876ba5ef7a92fb9",
 	});
-	const staff = result.results.map((page) => {
-		// @ts-ignore
-		const properties = page.properties;
-		console.log();
-		return {
-			name: properties.Name.title[0].plain_text,
-			description: properties.Description.rich_text[0].plain_text,
-			title: properties.Title.rich_text[0].plain_text,
-			avatar: properties.Avatar.files[0].file.url,
-			links: {
-				linkedIn: properties.LinkedIn.files[0].external.url,
-				github: properties.Github.files[0].external.url,
-				website: properties.Website.files[0].external.url,
-			},
-		};
-	});
 
-	// console.log(staff);
+	const staff = result.results
+		.map((page) => {
+			// @ts-ignore
+			const properties = page.properties;
+			console.log(properties.Position);
+			const final = {
+				name: properties.Name.title[0]?.plain_text || "N/A",
+				position: properties.Position?.number || 0,
+				description:
+					properties.Description.rich_text[0]?.plain_text || "N/A",
+				title: properties.Title.rich_text[0]?.plain_text || "N/A",
+				avatar:
+					properties.Avatar.files[0]?.file?.url || "/logos/main.png",
+				links: {},
+			} as any;
+			const linkedIn = properties.LinkedIn.files[0];
+			if (linkedIn) final.links.linkedIn = linkedIn.external.url;
+
+			const github = properties.Github.files[0];
+			if (github) final.links.github = github.external.url;
+
+			const website = properties.Website.files[0];
+			if (website) final.links.website = website.external.url;
+
+			return final;
+		})
+		.sort((a, b) => a.position - b.position);
+
+	console.log(staff);
 	return {
 		props: {
 			staff,

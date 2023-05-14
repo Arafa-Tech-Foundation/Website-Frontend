@@ -124,10 +124,10 @@ export default function Footer() {
 								<ul className="space-y-4 text-sm">
 									<li>
 										<Link
-											href="/team"
+											href="/leadership"
 											className="transition hover:opacity-75"
 										>
-											Meet the Team
+											Leadership
 										</Link>
 									</li>
 									<li>
