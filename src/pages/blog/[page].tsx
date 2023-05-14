@@ -1,3 +1,4 @@
+import Post from "@components/blog/post";
 import HomeLayout from "@components/layout";
 import { getRepositoryFolders } from "@pages/api/blog/repository";
 import axios from "axios";
@@ -16,14 +17,13 @@ type Blog = {
 };
 
 export default function BlogPost({ source, matter, page }: Blog) {
-	console.log(matter)
 	return (
 		<>
 			<NextSeo title={prettifyName(page)} />
 			<HomeLayout>
-				<article className="prose mx-auto my-8">
+				<Post matter={matter}>
 					<MDXRemote {...source} />
-				</article>
+				</Post>
 			</HomeLayout>
 		</>
 	);
