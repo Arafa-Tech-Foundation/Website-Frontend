@@ -89,7 +89,7 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 // 		},
 // 	},
 // 	{
-// 		name: "Nikolas Keller Schaefer",
+// 		name: "Nikolas K. Schaefer",
 // 		description:
 // 			"Hazim is a software engineer and entrepreneur. He is the founder of the company and the lead developer of the platform.",
 // 		title: "Chief Financial Officer",
@@ -123,7 +123,6 @@ export async function getStaticProps() {
 		.map((page) => {
 			// @ts-ignore
 			const properties = page.properties;
-			console.log(properties.Position);
 			const final = {
 				name: properties.Name.title[0]?.plain_text || "N/A",
 				position: properties.Position?.number || 0,
