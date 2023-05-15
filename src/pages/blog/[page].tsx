@@ -65,7 +65,7 @@ export async function getStaticPaths() {
 	const paths = blogs.flatMap((blog) => ({
 		params: { blog, page: blog },
 	}));
-	console.log(paths);
+
 	return {
 		paths,
 		fallback: false,

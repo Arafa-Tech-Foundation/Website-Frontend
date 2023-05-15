@@ -163,10 +163,15 @@ export async function getStaticPaths() {
 
 	// compile the courses into a flat array of paths
 	const paths = courses.flatMap((course, index) => {
-		return pages[index].map((page) => ({
-			// remove filetype to prevent overlap in url
-			params: { course, page: page.replace(".mdx", "") },
-		}));
+		return pages[index]
+			.map((page) => {
+				if (!page.endsWith(".mdx")) return;
+				return {
+					// remove filetype to prevent overlap in url
+					params: { course, page: page.replace(".mdx", "") },
+				};
+			})
+			.filter((page) => page !== undefined);
 	});
 
 	return {

@@ -6,7 +6,6 @@ import { NextSeo } from "next-seo";
 import { BlogMatter } from "types";
 
 export default function Blog({ posts }: { posts: BlogMatter[] }) {
-	console.log(posts);
 	return (
 		<>
 			<NextSeo title="Blog" />
