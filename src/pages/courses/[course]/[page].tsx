@@ -1,6 +1,6 @@
-import A from "@components/blog/a";
-import Code from "@components/blog/code";
-import Pre from "@components/blog/pre";
+import A from "@components/blog/post/a";
+import Code from "@components/blog/post/code";
+import Pre from "@components/blog/post/pre";
 import CoursesLayout from "@components/courses/layout";
 import { getFolderContents } from "@pages/api/courses/folder";
 import { getRepositoryFolders } from "@pages/api/courses/repository";
