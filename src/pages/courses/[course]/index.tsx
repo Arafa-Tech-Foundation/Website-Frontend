@@ -19,6 +19,7 @@ import {
 export default function Courses({ course }: { course: CourseMeta }) {
 	const prettyCourseName =
 		course.name.charAt(0).toUpperCase() + course.name.substring(1);
+	// each lesson is 30 minutes
 	const courseHours = course.modules.reduce(
 		(acc, module) => acc + module.lessons.reduce((acc) => acc + 0.5, 0),
 		0

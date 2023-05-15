@@ -20,6 +20,7 @@ export default function CoursesView({
 
 			<div className="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-4 mx-auto gap-6">
 				{courses.map((course) => {
+					// each lesson is 30 minutes
 					const courseHours = course.modules.reduce(
 						(acc, module) =>
 							acc + module.lessons.reduce((acc) => acc + 0.5, 0),
