@@ -147,7 +147,7 @@ export default function Courses({ course }: { course: CourseMeta }) {
 								{course.skills.map((skill) => (
 									<div
 										key={skill}
-										className="flex items-center justify-center gap-2 p-2"
+										className="flex items-center gap-2 p-2"
 									>
 										<FontAwesomeIcon
 											icon={faCheck}
