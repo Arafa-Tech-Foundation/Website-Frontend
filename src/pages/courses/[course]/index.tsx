@@ -19,6 +19,10 @@ import {
 export default function Courses({ course }: { course: CourseMeta }) {
 	const prettyCourseName =
 		course.name.charAt(0).toUpperCase() + course.name.substring(1);
+	const courseHours = course.modules.reduce(
+		(acc, module) => acc + module.lessons.reduce((acc) => acc + 0.5, 0),
+		0
+	);
 	return (
 		<>
 			<NextSeo title={prettyCourseName} />
@@ -101,8 +105,8 @@ export default function Courses({ course }: { course: CourseMeta }) {
 										size="xl"
 									/>
 									<p>
-										{course.minutes / 60} hour
-										{course.minutes / 60 != 1 && "s"},{" "}
+										{courseHours} hour
+										{courseHours != 1 && "s"},{" "}
 										{course.modules
 											.map(
 												(module) =>

@@ -7,7 +7,6 @@ export type CourseMeta = {
 	modules: CourseModule[];
 	title: string;
 	description: string;
-	minutes: number; // in minutes (not seconds) :0
 	skills: string[];
 };
 
