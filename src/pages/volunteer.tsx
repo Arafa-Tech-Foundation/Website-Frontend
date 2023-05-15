@@ -18,10 +18,25 @@ export default function Volunteer() {
 			<NextSeo title="Volunteer" />
 			<HomeLayout>
 				<Section>
-					<h1 className="h0 font-semibold text-center mb-8">
-						Volunteer!
-					</h1>
-					<div className="flex rounded-xl mb-10 items-center gap-4 justify-center background-glass w-fit px-4 py-2 mx-auto">
+					<div className="w-[90%] max-w-[900px] mx-auto mb-8">
+						<h1 className="h0 font-semibold text-center mb-8">
+							Volunteer
+						</h1>
+						{/* <p className="h5">
+							At Arafa Tech, we are dedicated to providing coding
+							education and mentorship to underprivileged
+							students, empowering them with technical skills for
+							the future. Our work is made possible through the
+							tireless efforts of our passionate volunteers who
+							generously donate their time, skills, and energy to
+							support our cause. By becoming a volunteer with
+							Arafa Tech, you have the opportunity to join a
+							hardworking team of like minded individuals who are
+							passionate about making a difference in the lives of
+							students.
+						</p> */}
+					</div>
+					<div className="flex rounded-xl mb-10 items-center gap-4 justify-center bg-neutral w-fit px-4 py-2 mx-auto">
 						{filters.map((f) => (
 							<button
 								key={f}
@@ -36,8 +51,8 @@ export default function Volunteer() {
 							</button>
 						))}
 					</div>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-[90%] max-w-[1200px] mx-auto">
-						<div className="background-glass rounded-xl space-y-2 whitespace-pre-wrap h-fit">
+					<div className="flex flex-col md:flex-row gap-16 w-[90%] max-w-[1200px] mx-auto">
+						<div className="w-full md:max-w-[400px] bg-neutral rounded-xl space-y-2 whitespace-pre-wrap h-fit">
 							{filteredJobs.map((j, i) => (
 								<button
 									key={j.title + i}
