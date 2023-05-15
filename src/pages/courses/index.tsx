@@ -1,5 +1,4 @@
 import HomeLayout from "@components/layout";
-import UnderConstruction from "@components/underConstruction";
 import { NextSeo } from "next-seo";
 import CoursesView from "@components/courses/view";
 import { getCourseList } from "@pages/api/courses/list";
@@ -10,7 +9,6 @@ export default function Courses({ courses }: { courses: CourseMeta[] }) {
 		<>
 			<NextSeo title="Courses" />
 			<HomeLayout>
-				<UnderConstruction />
 				<CoursesView
 					title="Essentials"
 					description="Programming Basics Perfect for Everyone!"
