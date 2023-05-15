@@ -22,7 +22,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			posts: blogs,
+			posts: blogs.sort((a, b) => b.date - a.date),
 		},
 		// revalidate: 3600,
 	};
