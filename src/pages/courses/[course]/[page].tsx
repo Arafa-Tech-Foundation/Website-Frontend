@@ -148,7 +148,7 @@ export async function getStaticProps({
 			meta,
 			page: params.page,
 		},
-		revalidate: 60 * 60,
+		revalidate: 3600,
 	};
 }
 
