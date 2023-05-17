@@ -87,8 +87,6 @@ export async function getStaticProps() {
 			const final = {
 				name: properties.Name.title[0]?.plain_text || "N/A",
 				position: properties.Position?.number || 0,
-				description:
-					properties.Description.rich_text[0]?.plain_text || "N/A",
 				title: properties.Title.rich_text[0]?.plain_text || "N/A",
 				avatar:
 					properties.Avatar.files[0]?.file?.url || "/logos/main.png",
