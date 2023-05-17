@@ -63,7 +63,9 @@ export default function CoursePage({ source, meta, page }: Course) {
 
 	return (
 		<>
-			<NextSeo title={prettifyName(page)} />
+			<NextSeo
+				title={prettifyName(meta.name) + " | " + prettifyName(page)}
+			/>
 			<CoursesLayout
 				isOpen={isOpen}
 				setIsOpen={setIsOpen}
