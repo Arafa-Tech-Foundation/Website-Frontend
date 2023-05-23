@@ -6,7 +6,7 @@ import Empower from "@components/index/empower";
 import Services from "@components/index/services";
 import Community from "@components/index/community";
 import CallToAction from "@components/index/cta";
-import Testimonials from "@components/index/testimonials";
+// import Testimonials from "@components/index/testimonials";
 import { Client } from "@notionhq/client";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
 			<ThreeSections />
 			<Services />
 			<Community />
-			<Testimonials />
+			{/* <Testimonials /> */}
 			<CallToAction />
 		</HomeLayout>
 	);
