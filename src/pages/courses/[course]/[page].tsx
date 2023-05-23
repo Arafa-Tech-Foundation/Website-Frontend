@@ -123,14 +123,16 @@ export async function getStaticProps({
 }: {
 	params: { course: string; page: string };
 }) {
-	const url = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/${params.page}.mdx`;
+	const encodedCourse = encodeURIComponent(params.course);
+	const encodedPage = encodeURIComponent(params.page);
+	const url = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${encodedCourse}/${encodedPage}.mdx`;
 	const res = await axios.get(url, {
 		headers: {
 			Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
 		},
 	});
 
-	const metaUrl = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${params.course}/.metadata.json`;
+	const metaUrl = `https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${encodedCourse}/.metadata.json`;
 	const metaRes = await axios.get(metaUrl, {
 		headers: {
 			Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
