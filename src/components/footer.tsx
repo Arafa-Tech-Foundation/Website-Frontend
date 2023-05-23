@@ -84,11 +84,13 @@ export default function Footer() {
 								</a>
 							</li> */}
 						</ul>
-						<img
-							src="https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg"
-							alt="Vercel Banner"
-							className="mt-4"
-						/>
+						<a href="https://vercel.com/?utm_source=arafa-tech-foundation&utm_campaign=oss">
+							<img
+								src="https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg"
+								alt="Vercel Banner"
+								className="mt-4"
+							/>
+						</a>
 					</div>
 					<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
 						<div>
