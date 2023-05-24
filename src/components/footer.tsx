@@ -84,7 +84,10 @@ export default function Footer() {
 								</a>
 							</li> */}
 						</ul>
-						<a href="https://vercel.com/?utm_source=arafa-tech-foundation&utm_campaign=oss">
+						<a
+							href="https://vercel.com/?utm_source=arafa-tech-foundation&utm_campaign=oss"
+							target="_blank"
+						>
 							<img
 								src="https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg"
 								alt="Vercel Banner"
