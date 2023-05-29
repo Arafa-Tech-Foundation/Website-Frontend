@@ -132,14 +132,14 @@ export default function Footer() {
 								className="mt-6"
 							>
 								<ul className="space-y-4 text-sm">
-									{/* <li>
+									<li>
 										<Link
 											href="/leadership"
 											className="transition hover:opacity-75"
 										>
 											Leadership
 										</Link>
-									</li> */}
+									</li>
 									<li>
 										<Link
 											href="/blog"

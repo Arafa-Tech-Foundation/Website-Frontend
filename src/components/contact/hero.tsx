@@ -101,7 +101,7 @@ export default function ContactHero() {
 							</span>
 
 							<h2 className="mt-4 text-base font-medium text-white ">
-								Send a pidgeon
+								Send a pigeon
 							</h2>
 							<p className="mt-2 text-sm text-gray-500 ">
 								We are always expecting those
