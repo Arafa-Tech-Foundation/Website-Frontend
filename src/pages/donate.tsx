@@ -31,7 +31,7 @@ export default function Donate() {
 
 							<div className="flex gap-4">
 								<button className="btn btn-primary">
-									Donate via PayPal
+									Donate via CashApp
 								</button>
 								<button className="btn btn-primary">
 									Donate via Patreon
