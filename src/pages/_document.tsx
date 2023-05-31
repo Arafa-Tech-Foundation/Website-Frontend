@@ -47,6 +47,16 @@ export default function Document() {
 					href="/favicon-16x16.png"
 				/>
 				<link rel="manifest" href="/site.webmanifest" />
+
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `window.Givebutter=window.Givebutter||function(){(Givebutter.q=Givebutter.q||[]).push(arguments)};Givebutter.l=+new Date;window.Givebutter('setOptions',{"accountId":"y01Rpq1ZnNc2AuZW"});`,
+					}}
+				/>
+				<script
+					async
+					src="https://js.givebutter.com/elements/latest.js"
+				/>
 			</Head>
 			<body>
 				<Main />
