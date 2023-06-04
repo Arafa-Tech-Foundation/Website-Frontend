@@ -8,18 +8,22 @@ import Community from "@components/index/community";
 import CallToAction from "@components/index/cta";
 // import Testimonials from "@components/index/testimonials";
 import { Client } from "@notionhq/client";
+import Banner from "@components/index/banner";
 
 export default function Home() {
 	return (
-		<HomeLayout>
-			<Hero />
-			<Empower />
-			<ThreeSections />
-			<Services />
-			<Community />
-			{/* <Testimonials /> */}
-			<CallToAction />
-		</HomeLayout>
+		<>
+			<Banner />
+			<HomeLayout>
+				<Hero />
+				<Empower />
+				<ThreeSections />
+				<Services />
+				<Community />
+				{/* <Testimonials /> */}
+				<CallToAction />
+			</HomeLayout>
+		</>
 	);
 }
 

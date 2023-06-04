@@ -10,7 +10,7 @@ export default function Section({
 	return (
 		<section
 			className={clsx(
-				"w-full flex justify-center items-center py-16 px-4",
+				"w-full flex justify-center items-center py-16 px-4 relative",
 				className
 			)}
 		>
