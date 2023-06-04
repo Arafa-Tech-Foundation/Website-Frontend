@@ -30,6 +30,7 @@ export default function CoursePage({ source, meta, page }: Course) {
 	) as CourseModule;
 
 	const [isOpen, setIsOpen] = useState(false);
+	const [isVideoLoaded, setIsVideoLoaded] = useState(true);
 
 	const nextLesson = getNextLesson(meta, module, page);
 	const previousLesson = getPreviousLesson(meta, module, page);
@@ -45,7 +46,6 @@ export default function CoursePage({ source, meta, page }: Course) {
 
 				const video = document.createElement("video");
 				video.src = `https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.name}/static/${lesson.video}`;
-
 				video.onloadedmetadata = () => {
 					if (videos.find((video) => video.name == lesson.video))
 						return;
@@ -73,13 +73,19 @@ export default function CoursePage({ source, meta, page }: Course) {
 				videos={videos}
 			>
 				<div className="flex flex-col justify-center items-center">
-					{lessonVideo && (
+					{lessonVideo && isVideoLoaded ? (
 						<video
 							src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.name}/static/${lessonVideo}`}
 							className="max-h-[calc(100vh-100px)] h-full"
 							controls
+							onError={() => setIsVideoLoaded(false)}
 						/>
+					) : (
+						<span className="text-6xl text-center py-16 w-full">
+							Video coming soon!
+						</span>
 					)}
+
 					<article className="prose mx-auto my-8">
 						<MDXRemote
 							{...source}
