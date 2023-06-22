@@ -40,7 +40,10 @@ html {
 code[class*="hljs"] {
 	background: unset;
 }
-
+pre {
+	padding: 0px !important;
+	margin: 0px !important;
+}
 .transparent-fade {
 	-webkit-mask-image: -webkit-gradient(
 		linear,

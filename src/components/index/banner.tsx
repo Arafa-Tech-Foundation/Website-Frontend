@@ -7,7 +7,7 @@ export default function Banner() {
 	return (
 		<div>
 			{show && (
-				<Section className="bg-primary bg-opacity-80 text-center text-neutral py-2">
+				<Section className="bg-primary bg-opacity-80 text-center py-2 inline font-semibold text-white">
 					Remember to sign up for our workshops!
 					<a href="https://arafa.tech/discord">
 						<FontAwesomeIcon
