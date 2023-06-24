@@ -15,12 +15,12 @@ const headerLinks = [
 		href: "/courses",
 	},
 	{
-		name: "Volunteer",
-		href: "https://arafa-tech.notion.site/Arafa-Tech-Opportunities-57a3c033a1994747aeaceb70cb5f2b1e?pvs=4",
+		name: "Mentorship",
+		href: "/mentorship",
 	},
 	{
-		name: "Blog",
-		href: "/blog",
+		name: "Volunteer",
+		href: "https://arafa-tech.notion.site/Arafa-Tech-Opportunities-57a3c033a1994747aeaceb70cb5f2b1e?pvs=4",
 	},
 	{
 		name: "Contact",
