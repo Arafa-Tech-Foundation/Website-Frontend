@@ -1,11 +1,18 @@
 import Section from "@components/section";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Hero() {
 	return (
 		<Section>
-			<div className="relative flex flex-col items-center justify-center gap-8 py-20 min-h-[60vh] z-10">
+			<motion.div
+				initial={{ y: -10, opacity: 0 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.2, delay: 0.1 }}
+				viewport={{ once: true }}
+				className="relative flex flex-col items-center justify-center gap-8 py-20 min-h-[60vh] z-10"
+			>
 				<div className="absolute z-[-1]">
 					<img
 						className="inset-0 transparent-fade pb-40"
@@ -39,22 +46,35 @@ export default function Hero() {
 					</span>
 				</h1>
 
-				<p className="z-10 sm:text-sm md:text-md lg:text-lg xl:text-2xl w-full max-w-6xl text-center bg-white/60 bg-clip-text text-transparent">
+				<motion.p
+					initial={{ y: -10, opacity: 0 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.2, delay: 0.3 }}
+					viewport={{ once: true }}
+					className="z-10 sm:text-sm md:text-md lg:text-lg xl:text-2xl w-full max-w-6xl text-center bg-white/60 bg-clip-text text-transparent"
+				>
 					Arafa Tech is a 501(c)(3) non-profit organization that
 					provides coding education and mentorship to underprivileged
 					students, empowering them with technical skills for the
 					future.
-				</p>
-				<Link
-					href="/discord"
-					className="btn btn-wide btn-primary"
-					onClick={() => {
-						signIn("discord", { callbackUrl: "/courses" });
-					}}
+				</motion.p>
+				<motion.div
+					initial={{ y: -10, opacity: 0 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.2, delay: 0.5 }}
+					viewport={{ once: true }}
 				>
-					Get Started
-				</Link>
-			</div>
+					<Link
+						href="/discord"
+						className="btn btn-wide btn-primary"
+						onClick={() => {
+							signIn("discord", { callbackUrl: "/courses" });
+						}}
+					>
+						Get Started
+					</Link>
+				</motion.div>
+			</motion.div>
 		</Section>
 	);
 }

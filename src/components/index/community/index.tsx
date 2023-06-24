@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 export default function Community() {
 	const [message, setMessage] = useState("");
@@ -14,13 +15,23 @@ export default function Community() {
 
 			<div className="grid grid-cols-1 lg:grid-cols-2">
 				<div className="">
-					<img
+					<motion.img
+						initial={{ y: -10, opacity: 0 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.2, delay: 0.2 }}
+						viewport={{ once: true }}
 						src="/images/discord.png"
 						className="drop-glow w-[450px] mx-auto"
 					/>
 				</div>
 				<div className="flex flex-col gap-10 w-[90%] mt-10 lg:my-0 mx-auto lg:w-full">
-					<div className="space-y-4">
+					<motion.div
+						initial={{ y: -10, opacity: 0 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.2, delay: 0.3 }}
+						viewport={{ once: true }}
+						className="space-y-4"
+					>
 						<h2 className="font-semibold h3 uppercase tracking-[0.2em]">
 							Get Involved
 						</h2>
@@ -31,7 +42,7 @@ export default function Community() {
 							your network, and make new friends. Engage in events
 							and activities, and get involved in the community.
 						</p>
-					</div>
+					</motion.div>
 					{/* <div className="space-y-4">
 						<h2 className="font-semibold h3 uppercase tracking-[0.2em]">
 							Place holder
@@ -51,18 +62,33 @@ export default function Community() {
 							"Mentorship",
 							"Coding Challenges",
 							"Q/As",
-						].map((item) => (
-							<div className="flex items-center gap-2">
+						].map((item, i) => (
+							<motion.div
+								initial={{ y: -10, opacity: 0 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								transition={{
+									duration: 0.2,
+									delay: 0.5 + i / 10,
+								}}
+								viewport={{ once: true }}
+								className="flex items-center gap-2"
+							>
 								<FontAwesomeIcon
 									icon={faCheck}
 									className="w-5 h-5"
 									color="#00ff00"
 								/>
 								<p className="font-light">{item}</p>
-							</div>
+							</motion.div>
 						))}
 					</div>
-					<div className="space-y-4">
+					<motion.div
+						initial={{ y: -10, opacity: 0 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.2, delay: 0.7 }}
+						viewport={{ once: true }}
+						className="space-y-4"
+					>
 						<h2 className="font-semibold h3 uppercase tracking-[0.2em]">
 							Send your message
 						</h2>
@@ -79,7 +105,7 @@ export default function Community() {
 							Send
 						</Link>
 						{/* TODO: Lets get visual effects / blinking effect */}
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		</Section>

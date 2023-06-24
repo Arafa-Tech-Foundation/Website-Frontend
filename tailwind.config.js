@@ -84,6 +84,20 @@ module.exports = {
 				"gradient-background-3": "gradient-background-3 8s infinite",
 				"gradient-foreground-3": "gradient-foreground-3 8s infinite",
 			},
+			colors: {
+				primary: {
+					100: "#ffdfe2",
+					200: "#ffbfc5",
+					300: "#ff9fa7",
+					400: "#ff7f8a",
+					500: "#ff5f6d",
+					600: "#cc4c57",
+					700: "#993941",
+					800: "#66262c",
+					900: "#331316",
+					DEFAULT: "#ff5f6d",
+				},
+			},
 		},
 	},
 	daisyui: {

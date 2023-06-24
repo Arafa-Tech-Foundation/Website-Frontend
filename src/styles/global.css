@@ -11,13 +11,11 @@ html {
 }
 
 .btn-primary {
-	background: linear-gradient(45deg, hsl(var(--p)), hsl(var(--s)));
-	border: none;
+	@apply border-none bg-primary
 }
 
 .btn-primary:hover {
-	background: linear-gradient(45deg, hsl(var(--p)), hsl(var(--s)));
-	box-shadow: 0 0 75px -20px hsl(var(--p));
+	@apply bg-primary/70 shadow-lg
 }
 
 .text-gradient {

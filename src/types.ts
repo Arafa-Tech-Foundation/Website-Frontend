@@ -51,6 +51,9 @@ export type StaffMember = {
 	name: string;
 	avatar: string;
 	role: string;
+	boardMember: boolean;
+	boardTitle: string;
+	founder: boolean;
 	links: {
 		linkedIn?: string;
 		github?: string;
