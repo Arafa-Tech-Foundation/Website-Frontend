@@ -9,13 +9,15 @@ export default function Post({
 	children: React.ReactNode;
 }) {
 	return (
-		<article className="px-4 py-24 mx-auto max-w-7xl">
-			<div className="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
-				<img
-					src={matter.background}
-					className="object-cover w-full h-64 bg-center rounded-lg"
-					alt="Kutty"
-				/>
+		<article className="px-4 py-24 mx-auto max-w-[65ch]">
+			<div className="w-full mx-auto mb-12 text-left">
+				{matter.background && (
+					<img
+						src={matter.background}
+						className="object-cover w-full h-64 bg-center rounded-lg"
+						alt="Kutty"
+					/>
+				)}
 				<p className="mt-6 mb-2 text-xs font-semibold tracking-wider uppercase text-primary">
 					{matter.type}
 				</p>
@@ -32,53 +34,57 @@ export default function Post({
 						</span>
 					))}
 				</div>
-				<a
-					className="flex items-center text-gray-700 group"
-					href={matter.link || "#"}
-					rel="noopener noreferrer"
-					target="_blank"
-				>
-					<img
-						className="avatar rounded-full w-10 h-10"
-						src={matter.avatar}
-						alt="Profile Photo"
-					/>
-					<div className="ml-2">
-						<p className="text-sm font-semibold text-white group-hover:!text-primary">
-							{matter.author}
-						</p>
-						<p className="text-sm text-gray-500">
-							{new Date(matter.date * 1000).toDateString()}
-						</p>
-					</div>
-				</a>
+				{matter.author && (
+					<a
+						className="flex items-center text-gray-700 group"
+						href={matter.link || "#"}
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<img
+							className="avatar rounded-full w-10 h-10"
+							src={matter.avatar}
+							alt="Profile Photo"
+						/>
+						<div className="ml-2">
+							<p className="text-sm font-semibold text-white group-hover:!text-primary">
+								{matter.author}
+							</p>
+							<p className="text-sm text-gray-500">
+								{new Date(matter.date * 1000).toDateString()}
+							</p>
+						</div>
+					</a>
+				)}
 			</div>
 
-			<div className="w-full mx-auto prose md:w-3/4 lg:w-1/2">
+			<div className="w-full mx-auto prose">
 				{children}
 				<hr />
 			</div>
-			<div className="mt-6 w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
-				<a
-					className="flex items-center text-gray-700 group"
-					href={matter.link || "#"}
-					rel="noopener noreferrer"
-					target="_blank"
-				>
-					<img
-						className="avatar rounded-full w-10 h-10"
-						src={matter.avatar}
-						alt="Profile Photo"
-					/>
-					<div className="ml-2">
-						<p className="text-sm font-semibold text-white group-hover:!text-primary">
-							{matter.author}
-						</p>
-						<p className="text-sm text-gray-500">
-							{new Date(matter.date * 1000).toDateString()}
-						</p>
-					</div>
-				</a>
+			<div className="mt-6 w-full mx-auto mb-12 text-left">
+				{matter.author && (
+					<a
+						className="flex items-center text-gray-700 group"
+						href={matter.link || "#"}
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<img
+							className="avatar rounded-full w-10 h-10"
+							src={matter.avatar}
+							alt="Profile Photo"
+						/>
+						<div className="ml-2">
+							<p className="text-sm font-semibold text-white group-hover:!text-primary">
+								{matter.author}
+							</p>
+							<p className="text-sm text-gray-500">
+								{new Date(matter.date * 1000).toDateString()}
+							</p>
+						</div>
+					</a>
+				)}
 
 				<div className="mt-8 px-6 py-6 rounded-lg text-center bg-gray-800 md:py-12 md:px-12 lg:py-16 lg:px-16  xl:items-center">
 					<div className="">

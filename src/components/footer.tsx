@@ -111,6 +111,22 @@ export default function Footer() {
 											Courses
 										</Link>
 									</li>
+									<li>
+										<Link
+											href="/mentorship"
+											className="transition hover:opacity-75"
+										>
+											Mentorship
+										</Link>
+									</li>
+									<li>
+										<Link
+											href="/workshops"
+											className="transition hover:opacity-75"
+										>
+											Workshops
+										</Link>
+									</li>
 
 									<li>
 										<a
