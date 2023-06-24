@@ -49,7 +49,7 @@ export default function Workshops() {
 						the ability to create your own web pages.
 					</p>
 					<Link
-						href="/blog/"
+						href="/blog/introduction_to_web_development_build_a_simple_portfolio"
 						className="text-primary hover:no-underline group flex items-center space-x-2"
 					>
 						Learn More
