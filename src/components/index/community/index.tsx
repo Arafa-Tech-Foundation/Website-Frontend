@@ -19,7 +19,6 @@ export default function Community() {
 						src="https://discord.com/widget?id=1071904870644338739&theme=dark"
 						width="350"
 						height="500"
-						allowtransparency="true"
 						frameBorder="0"
 						initial={{ y: -10, opacity: 0 }}
 						whileInView={{ opacity: 1, y: 0 }}
