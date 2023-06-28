@@ -34,7 +34,7 @@ export default function Workshops() {
 				<h2>Upcoming Workshops</h2>
 
 				<div className="bg-neutral rounded-lg shadow px-8 py-6 hover:-translate-y-1 transition-transform">
-					<span>June 27, 2023</span>
+					<span>July 5, 2023</span>
 					<h3 className="mt-2">
 						Introduction to Web Development: Building a Portfolio
 					</h3>
