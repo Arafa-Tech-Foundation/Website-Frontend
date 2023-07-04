@@ -17,7 +17,7 @@ export default function Community() {
 				<div className="">
 					<motion.iframe
 						src="https://discord.com/widget?id=1071904870644338739&theme=dark"
-						width="350"
+						// width="350"
 						height="500"
 						frameBorder="0"
 						initial={{ y: -10, opacity: 0 }}
@@ -25,7 +25,7 @@ export default function Community() {
 						transition={{ duration: 0.2, delay: 0.2 }}
 						viewport={{ once: true }}
 						sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-						className="drop-glow w-[450px] mx-auto"
+						className="drop-glow  lg:w-[450px] mx-auto"
 					></motion.iframe>
 				</div>
 				<div className="flex flex-col gap-10 w-[90%] mt-10 lg:my-0 mx-auto lg:w-full">
