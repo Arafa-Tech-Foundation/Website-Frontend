@@ -38,3 +38,4 @@ yarn-error.log*
 # service worker
 sw.js
 sw.js.map
+src/components/hackathon/hero.tsx
