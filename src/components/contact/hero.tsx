@@ -49,7 +49,7 @@ export default function ContactHero() {
 							</p>
 							<a
 								href="mailto:help@arafa.tech"
-								className="mt-2 text-sm text-primary "
+								className="mt-2 text-sm text-primary hover:underline"
 							>
 								help@arafa.tech
 							</a>
@@ -71,7 +71,7 @@ export default function ContactHero() {
 							</p>
 							<Link
 								href="/discord"
-								className="mt-2 text-sm text-primary "
+								className="mt-2 text-sm text-primary hover:underline"
 							>
 								Join the community
 							</Link>
@@ -108,7 +108,7 @@ export default function ContactHero() {
 							</p>
 							<a
 								href="mailto:help@arafa.tech"
-								className="mt-2 text-sm text-primary "
+								className="mt-2 text-sm text-primary hover:underline"
 							>
 								Send a pigeon... Or email us
 							</a>
@@ -140,7 +140,7 @@ export default function ContactHero() {
 							</p>
 							<a
 								href="tel:7025307389"
-								className="mt-2 text-sm text-primary "
+								className="mt-2 text-sm text-primary hover:underline"
 							>
 								+1 (702) 530-7389
 							</a>

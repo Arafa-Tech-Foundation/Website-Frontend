@@ -111,14 +111,30 @@ export default function Footer() {
 											Courses
 										</Link>
 									</li>
-
 									<li>
 										<Link
-											href="/volunteer"
+											href="/mentorship"
+											className="transition hover:opacity-75"
+										>
+											Mentorship
+										</Link>
+									</li>
+									<li>
+										<Link
+											href="/workshops"
+											className="transition hover:opacity-75"
+										>
+											Workshops
+										</Link>
+									</li>
+
+									<li>
+										<a
+											href="https://arafa-tech.notion.site/Arafa-Tech-Opportunities-57a3c033a1994747aeaceb70cb5f2b1e?pvs=4"
 											className="transition hover:opacity-75"
 										>
 											Volunteer
-										</Link>
+										</a>
 									</li>
 									<li>
 										<Link

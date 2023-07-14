@@ -29,7 +29,7 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 						{staff.map((staffMember) => (
 							<div
 								key={staffMember.name}
-								className="background-glass flex flex-col items-center justify-center w-full p-4 mx-auto my-4 rounded-lg shadow-lg "
+								className="bg-neutral flex flex-col items-center justify-center w-full p-4 mx-auto my-4 rounded-lg shadow-lg "
 							>
 								<img
 									className="object-cover w-32 h-32 rounded-full"
@@ -70,6 +70,112 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 						))}
 					</div>
 				</Section>
+				<Section>
+					<h1 className="text-4xl font-bold text-center ">
+						Board of Directors
+					</h1>
+					<p className="mt-2 text-center">
+						Meet our Board: Guiding our Success.
+					</p>
+					<div className="grid grid-cols-3 gap-8">
+						{staff
+							.filter((v) => v.boardMember)
+							.map((staffMember) => (
+								<div
+									key={staffMember.name}
+									className="bg-neutral flex flex-col items-center justify-center w-full p-4 mx-auto my-4 rounded-lg shadow-lg "
+								>
+									<img
+										className="object-cover w-32 h-32 rounded-full"
+										src={staffMember.avatar}
+										alt={staffMember.name}
+									/>
+									<div className="mt-4 text-center">
+										<p className="text-lg font-medium text-glow">
+											{staffMember.name}
+										</p>
+										<p className="mt-2 text-sm">
+											{staffMember.boardTitle}
+										</p>
+									</div>
+									<div className="flex justify-center mt-4 space-x-3">
+										{Object.entries(staffMember.links).map(
+											([key, value]) => (
+												<a
+													key={key}
+													href={`${value || "/"}`}
+													target="_blank"
+													rel="noreferrer"
+													className="text-gray-500 transition duration-200 hover:text-primary"
+												>
+													<span className="sr-only">
+														{key}
+													</span>
+													<FontAwesomeIcon
+														// @ts-ignore
+														icon={icons[key]}
+														className="w-5 h-5"
+													/>
+												</a>
+											)
+										)}
+									</div>
+								</div>
+							))}
+					</div>
+				</Section>
+				<Section>
+					<h1 className="text-4xl font-bold text-center ">
+						Founders
+					</h1>
+					<p className="mt-2 text-center">
+						Our founders: shaping our platform's vision.
+					</p>
+					<div className="grid grid-cols-3 gap-8">
+						{staff
+							.filter((v) => v.founder)
+							.map((staffMember) => (
+								<div
+									key={staffMember.name}
+									className="bg-neutral flex flex-col items-center justify-center w-full p-4 mx-auto my-4 rounded-lg shadow-lg "
+								>
+									<img
+										className="object-cover w-32 h-32 rounded-full"
+										src={staffMember.avatar}
+										alt={staffMember.name}
+									/>
+									<div className="mt-4 text-center">
+										<p className="text-lg font-medium text-glow">
+											{staffMember.name}
+										</p>
+										<p className="mt-2 text-sm">Founder</p>
+									</div>
+									<div className="flex justify-center mt-4 space-x-3">
+										{Object.entries(staffMember.links).map(
+											([key, value]) => (
+												<a
+													key={key}
+													href={`${value || "/"}`}
+													target="_blank"
+													rel="noreferrer"
+													className="text-gray-500 transition duration-200 hover:text-primary"
+												>
+													<span className="sr-only">
+														{key}
+													</span>
+													<FontAwesomeIcon
+														// @ts-ignore
+														icon={icons[key]}
+														className="w-5 h-5"
+													/>
+												</a>
+											)
+										)}
+									</div>
+								</div>
+							))}
+					</div>
+				</Section>
 			</HomeLayout>
 		</>
 	);
@@ -84,6 +190,8 @@ export async function getStaticProps() {
 		.map((page) => {
 			// @ts-ignore
 			const properties = page.properties;
+
+			console.log(properties);
 			const final = {
 				name: properties.Name.title[0]?.plain_text || "N/A",
 				position: properties.Position?.number || 0,
@@ -91,6 +199,11 @@ export async function getStaticProps() {
 				avatar:
 					properties.Avatar.files[0]?.file?.url || "/logos/main.png",
 				links: {},
+				boardMember: properties["Board Member"]?.checkbox || false,
+				boardTitle:
+					properties["Board Title"]?.rich_text[0]?.plain_text ||
+					"N/A",
+				founder: properties.Founder?.checkbox || false,
 			} as any;
 			const linkedIn = properties.LinkedIn.files[0];
 			if (linkedIn) final.links.linkedIn = linkedIn.external.url;

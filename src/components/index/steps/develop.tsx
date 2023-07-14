@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import StepLayout from "./layout";
+import { motion } from "framer-motion";
 
 function Card({
 	title,
@@ -33,8 +34,19 @@ export default function Develop() {
 					"flex-col lg:flex-row items-center gap-8 lg:gap-0"
 				)}
 			>
-				{sections.map((section) => (
-					<Card key={section.description} {...section} />
+				{sections.map((section, i) => (
+					<motion.div
+						initial={{
+							opacity: 0,
+							x: i === 0 ? -20 : i === 2 ? 20 : 0,
+							y: i === 1 ? -20 : 0,
+						}}
+						whileInView={{ opacity: 1, y: 0, x: 0 }}
+						transition={{ duration: 0.4, delay: 0.5 }}
+						viewport={{ once: true }}
+					>
+						<Card key={section.description} {...section} />
+					</motion.div>
 				))}
 			</div>
 		</StepLayout>

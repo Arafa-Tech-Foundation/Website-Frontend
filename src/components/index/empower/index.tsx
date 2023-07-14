@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { cardData } from "./data";
 import Section from "@components/section";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 function Card({
 	title,
@@ -35,9 +36,15 @@ function Card({
 export default function Empower() {
 	return (
 		<Section className="my-10">
-			<h1 className="text-center uppercase h2 tracking-[0.2em] mb-10">
+			<motion.h1
+				initial={{ y: -10, opacity: 0 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.2, delay: 0.3 }}
+				viewport={{ once: true }}
+				className="text-center uppercase h2 tracking-[0.2em] mb-10"
+			>
 				Empowering the Future
-			</h1>
+			</motion.h1>
 			<div
 				className={clsx(
 					"flex justify-between",
@@ -45,8 +52,15 @@ export default function Empower() {
 					"flex-col lg:flex-row"
 				)}
 			>
-				{cardData.map((card) => (
-					<Card key={card.title} {...card} />
+				{cardData.map((card, i) => (
+					<motion.div
+						initial={{ y: -20, opacity: 0 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.3, delay: 0.2 * i + 0.2 }}
+						viewport={{ once: true }}
+					>
+						<Card key={card.title} {...card} />
+					</motion.div>
 				))}
 			</div>
 		</Section>

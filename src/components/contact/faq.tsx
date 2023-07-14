@@ -53,7 +53,7 @@ export default function Faq() {
 	);
 
 	return (
-		<Section>
+		<Section className="max-w-4xl mx-auto">
 			<h1
 				className="text-5xl font-bold mb-8 text-center animate-fade-in"
 				style={{ textShadow: "2px 2px #0a0909" }}
@@ -73,7 +73,7 @@ export default function Faq() {
 						<div
 							key={index}
 							tabIndex={0}
-							className="border-b py-4 collapse collapse-arrow"
+							className="border-b border-neutral py-4 collapse collapse-arrow"
 						>
 							<input type="checkbox" />
 							<div className="collapse-title">

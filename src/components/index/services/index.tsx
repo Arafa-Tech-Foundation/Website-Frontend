@@ -1,18 +1,27 @@
 import Section from "@components/section";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 function Card({
 	title,
 	description,
 	icon,
+	i,
 }: {
 	title: string;
 	description: string;
 	icon: JSX.Element;
+	i: number;
 }) {
 	const [title1, title2] = title.split(" ");
 	return (
-		<div className="background-glass lg:max-w-[350px] py-10 shadow-lg p-6 rounded-[45px]">
+		<motion.div
+			initial={{ y: -10, opacity: 0 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.2, delay: 0.2 * i + 0.3 }}
+			viewport={{ once: true }}
+			className="background-glass lg:max-w-[350px] py-10 shadow-lg p-6 rounded-[45px]"
+		>
 			<div className="text-white background-gradient p-3 rounded-xl w-fit">
 				{icon}
 			</div>
@@ -20,7 +29,7 @@ function Card({
 				{title1} <span className="text-glow">{title2}</span>
 			</h3>
 			<p className="max-w-[60ch] font-light">{description}</p>
-		</div>
+		</motion.div>
 	);
 }
 
@@ -33,8 +42,8 @@ export default function Services() {
 					"w-[90%] lg:w-full mx-auto"
 				)}
 			>
-				{sections.map((section) => (
-					<Card key={section.description} {...section} />
+				{sections.map((section, i) => (
+					<Card key={section.description} {...section} i={i} />
 				))}
 			</div>
 		</Section>
