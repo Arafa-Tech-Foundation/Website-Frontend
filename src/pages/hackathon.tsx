@@ -11,12 +11,12 @@ import Team from "@components/hackathon/team/team";
 // Fix maraquee effect
 // Configure Mobile sizing (and breakpoints)
 // Mobile sizing messing with dropdown menu
-// Fix FAQ errors 
+// Fix FAQ errors
 
 export default function HackathonPage() {
 	return (
 		<>
-			<NextSeo title="Hackathon"/>
+			<NextSeo title="Hackathon" />
 			<HomeLayout>
 				<Section className="text-white">
 					<Hero />
@@ -24,7 +24,7 @@ export default function HackathonPage() {
 					<Sponsor />
 					<FAQ />
 					<Speakers />
-					{/* <Team /> */}
+					<Team />
 				</Section>
 			</HomeLayout>
 		</>

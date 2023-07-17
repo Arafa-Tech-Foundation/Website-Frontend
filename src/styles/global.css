@@ -2,6 +2,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer utilities {
+	.text-outline {
+		text-shadow: -1px 1px 2px #595962, 1px 1px 2px #595962,
+			1px -1px 0 #595962, -1px -1px 0 #595962;
+	}
+}
 html {
 	font-family: "Poppins", sans-serif;
 }
@@ -11,11 +17,11 @@ html {
 }
 
 .btn-primary {
-	@apply border-none bg-primary
+	@apply border-none bg-primary;
 }
 
 .btn-primary:hover {
-	@apply bg-primary/70 shadow-lg
+	@apply bg-primary/70 shadow-lg;
 }
 
 .text-gradient {
