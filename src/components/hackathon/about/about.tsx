@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { cardData } from "./data";
 import Section from "@components/section";
 import Link from "next/link";
+import GhostText from "../ghostText";
 
 function Card({
 	title,
@@ -34,10 +35,8 @@ function Card({
 
 export default function About() {
 	return (
-		<Section >
-			<h1 className="text-center uppercase h1 tracking-[0.2em] mb-10">
-				About the Hackathon
-			</h1>
+		<Section>
+			<GhostText content="About the hackathon" intensity="low" />
 			<div
 				className={clsx(
 					"flex justify-between",

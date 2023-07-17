@@ -3,6 +3,7 @@ import { Disclosure, Transition } from "@headlessui/react";
 import { faqData } from "./data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import GhostText from "../ghostText";
 
 function Card({
 	title,
@@ -20,8 +21,11 @@ function Card({
 					<>
 						<FontAwesomeIcon
 							icon={faCaretRight}
-							className={open ? "rotate-90 transform fa-lg px-5 py-1" : "fa-lg px-5 py-1" }
-							
+							className={
+								open
+									? "rotate-90 transform fa-lg px-5 py-1"
+									: "fa-lg px-5 py-1"
+							}
 						/>
 						<Disclosure.Button className="text-large lg:text-3xl md:text-xl tracking-widest nowrap">
 							{title}
@@ -49,9 +53,7 @@ function Card({
 export default function FAQ() {
 	return (
 		<>
-			<h1 className="text-center uppercase h1 tracking-[0.2em] mb-10">
-				FAQ
-			</h1>
+			<GhostText content="FAQ" intensity="low" />
 			<NextSeo title="Hackathon" />
 			<div className="flex flex-col items-start gap-5 w-100%">
 				{faqData.map((accor) => (

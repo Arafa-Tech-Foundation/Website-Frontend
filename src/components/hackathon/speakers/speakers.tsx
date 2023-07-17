@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { speakerData } from "./data";
 import Section from "@components/section";
+import GhostText from "../ghostText";
 
 function Card({
 	title,
@@ -35,9 +36,7 @@ function Card({
 export default function About() {
 	return (
 		<Section>
-			<h1 className="text-center uppercase h1 tracking-[0.2em] mb-10">
-				Guest Speakers
-			</h1>
+			<GhostText content="Guest Speakers" intensity="low" />
 			<div
 				className={clsx(
 					"flex justify-between",
