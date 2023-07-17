@@ -1,8 +1,18 @@
 import HomeLayout from "@components/layout";
 import Section from "@components/section";
 import { NextSeo } from "next-seo";
+import clsx from "clsx";
+import { legalData } from "@components/legal/data";
+import { useState } from "react";
 
 export default function Legal() {
+	// Using state to change between doucments in data file
+	const [document, setDocument] = useState(legalData[0]);
+
+	const handleDocumentChange = (info: any) => {
+		setDocument(info);
+	};
+
 	return (
 		<>
 			<NextSeo title="Legal Documents" />
@@ -43,6 +53,7 @@ export default function Legal() {
 	);
 }
 
+// Old documents just appended to the bottom
 const documents = [
 	{
 		title: "Articles of Incorporation",

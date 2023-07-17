@@ -136,6 +136,14 @@ export default function Footer() {
 											Volunteer
 										</a>
 									</li>
+									<li>
+										<Link
+											href="/hackathon"
+											className="transition hover:opacity-75"
+										>
+											Hackathon
+										</Link>
+									</li>
 								</ul>
 							</nav>
 						</div>
