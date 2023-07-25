@@ -1,5 +1,5 @@
 import Loading from "@components/auth/loading";
-import { faArrowLeft, faBars, faBell } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import { signIn, useSession } from "next-auth/react";
@@ -34,17 +34,17 @@ export default function CoursesLayout({
 
 	return (
 		<>
-			<header className="py-1 sm:py-3 px-4 flex sticky top-0 z-[999] bg-base-200/75 backdrop-blur shadow-[0_5px_200px_-30px_hsl(var(--p))]">
-				<a href="/" className="flex items-center flex-1">
+			<header className="py-1 bg-neutral sm:py-3 px-4 flex sticky top-0 z-10 shadow-[0_5px_200px_-30px_hsl(var(--p))]">
+				<Link href="/courses" className="flex items-center flex-1">
 					<img
 						src="/logos/transparent/main.png"
 						className="max-w-[3em]"
 						alt="Course Icon"
 					/>
-					<h1 className="text-2xl font-bold ml-2 hidden sm:block">
+					<h1 className="text-white h3 font-bold ml-2 hidden sm:block">
 						Arafa Tech
 					</h1>
-				</a>
+				</Link>
 				<div className="flex justify-center items-center flex-1">
 					<img
 						src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${meta.name}/static/icon.svg`}
@@ -54,9 +54,6 @@ export default function CoursesLayout({
 				</div>
 
 				<div className="flex justify-end items-center flex-1 gap-4">
-					<button className="btn btn-primary btn-square btn-sm">
-						<FontAwesomeIcon icon={faBell} />
-					</button>
 					<div>
 						{status === "unauthenticated" ? (
 							<button
@@ -65,7 +62,6 @@ export default function CoursesLayout({
 									signIn("discord");
 								}}
 							>
-								{/* TODO: This only checks on a react render. */}
 								{window.innerWidth > 768
 									? "Login To Save Progress"
 									: "Login"}
@@ -80,91 +76,100 @@ export default function CoursesLayout({
 								className="avatar avatar-sm rounded-full w-8"
 							/>
 						)}
-						<h3 className="hidden sm:inline ml-2">
+						<h3 className="hidden sm:inline ml-2 text-white">
 							{session?.user?.name}
 						</h3>
 					</div>
+				</div>
+				<div className="absolute left-0 top-[110%]">
+					<button
+						className="btn bg-neutral btn-square rounded-r-2xl rounded-l-none"
+						onClick={() => {
+							setIsOpen((isOpen: any) => !isOpen);
+						}}
+					>
+						<FontAwesomeIcon icon={faBars} className="h-[50%]" />
+					</button>
 				</div>
 			</header>
 
 			<aside
 				className={clsx(
-					"fixed top-[100px] w-[calc(100vw-75px)] sm:w-[400px] max-w-full h-[calc(100vh-100px)] z-10 transition duration-500 ease-[cubic-bezier(0.5, 0, 0, 1)]",
+					"fixed left-0 bg-gray-100 pt-5 top-0 w-[calc(100vw-75px)] overflow-y-scroll sm:w-[500px] max-w-full h-full z-40 transition duration-500 ease-[cubic-bezier(0.5, 0, 0, 1)]",
 					isOpen ? "translate-x-0" : "translate-x-[-100%]"
 				)}
 			>
-				<button
-					className="btn btn-square absolute left-full rounded-2xl rounded-l-none"
-					onClick={() => {
-						setIsOpen((isOpen: any) => !isOpen);
-					}}
-				>
-					<FontAwesomeIcon
-						icon={isOpen ? faArrowLeft : faBars}
-						className="h-[50%]"
-					/>
-				</button>
-				<div className="absolute left-[10px] bottom-[10px] w-[calc(100%-10px)] h-full overflow-hidden bg-base-200/75 backdrop-blur rounded-lg">
-					<nav
-						className="absolute top-0 left-0 w-full h-full overflow-y-scroll hidden-scrollbar"
-						aria-label="Main Navigation"
+				<div className="flex justify-end">
+					<button
+						className="btn btn-ghost"
+						onClick={() => {
+							setIsOpen((isOpen: any) => !isOpen);
+						}}
 					>
-						{meta.modules.map((module) => (
-							<section key={module.name}>
-								<div className="rounded-lg py-4 px-8 bg-base-300/50 backdrop-blur">
-									<p className="text-sm font-semibold">
-										{module.name.split(": ")[0]}
-									</p>
-									<h2 className="text-2xl font-bold text-transparent text-gradient">
-										{module.name.split(": ")[1]}
-									</h2>
-								</div>
-								{module.lessons.map((lesson, i) => (
-									<Link
-										key={lesson.name}
-										href={`/courses/${meta.name}/${lesson.name}`}
-										className={clsx(
-											"flex items-center hover:bg-gradient-to-r from-primary to-secondary hover:text-primary-content my-1 py-4 px-4 rounded",
-											router.asPath.includes(
-												lesson.name
-											) &&
-												"bg-gradient-to-r from-primary to-secondary text-primary-content"
-										)}
-										onClick={() => setIsOpen(false)}
-									>
-										<span className="flex-1">
-											{`Lesson ${i + 1}: ${prettifyName(
-												lesson.name
-											)}`}
-										</span>
-										{lesson.video && (
-											<span>
-												{(() => {
-													const duration =
-														videos.find(
-															(video) =>
-																video.name ===
-																lesson.video
-														)?.duration;
-													if (!duration)
-														return "00:00";
-													const date = new Date(0);
-													date.setSeconds(duration);
-													return date
-														.toISOString()
-														.substring(14, 19);
-												})()}
-											</span>
-										)}
-									</Link>
-								))}
-							</section>
-						))}
-					</nav>
-					<div className="shadow-overlay top-[67%] absolute w-full h-[33%] bg-gradient-to-t from-black/75 overflow-auto pointer-events-none" />
+						<FontAwesomeIcon
+							icon={faArrowLeft}
+							className="h-[50%]"
+						/>
+					</button>
 				</div>
+
+				<nav aria-label="Main Navigation">
+					<Link
+						href="/courses"
+						className="flex btn btn-sm btn-ghost text-left px-8 items-center text-black h6 font-bold ml-2 my-4"
+					>
+						Back to Courses
+					</Link>
+					{meta.modules.map((module) => (
+						<section className="my-4" key={module.name}>
+							<div className="rounded-lg py-4 px-8">
+								<p className="text-sm font-semibold">
+									{module.name.split(": ")[0]}
+								</p>
+								<h2 className="h3 font-bold text-black">
+									{module.name.split(": ")[1]}
+								</h2>
+							</div>
+							{module.lessons.map((lesson, i) => (
+								<Link
+									key={lesson.name}
+									href={`/courses/${meta.name}/${lesson.name}`}
+									className={clsx(
+										"flex items-center hover:text-gray-500 my-1 py-4 px-4 rounded",
+										router.asPath.includes(lesson.name) &&
+											"bg-primary text-white hover:text-white"
+									)}
+									onClick={() => setIsOpen(false)}
+								>
+									<span className="flex-1">
+										{`Lesson ${i + 1}: ${prettifyName(
+											lesson.name
+										)}`}
+									</span>
+									{lesson.video && (
+										<span>
+											{(() => {
+												const duration = videos.find(
+													(video) =>
+														video.name ===
+														lesson.video
+												)?.duration;
+												if (!duration) return "00:00";
+												const date = new Date(0);
+												date.setSeconds(duration);
+												return date
+													.toISOString()
+													.substring(14, 19);
+											})()}
+										</span>
+									)}
+								</Link>
+							))}
+						</section>
+					))}
+				</nav>
 			</aside>
-			<main className="px-4">{children}</main>
+			<main className="px-4 pb-20">{children}</main>
 		</>
 	);
 }

@@ -34,7 +34,7 @@ export default function Header() {
 	const [state, setState] = useState(false);
 
 	return (
-		<div className="bg-neutral text-white backdrop-blur sticky !px-0 top-0 py-2 z-[100]">
+		<div className="bg-neutral text-white backdrop-blur sticky !px-0 top-0 py-2 z-10">
 			<nav className="w-full md:static md:text-sm md:border-none ">
 				<div className="items-center mx-auto md:flex">
 					<div className="flex items-center justify-between py-3 md:py-5 md:block px-10">
