@@ -1,11 +1,5 @@
 const plugin = require("tailwindcss/plugin");
 
-const theme = {
-	primary: "#FF5F6D",
-	secondary: "#FFC371",
-	neutral: "#121619",
-};
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ["./src/**/*.tsx"],
@@ -97,19 +91,35 @@ module.exports = {
 					900: "#331316",
 					DEFAULT: "#ff5f6d",
 				},
+				neutral: {
+					100: "#d0d0d1",
+					200: "#a0a2a3",
+					300: "#717375",
+					400: "#414547",
+					500: "#121619",
+					600: "#161b21",
+					700: "#0b0d0f",
+					800: "#07090a",
+					900: "#040405",
+					DEFAULT: "#121619",
+					card: "#161b21",
+				},
+				secondary: {
+					100: "#fff3e3",
+					200: "#ffe7c6",
+					300: "#ffdbaa",
+					400: "#ffcf8d",
+					500: "#ffc371",
+					600: "#161b21",
+					700: "#997544",
+					800: "#664e2d",
+					900: "#332717",
+				},
 			},
 		},
 	},
 	daisyui: {
 		styled: true,
-		themes: [
-			{
-				light: { ...theme, "base-100": "#FFFFFF" },
-			},
-			{
-				dark: { ...theme, "base-100": "#16161f" },
-			},
-		],
 		base: true,
 		utils: true,
 		rtl: false,
