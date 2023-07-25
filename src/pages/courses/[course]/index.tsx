@@ -62,7 +62,7 @@ export default function Courses({ course }: { course: CourseMeta }) {
 										className="text-primary"
 										size="xl"
 									/>
-									<p>Basic Understanding of {course.name}</p>
+									<p>Basic understanding of {course.name}</p>
 								</div>
 								<div className="flex gap-4">
 									<FontAwesomeIcon
@@ -70,7 +70,10 @@ export default function Courses({ course }: { course: CourseMeta }) {
 										className="text-primary"
 										size="xl"
 									/>
-									<p>Certificate of Completion</p>
+									<p>
+										Familiarity with the {course.name}{" "}
+										ecosystem{" "}
+									</p>
 								</div>
 								<div className="flex gap-4">
 									<FontAwesomeIcon
@@ -78,7 +81,9 @@ export default function Courses({ course }: { course: CourseMeta }) {
 										className="text-primary"
 										size="xl"
 									/>
-									<p>Job Placement Assistance</p>
+									<p>
+										Ability to build {course.name} projects
+									</p>
 								</div>
 							</div>
 
