@@ -34,7 +34,7 @@ export default function CoursesLayout({
 
 	return (
 		<>
-			<header className="py-1 bg-neutral sm:py-3 px-4 flex sticky top-0 z-10 shadow-[0_5px_200px_-30px_hsl(var(--p))]">
+			<header className="py-1 bg-neutral sm:py-3 px-4 flex sticky top-0 z-10">
 				<Link href="/courses" className="flex items-center flex-1">
 					<img
 						src="/logos/transparent/main.png"
