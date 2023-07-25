@@ -106,6 +106,14 @@ export default function Footer() {
 									<ul className="space-y-4 text-sm">
 										<li>
 											<Link
+												href="/about"
+												className="transition hover:opacity-75"
+											>
+												About Us
+											</Link>
+										</li>
+										<li>
+											<Link
 												href="/leadership"
 												className="transition hover:opacity-75"
 											>
