@@ -3,6 +3,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import Testimonial from "../testimonial";
+import { motion } from "framer-motion";
 
 export default function Services() {
 	return (
@@ -28,8 +29,13 @@ export default function Services() {
 			</div>
 
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mb-20">
-				{sections.map((section) => (
-					<div className="text-center flex flex-col">
+				{sections.map((section, i) => (
+					<motion.div
+						initial={{ y: 20, opacity: 0 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.2, delay: 0.1 * i + 0.1 }}
+						className="text-center flex flex-col"
+					>
 						<h2 className="font-bold h3 text-black mb-2">
 							{section.title}
 						</h2>
@@ -46,7 +52,7 @@ export default function Services() {
 								icon={faChevronRight}
 							/>
 						</Link>
-					</div>
+					</motion.div>
 				))}
 			</div>
 			<Testimonial

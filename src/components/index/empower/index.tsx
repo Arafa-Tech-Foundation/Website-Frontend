@@ -56,10 +56,9 @@ export default function Empower() {
 			>
 				{cardData.map((card, i) => (
 					<motion.div
-						initial={{ y: -20, opacity: 0 }}
+						initial={{ y: 20, opacity: 0 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.3, delay: 0.2 * i + 0.2 }}
-						viewport={{ once: true }}
+						transition={{ duration: 0.2, delay: 0.2 * i + 0.1 }}
 					>
 						<Card key={card.title} {...card} />
 					</motion.div>

@@ -23,20 +23,19 @@ export default function Community() {
 				</Link>
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-16 sm:gap-32 mx-auto items-center mb-24 sm:mb-48 ">
-				<div className="flex flex-col gap-10 w-[90%] mt-10 lg:my-0 mx-auto lg:w-full">
-					<motion.div
-						initial={{ y: -10, opacity: 0 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.2, delay: 0.3 }}
-						viewport={{ once: true }}
-						className="space-y-4"
-					>
+				<motion.div
+					initial={{ x: 20, opacity: 0 }}
+					whileInView={{ opacity: 1, x: 0 }}
+					transition={{ duration: 0.2, delay: 0.3 }}
+					className="flex flex-col gap-10 w-[90%] mt-10 lg:my-0 mx-auto lg:w-full"
+				>
+					<div className="space-y-4">
 						<h2 className="font-bold h1">Participate in events</h2>
 						<p className="h4 text-gray-500">
 							Join our friendly community for coding education,
 							mentorship, networking, and more!
 						</p>
-					</motion.div>
+					</div>
 					<div className="grid grid-cols-2 gap-4">
 						{[
 							"Hackathons",
@@ -45,54 +44,49 @@ export default function Community() {
 							"Mentorship",
 							"Coding Challenges",
 							"Q/As",
-						].map((item, i) => (
-							<motion.div
-								initial={{ y: -10, opacity: 0 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{
-									duration: 0.2,
-									delay: 0.5 + i / 10,
-								}}
-								viewport={{ once: true }}
-								className="flex items-center gap-2"
-							>
+						].map((item) => (
+							<div className="flex items-center gap-2">
 								<FontAwesomeIcon
 									icon={faCheck}
 									className="w-5 h-5"
 									color="#00ff00"
 								/>
 								<p className="font-light">{item}</p>
-							</motion.div>
+							</div>
 						))}
 					</div>
-				</div>
-				<div className="">
+				</motion.div>
+				<motion.div
+					initial={{ x: 10, y: 10, opacity: 0, scale: 0.9 }}
+					whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+					transition={{ duration: 0.2, delay: 0.5 }}
+				>
 					<img
 						className="mx-auto rounded-lg"
 						src="/images/code.svg"
 					/>
-				</div>
+				</motion.div>
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-16 sm:gap-32 mx-auto items-center mb-24 sm:mb-48">
-				<div className="flex justify-start">
-					<motion.iframe
+				<motion.div
+					initial={{ x: 10, y: 10, opacity: 0, scale: 0.9 }}
+					whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+					transition={{ duration: 0.2, delay: 0.5 }}
+					className="flex justify-start"
+				>
+					<iframe
 						src="https://discord.com/widget?id=1071904870644338739&theme=dark"
 						height="500"
 						frameBorder="0"
-						initial={{ y: -10, opacity: 0 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.2, delay: 0.2 }}
-						viewport={{ once: true }}
 						sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
 						className="w-[90%] max-w-[450px] mx-auto rounded-lg"
-					></motion.iframe>
-				</div>
+					></iframe>
+				</motion.div>
 				<div className="flex flex-col gap-10 w-[90%] mt-10 lg:my-0 mx-auto lg:w-full">
 					<motion.div
-						initial={{ y: -10, opacity: 0 }}
-						whileInView={{ opacity: 1, y: 0 }}
+						initial={{ x: -20, opacity: 0 }}
+						whileInView={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.2, delay: 0.3 }}
-						viewport={{ once: true }}
 						className="space-y-4"
 					>
 						<h2 className="font-bold h1">Meet new people</h2>
