@@ -3,28 +3,24 @@ import { NextSeo } from "next-seo";
 import CoursesView from "@components/courses/view";
 import { getCourseList } from "@pages/api/courses/list";
 import { CourseMeta } from "types";
+import CallToAction from "@components/index/cta";
+import Hero from "@components/courses/hero";
+import Angle from "@components/angle";
+import WrapUp from "@components/courses/wrapup";
 
 export default function Courses({ courses }: { courses: CourseMeta[] }) {
 	return (
-		<>
+		<HomeLayout>
 			<NextSeo title="Courses" />
-			<HomeLayout>
-				<CoursesView
-					title="Essentials"
-					description="Programming Basics Perfect for Everyone!"
-					courses={courses.filter(
-						(course) => course.type === "essential"
-					)}
-				/>
-				<CoursesView
-					title="Applications"
-					description="Apply Your Knowledge and Create Something Awesome!"
-					courses={courses.filter(
-						(course) => course.type === "application"
-					)}
-				/>
-			</HomeLayout>
-		</>
+			<Hero />
+			<CoursesView
+				title="Unlock your coding potential today"
+				courses={courses}
+			/>
+			<Angle className="!fill-neutral" />
+			<WrapUp />
+			<CallToAction angled={false} />
+		</HomeLayout>
 	);
 }
 

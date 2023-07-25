@@ -13,7 +13,7 @@ export default function ContactHero() {
 					<div>
 						<p className="font-medium text-primary ">Contact us</p>
 
-						<h1 className="mt-2 text-2xl font-semibold text-glow md:text-3xl ">
+						<h1 className="mt-2 font-semibold h1">
 							We’d love to hear from you
 						</h1>
 
@@ -22,16 +22,16 @@ export default function ContactHero() {
 						</p>
 					</div>
 
-					<div className="grid grid-cols-1 gap-12 mt-10 sm:grid-cols-2">
+					<div className="grid grid-cols-1 gap-8 mt-10 sm:grid-cols-2">
 						<div className="p-4 rounded-lg bg-neutral md:p-6 ">
-							<span className="inline-block p-3 text-primary rounded-lg">
+							<span className="inline-block p-1 text-primary rounded-lg">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke-width="1.5"
 									stroke="currentColor"
-									className="w-5 h-5"
+									className="w-7 h-7"
 								>
 									<path
 										stroke-linecap="round"
@@ -44,48 +44,49 @@ export default function ContactHero() {
 							<h2 className="mt-4 text-base font-medium text-white ">
 								Email Us
 							</h2>
-							<p className="mt-2 text-sm text-gray-500 ">
+							<p className="mt-2  text-gray-500 ">
 								Speak to our friendly team.
 							</p>
 							<a
 								href="mailto:help@arafa.tech"
-								className="mt-2 text-sm text-primary hover:underline"
+								className="mt-2  text-primary hover:underline"
 							>
 								help@arafa.tech
 							</a>
 						</div>
 
 						<div className="p-4 rounded-lg bg-neutral md:p-6 ">
-							<span className="inline-block p-3 text-primary rounded-lg ">
+							<span className="inline-block p-1 text-primary rounded-lg ">
 								<FontAwesomeIcon
 									color="currentColor"
 									icon={faDiscord}
+									size="xl"
 								/>
 							</span>
 
 							<h2 className="mt-4 text-base font-medium text-white ">
 								Chat to support
 							</h2>
-							<p className="mt-2 text-sm text-gray-500 ">
-								We’re here to help.
+							<p className="mt-2  text-gray-500 ">
+								Find us on Discord.
 							</p>
 							<Link
 								href="/discord"
-								className="mt-2 text-sm text-primary hover:underline"
+								className="mt-2  text-primary hover:underline"
 							>
 								Join the community
 							</Link>
 						</div>
 
 						<div className="p-4 rounded-lg bg-neutral md:p-6 ">
-							<span className="inline-block p-3 text-primary rounded-lg  ">
+							<span className="inline-block p-1 text-primary rounded-lg  ">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke-width="1.5"
 									stroke="currentColor"
-									className="w-5 h-5"
+									className="w-7 h-7"
 								>
 									<path
 										stroke-linecap="round"
@@ -100,29 +101,29 @@ export default function ContactHero() {
 								</svg>
 							</span>
 
-							<h2 className="mt-4 text-base font-medium text-white ">
+							<h3 className="h5 mt-4 font-medium text-white ">
 								Send a pigeon
-							</h2>
-							<p className="mt-2 text-sm text-gray-500 ">
+							</h3>
+							<p className="mt-2 text-gray-500 ">
 								We are always expecting those
 							</p>
 							<a
 								href="mailto:help@arafa.tech"
-								className="mt-2 text-sm text-primary hover:underline"
+								className="mt-2 text-primary hover:underline"
 							>
 								Send a pigeon... Or email us
 							</a>
 						</div>
 
 						<div className="p-4 rounded-lg bg-neutral md:p-6 ">
-							<span className="inline-block p-3 text-primary rounded-lg  ">
+							<span className="inline-block p-1 text-primary rounded-lg  ">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke-width="1.5"
 									stroke="currentColor"
-									className="w-5 h-5"
+									className="w-7 h-7"
 								>
 									<path
 										stroke-linecap="round"
@@ -135,12 +136,12 @@ export default function ContactHero() {
 							<h2 className="mt-4 text-base font-medium text-white ">
 								Call us
 							</h2>
-							<p className="mt-2 text-sm text-gray-500 ">
+							<p className="mt-2  text-gray-500 ">
 								We’re here to help.
 							</p>
 							<a
 								href="tel:7025307389"
-								className="mt-2 text-sm text-primary hover:underline"
+								className="mt-2  text-primary hover:underline"
 							>
 								+1 (702) 530-7389
 							</a>

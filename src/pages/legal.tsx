@@ -7,22 +7,18 @@ export default function Legal() {
 		<>
 			<NextSeo title="Legal Documents" />
 			<HomeLayout>
-				<Section>
-					<h1 className="text-3xl text-center mb-5">
-						Legal Documents
+				<Section className="prose mx-auto">
+					<p className="font-medium text-primary ">Legal</p>
+					<h1 className="h1 font-semibold mb-5">
+						Arafa Tech's Legal Documents
 					</h1>
-					<p className="text-gray-500 max-w-4xl mx-auto prose mb-10">
-						Welcome to our legal page. Here, you can access
-						important documents that define the structure and
-						purpose of our nonprofit. These include our Articles of
+					<p className="text-gray-500 mx-auto prose mb-10">
+						Access important legal documents defining our
+						nonprofit's structure and purpose, including Articles of
 						Incorporation, Bylaws, 501(c)(3) determination letter,
-						and Employer Identification Number (EIN). These
-						documents establish our nonprofit's legal standing,
-						tax-exempt status, and mission. Thank you for joining us
-						in our mission to create positive change in our
-						community.
+						and EIN.{" "}
 					</p>
-					<div className="grid grid-cols-1 gap-6 max-w-xl mx-auto">
+					<div className="grid grid-cols-1 gap-6 mx-auto not-prose">
 						{documents.map((document) => (
 							<a
 								key={document.href}

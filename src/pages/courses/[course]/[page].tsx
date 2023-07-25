@@ -72,21 +72,32 @@ export default function CoursePage({ source, meta, page }: Course) {
 				meta={meta}
 				videos={videos}
 			>
-				<div className="flex flex-col justify-center items-center">
-					{lessonVideo && isVideoLoaded ? (
-						<video
-							src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.name}/static/${lessonVideo}`}
-							className="max-h-[calc(100vh-100px)] h-full"
-							controls
-							onError={() => setIsVideoLoaded(false)}
-						/>
-					) : (
-						<span className="text-6xl text-center py-16 w-full">
-							Video coming soon!
-						</span>
-					)}
-
-					<article className="prose mx-auto my-8">
+				<div className="flex flex-col py-20">
+					<div className="w-[90%] sm:w-[70%] mx-auto">
+						{lessonVideo && isVideoLoaded ? (
+							<video
+								src={`https://github.com/Arafa-Tech-Foundation/Courses/raw/main/${meta.name}/static/${lessonVideo}`}
+								className="w-full rounded-lg shadow-lg"
+								controls
+								onError={() => setIsVideoLoaded(false)}
+							/>
+						) : (
+							<div className="prose mx-auto bg-neutral text-white p-8 rounded-lg shadow-lg">
+								<div className="not-prose">
+									<h1 className="h4 font-bold">
+										Video coming soon!{" "}
+										<Link
+											className="text-primary hover:text-primary-400"
+											href="/discord"
+										>
+											Stay tuned on Discord!
+										</Link>
+									</h1>
+								</div>
+							</div>
+						)}
+					</div>
+					<article className="prose mx-auto my-8 text-black">
 						<MDXRemote
 							{...source}
 							components={{

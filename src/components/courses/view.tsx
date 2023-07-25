@@ -1,67 +1,60 @@
+import Section from "@components/section";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import Link from "next/link";
 import { CourseMeta } from "types";
 
 export default function CoursesView({
 	title,
-	description,
 	courses,
 }: {
 	title: string;
-	description: string;
 	courses: CourseMeta[];
 }) {
 	return (
-		<section className="my-4">
-			<div className="flex flex-col justify-center items-center">
-				<h1 className="text-4xl font-semibold">{title}</h1>
-				<p className="my-2">{description}</p>
+		<Section id="courses" className="bg-neutral text-gray-400 pt-40">
+			<div className="max-w-xl mx-auto text-center mb-20">
+				<h1 className="h-large font-semibold text-white">{title}</h1>
 			</div>
 
-			<div className="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-4 mx-auto gap-6">
-				{courses.map((course) => {
-					// each lesson is 30 minutes
-					const courseHours = course.modules.reduce(
-						(acc, module) =>
-							acc + module.lessons.reduce((acc) => acc + 0.5, 0),
-						0
-					);
-					return (
-						<Link
-							key={course.name}
-							className={clsx(
-								"col-span-1 border-primary flex flex-col justify-center items-center h-[300px]",
-								"p-5 rounded-xl relative from-[#4a4a54] to-[#272733] bg-gradient-to-r",
-								"hover:scale-105 transition-transform duration-300 ease-in-out hover:cursor-pointer"
-							)}
-							// href={`/courses/${courseMeta.name}/${courseMeta.modules?.[0]?.lessons?.[0]?.name}`}
-							href={`/courses/${course.name}`}
-						>
-							<img
-								className="w-12 grayscale"
-								src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${course.name}/static/icon.svg`}
-								alt="Icon"
-							/>
-							<div className="w-full flex absolute bottom-0 p-4 items-center justify-between">
-								<div>
-									<h2 className="text-lg font-bold">
-										{course.title}
-									</h2>
-									<p className="text-sm">
-										{course.description}
-									</p>
-								</div>
-								<h3 className="whitespace-nowrap font-semibold pl-2">
-									{Math.round(courseHours)}{" "}
-									{Math.round(courseHours) > 1
-										? "Hours"
-										: "Hour"}
-								</h3>
+			<div className="container grid grid-cols-3 my-4 mx-auto gap-6">
+				{courses.map((course, i) => (
+					<Link
+						href={`/courses/${course.name}`}
+						key={course.name}
+						className={clsx(
+							i === 0 && "col-span-2",
+							i === 3 && "col-span-2",
+							i === 4 && "col-span-2",
+							"bg-neutral-card p-8 border-gray-500/30 border-[0.0625rem] rounded-lg",
+							"hover:bg-primary-500/10 transition-colors",
+							"flex flex-col gap-4"
+						)}
+					>
+						<img
+							className="w-12 h-12 mb-4"
+							src={`https://raw.githubusercontent.com/Arafa-Tech-Foundation/Courses/main/${course.name}/static/icon.svg`}
+							alt="Icon"
+						/>
+						<div className="mb-4">
+							<div>
+								<h2 className="h3 text-white font-bold">
+									{course.title}
+								</h2>
+								<p className="text-sm">{course.description}</p>
 							</div>
-						</Link>
-					);
-				})}
+						</div>
+						<h5 className="text-primary group h5 mt-auto flex gap-2 items-center">
+							Let's see the course
+							<FontAwesomeIcon
+								className="group-hover:translate-x-1 transition-transform"
+								icon={faChevronRight}
+							/>
+						</h5>
+					</Link>
+				))}
 			</div>
-		</section>
+		</Section>
 	);
 }

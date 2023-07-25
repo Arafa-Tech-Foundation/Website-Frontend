@@ -34,7 +34,7 @@ export default function DashboardLayout({
 					className="drawer-toggle"
 				/>
 				<div className="drawer-content">
-					<header className="py-2 px-4 sm:p-6 mb-2 flex sticky top-0 z-[999] bg-base-200 border-b border-secondary">
+					<header className="py-2 px-4 sm:p-6 mb-2 flex sticky top-0 z-10 bg-base-200 border-b border-secondary">
 						<div className="flex justify-start items-center flex-1">
 							<label
 								htmlFor="sidebar-drawer"

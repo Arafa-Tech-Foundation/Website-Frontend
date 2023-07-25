@@ -35,11 +35,11 @@ export default function Courses({ course }: { course: CourseMeta }) {
 								{prettyCourseName}
 							</h1>
 
-							<h2 className="uppercase text-gradient font-bold">
+							<h2 className="uppercase font-bold">
 								Course Outline
 							</h2>
 
-							<ol className="list bg-base-300 px-4 py-2 rounded-lg">
+							<ol className="list bg-gray-100 px-4 py-2 rounded-lg">
 								{course.modules.map((module) => (
 									<li key={module.name}>
 										<NextLink
@@ -52,7 +52,7 @@ export default function Courses({ course }: { course: CourseMeta }) {
 								))}
 							</ol>
 
-							<h2 className="uppercase text-gradient font-bold">
+							<h2 className="uppercase  font-bold">
 								You Will Get
 							</h2>
 							<div className="flex flex-col gap-4">
@@ -62,7 +62,7 @@ export default function Courses({ course }: { course: CourseMeta }) {
 										className="text-primary"
 										size="xl"
 									/>
-									<p>Basic Understanding of {course.name}</p>
+									<p>Basic understanding of {course.name}</p>
 								</div>
 								<div className="flex gap-4">
 									<FontAwesomeIcon
@@ -70,7 +70,10 @@ export default function Courses({ course }: { course: CourseMeta }) {
 										className="text-primary"
 										size="xl"
 									/>
-									<p>Certificate of Completion</p>
+									<p>
+										Familiarity with the {course.name}{" "}
+										ecosystem{" "}
+									</p>
 								</div>
 								<div className="flex gap-4">
 									<FontAwesomeIcon
@@ -78,7 +81,9 @@ export default function Courses({ course }: { course: CourseMeta }) {
 										className="text-primary"
 										size="xl"
 									/>
-									<p>Job Placement Assistance</p>
+									<p>
+										Ability to build {course.name} projects
+									</p>
 								</div>
 							</div>
 
@@ -89,11 +94,11 @@ export default function Courses({ course }: { course: CourseMeta }) {
 								Get Started
 							</NextLink>
 						</div>
-						<div className="px-8 py-12 flex-1 bg-base-300 rounded-lg">
-							<h2 className="uppercase text-gradient font-bold">
+						<div className=" bg-neutral text-gray-300 px-8 py-12 flex-1 rounded-lg">
+							<h2 className="uppercase  font-bold">
 								Code With Kody!
 							</h2>
-							<h1 className="text-5xl font-bold">
+							<h1 className="h1 text-white font-bold">
 								{course.title}
 							</h1>
 
@@ -125,14 +130,14 @@ export default function Courses({ course }: { course: CourseMeta }) {
 									/>
 									<p>
 										Instructed by
-										<span className="text-gradient text-shadow-footer font-semibold">
+										<span className="font-semibold">
 											{" "}
 											{course.instructor}
 										</span>
 									</p>
 								</div>
 							</div>
-							<h2 className="font-bold mt-8 text-lg">
+							<h2 className="font-bold text-white mt-8 text-lg">
 								This Course is for you
 							</h2>
 							<p className="mt-1">
@@ -145,14 +150,14 @@ export default function Courses({ course }: { course: CourseMeta }) {
 								need to pursue a career in tech.
 							</p>
 
-							<div className="mt-8 from-[#4a4a54] to-[#272733] bg-gradient-to-r rounded-lg px-2 py-4">
-								<h2 className="uppercase text-center text-gradient text-shadow-footer font-bold">
+							<div className="mt-8 bg-neutral-card text-white rounded-lg px-2 py-4">
+								<h2 className="uppercase text-center font-bold">
 									What you will learn
 								</h2>
 								{course.skills.map((skill) => (
 									<div
 										key={skill}
-										className="flex items-center gap-2 p-2"
+										className="flex items-center gap-4 p-2"
 									>
 										<FontAwesomeIcon
 											icon={faCheck}

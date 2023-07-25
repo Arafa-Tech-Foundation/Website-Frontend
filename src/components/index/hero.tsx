@@ -1,80 +1,85 @@
 import Section from "@components/section";
-import { signIn } from "next-auth/react";
-import Link from "next/link";
+import { faArrowRight, faCodeCompare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
 	return (
-		<Section>
-			<motion.div
-				initial={{ y: -10, opacity: 0 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.2, delay: 0.1 }}
-				viewport={{ once: true }}
-				className="relative flex flex-col items-center justify-center gap-8 py-20 min-h-[60vh] z-10"
-			>
-				<div className="absolute z-[-1]">
-					<img
-						className="inset-0 transparent-fade pb-40"
-						src="/logos/transparent/main.png"
-					/>
-				</div>
-				<h1 className="z-10 text-[20vw] text-center md:text-6xl lg:text-7xl xl:text-8xl leading-none select-none font-bold flex flex-col md:flex-row ">
-					<span
-						data-content="Learn."
-						className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:px-2 before:bottom-0 before:left-0 before:text-center before:bg-white/25 before:bg-clip-text before:text-transparent before:animate-gradient-background-1 "
-					>
-						<span className="z-10 px-2 text-transparent text-gradient animate-gradient-foreground-1 text-shadow-sm leading-none">
-							Learn.
-						</span>
-					</span>
-					<span
-						data-content="Develop."
-						className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:px-2 before:bottom-0 before:left-0 before:text-center before:bg-white/25 before:bg-clip-text before:text-transparent before:animate-gradient-background-2"
-					>
-						<span className="px-2 text-transparent text-gradient animate-gradient-foreground-2 text-shadow-sm leading-none">
-							Develop.
-						</span>
-					</span>
-					<span
-						data-content="Succeed."
-						className="relative block before:content-[attr(data-content)] before:w-full before:z-0 before:block before:absolute before:top-0 before:px-2 before:bottom-0 before:left-0 before:text-center before:bg-white/25 before:bg-clip-text before:text-transparent before:animate-gradient-background-3"
-					>
-						<span className="px-2 text-transparent text-gradient animate-gradient-foreground-3 text-shadow-sm leading-none">
-							Succeed.
-						</span>
-					</span>
-				</h1>
-
-				<motion.p
-					initial={{ y: -10, opacity: 0 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.2, delay: 0.3 }}
-					viewport={{ once: true }}
-					className="z-10 sm:text-sm md:text-md lg:text-lg xl:text-2xl w-full max-w-6xl text-center bg-white/60 bg-clip-text text-transparent"
-				>
-					Arafa Tech is a 501(c)(3) non-profit organization that
-					provides coding education and mentorship to underprivileged
-					students, empowering them with technical skills for the
-					future.
-				</motion.p>
-				<motion.div
-					initial={{ y: -10, opacity: 0 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.2, delay: 0.5 }}
-					viewport={{ once: true }}
-				>
+		<>
+			<Section className="bg-neutral pb-48 text-white !items-start">
+				<motion.div className="container max-w-5xl mx-auto">
 					<Link
-						href="/discord"
-						className="btn btn-wide btn-primary"
-						onClick={() => {
-							signIn("discord", { callbackUrl: "/courses" });
-						}}
+						href={"/workshops"}
+						className="hidden sm:flex mb-8 gap-5 w-fit group items-center rounded-full border border-gray-500 px-8 py-4"
 					>
-						Get Started
+						<FontAwesomeIcon
+							className="bg-primary text-white p-3 rounded-full"
+							icon={faCodeCompare}
+						/>
+						<div>
+							<h3 className="font-semibold">
+								Introducing Arafa Tech Workshops
+							</h3>
+							<h5 className="text-gray-500">
+								Free, live, and interactive coding workshops for
+								all
+							</h5>
+						</div>
+						<FontAwesomeIcon
+							className="group-hover:translate-x-1 transition-transform"
+							icon={faArrowRight}
+						/>
 					</Link>
+					<motion.h3
+						initial={{ x: -20, opacity: 0 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.3, delay: 0.1 }}
+						viewport={{ once: true }}
+						className="h3 text-gray-500 mb-2"
+					>
+						Arafa Tech Foundation
+					</motion.h3>
+					<motion.h1
+						initial={{ x: -20, opacity: 0 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.3, delay: 0.3 }}
+						viewport={{ once: true }}
+						className="h-huge font-bold mb-8"
+					>
+						Join our dev family
+					</motion.h1>
+					<motion.p
+						initial={{ x: -20, opacity: 0 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.3, delay: 0.5 }}
+						viewport={{ once: true }}
+						className="h4 text-gray-100 w-[60%] mb-4"
+					>
+						Arafa Tech is a 501(c)(3) non-profit organization that
+						provides coding education and mentorship.
+					</motion.p>
+					<div className="flex gap-4">
+						<Link href="/discord" className="btn btn-primary px-8">
+							Join us
+						</Link>
+						<Link
+							href="/about"
+							className="btn btn-outline text-white border-gray-500"
+						>
+							About us
+						</Link>
+					</div>
 				</motion.div>
-			</motion.div>
-		</Section>
+			</Section>
+
+			<svg
+				className="fill-neutral"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 1440 160"
+			>
+				<path fill-opacity="1" d="M0,32L1440,128L1440,0L0,0Z"></path>
+			</svg>
+		</>
 	);
 }

@@ -77,7 +77,7 @@ export default function Faq() {
 						>
 							<input type="checkbox" />
 							<div className="collapse-title">
-								<h2 className="text-xl font-bold text-primary">
+								<h2 className="text-xl font-bold text-black">
 									{item.question}
 								</h2>
 							</div>
