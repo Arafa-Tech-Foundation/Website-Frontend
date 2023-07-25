@@ -2,20 +2,37 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+	font-family: "Mona Sans";
+	src: url("/font/mona.woff2") format("woff2 supports variations"),
+		url("/font/mona.woff2") format("woff2-variations");
+	font-weight: 200 900;
+	font-stretch: 75% 125%;
+}
+
 html {
-	font-family: "Poppins", sans-serif;
+	font-family: "Mona Sans", sans-serif;
 }
 
 .btn {
 	text-transform: unset;
+	@apply !font-semibold;
 }
 
 .btn-primary {
-	@apply border-none bg-primary
+	@apply border-none bg-primary text-white;
 }
 
 .btn-primary:hover {
-	@apply bg-primary/70 shadow-lg
+	@apply bg-primary/70 shadow-lg;
+}
+
+.btn-outline {
+	@apply hover:bg-white hover:text-primary hover:shadow-lg;
+}
+
+.btn-lg {
+	@apply !px-10 !py-1;
 }
 
 .text-gradient {
@@ -57,8 +74,12 @@ pre {
 	);
 }
 
-.text-glow {
-	@apply text-transparent text-gradient text-shadow-sm leading-none;
+.h-huge {
+	@apply text-4xl md:text-5xl lg:text-7xl;
+}
+
+.h-large {
+	@apply text-3xl md:text-4xl lg:text-6xl;
 }
 
 .h0 {
@@ -78,14 +99,18 @@ pre {
 }
 
 .h4 {
-	@apply text-base md:text-lg;
+	@apply text-base md:text-xl;
 }
 
 .h5 {
-	@apply text-sm md:text-base;
+	@apply text-base md:text-lg;
 }
 
 .h6 {
+	@apply text-sm md:text-base;
+}
+
+.h7 {
 	@apply text-xs md:text-sm;
 }
 

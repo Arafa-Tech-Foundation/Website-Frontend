@@ -3,7 +3,7 @@ export const GA_TRACKING_ID = "G-JE5EESL3HD";
 
 export default function Document() {
 	return (
-		<Html lang="en-us">
+		<Html data-theme="light" lang="en-us">
 			<Head>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link
@@ -12,13 +12,18 @@ export default function Document() {
 					crossOrigin=""
 				/>
 				<link
-					href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-					rel="stylesheet"
+					rel="preload"
+					href="/font/mona.woff2"
+					as="font"
+					type="font/woff2"
+					crossOrigin=""
 				/>
+
 				<link
-					href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
 					rel="stylesheet"
 				/>
+
 				<script
 					async
 					src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}

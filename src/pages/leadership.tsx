@@ -37,10 +37,10 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 									alt={staffMember.name}
 								/>
 								<div className="mt-4 text-center">
-									<p className="text-lg font-medium text-glow">
+									<p className="text-lg font-medium text-primary">
 										{staffMember.name}
 									</p>
-									<p className="mt-2 text-sm">
+									<p className="mt-2 text-sm text-gray-200">
 										{staffMember.title}
 									</p>
 								</div>
@@ -52,7 +52,7 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 												href={`${value || "/"}`}
 												target="_blank"
 												rel="noreferrer"
-												className="text-gray-500 transition duration-200 hover:text-primary"
+												className="text-gray-200 transition duration-200 hover:text-primary"
 											>
 												<span className="sr-only">
 													{key}
@@ -91,10 +91,10 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 										alt={staffMember.name}
 									/>
 									<div className="mt-4 text-center">
-										<p className="text-lg font-medium text-glow">
+										<p className="text-lg font-medium text-primary">
 											{staffMember.name}
 										</p>
-										<p className="mt-2 text-sm">
+										<p className="mt-2 text-sm text-gray-200">
 											{staffMember.boardTitle}
 										</p>
 									</div>
@@ -145,10 +145,12 @@ export default function Leadership({ staff }: { staff: StaffMember[] }) {
 										alt={staffMember.name}
 									/>
 									<div className="mt-4 text-center">
-										<p className="text-lg font-medium text-glow">
+										<p className="text-lg font-medium text-primary">
 											{staffMember.name}
 										</p>
-										<p className="mt-2 text-sm">Founder</p>
+										<p className="mt-2 text-sm text-gray-200">
+											Founder
+										</p>
 									</div>
 									<div className="flex justify-center mt-4 space-x-3">
 										{Object.entries(staffMember.links).map(

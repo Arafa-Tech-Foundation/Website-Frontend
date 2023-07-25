@@ -14,7 +14,7 @@ export default function Section({
 				className
 			)}
 		>
-			<div className="w-full max-w-7xl">{children}</div>
+			<div className="w-full max-w-7xl container mx-auto px-6">{children}</div>
 		</section>
 	);
 }

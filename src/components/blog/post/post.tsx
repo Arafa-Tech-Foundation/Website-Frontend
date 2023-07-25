@@ -9,8 +9,8 @@ export default function Post({
 	children: React.ReactNode;
 }) {
 	return (
-		<article className="px-4 py-24 mx-auto max-w-[65ch]">
-			<div className="w-full mx-auto mb-12 text-left">
+		<article className="px-4 py-12 mx-auto max-w-[65ch]">
+			<div className="w-full mx-auto mb-6 text-left">
 				{matter.background && (
 					<img
 						src={matter.background}
@@ -22,18 +22,20 @@ export default function Post({
 					{matter.type}
 				</p>
 				<h1
-					className="mb-3 text-3xl font-bold leading-tight text-white md:text-4xl"
+					className="mb-3 h1 text-black font-bold"
 					title={matter.title}
 				>
 					{matter.title}
 				</h1>
-				<div className="flex mb-6 space-x-2">
-					{matter.tags.map((tag) => (
-						<span className="bg-neutral-800 rounded-xl px-4 py-1 text-white">
-							{tag}
-						</span>
-					))}
-				</div>
+				{matter.tags && (
+					<div className="flex mb-6 space-x-2">
+						{matter.tags.map((tag) => (
+							<span className="bg-neutral-800 rounded-xl px-4 py-1 text-white">
+								{tag}
+							</span>
+						))}
+					</div>
+				)}
 				{matter.author && (
 					<a
 						className="flex items-center text-gray-700 group"
@@ -86,12 +88,12 @@ export default function Post({
 					</a>
 				)}
 
-				<div className="mt-8 px-6 py-6 rounded-lg text-center bg-gray-800 md:py-12 md:px-12 lg:py-16 lg:px-16  xl:items-center">
+				<div className="mt-8 px-6 py-6 rounded-lg text-center bg-neutral md:py-12 md:px-12 lg:py-16 lg:px-16  xl:items-center">
 					<div className="">
 						<h2 className="text-2xl font-extrabold leading-8 tracking-tight text-white sm:text-3xl sm:leading-9">
 							Ready to make a difference?
 						</h2>
-						<p className="max-w-3xl mt-3 text-lg leading-6">
+						<p className="max-w-3xl mt-3 text-lg leading-6 text-gray-400">
 							Connect with like-minded individuals, stay updated
 							on our latest projects, and make a real impact
 						</p>
@@ -108,7 +110,7 @@ export default function Post({
 					</div>
 				</div>
 				<div>
-					<p className="mt-3 text-sm text-gray-300">
+					<p className="mt-3 text-sm text-gray-800">
 						Want to contribute a blog post?{" "}
 						<a
 							href="https://github.com/Arafa-Tech-Foundation/Blog"

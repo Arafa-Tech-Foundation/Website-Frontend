@@ -25,7 +25,7 @@ function Post({
 				<span className="text-primary uppercase">{type}</span>
 
 				<Link href={`/blog/${slug}`}>
-					<h1 className="mt-2 text-xl font-semibold text-white hover:underline">
+					<h1 className="mt-2 text-xl font-semibold text-black hover:text-gray-700">
 						{title}
 					</h1>
 				</Link>
@@ -34,7 +34,7 @@ function Post({
 					<div>
 						<a
 							href={link || "#"}
-							className="text-lg font-mediumtext-gray-300 hover:text-primary"
+							className="text-lg font-medium text-black hover:text-primary"
 						>
 							{author}
 						</a>
@@ -54,26 +54,9 @@ export default function RecentPosts({ posts }: { posts: BlogMatter[] }) {
 		<Section className="!pb-0">
 			<div className="container px-6 mx-auto">
 				<div className="flex items-center justify-between">
-					<h1 className="text-2xl font-semibold capitalize lg:text-3xl text-white">
+					<h1 className="text-2xl font-semibold capitalize lg:text-3xl">
 						recent posts{" "}
 					</h1>
-
-					{/* <button className="focus:outline-none">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							className="w-6 h-6 transition-colors duration-300 transformtext-gray-400 hover:text-primary"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-							/>
-						</svg>
-					</button> */}
 				</div>
 
 				<hr className="my-8 border-gray-700" />

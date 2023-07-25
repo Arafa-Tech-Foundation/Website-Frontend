@@ -3,7 +3,7 @@ const plugin = require("tailwindcss/plugin");
 const theme = {
 	primary: "#FF5F6D",
 	secondary: "#FFC371",
-	neutral: "#21202e",
+	neutral: "#121619",
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -104,10 +104,10 @@ module.exports = {
 		styled: true,
 		themes: [
 			{
-				dark: { ...theme, "base-100": "#16161f" },
+				light: { ...theme, "base-100": "#FFFFFF" },
 			},
 			{
-				light: { ...theme, "base-100": "#FFFFFF" },
+				dark: { ...theme, "base-100": "#16161f" },
 			},
 		],
 		base: true,

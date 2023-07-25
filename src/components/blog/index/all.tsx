@@ -20,13 +20,13 @@ function Post({ background, title, date, slug, type }: BlogMatter) {
 					</span>
 					<Link
 						href={`/blog/${slug}`}
-						className="text-xl font-semibold hover:underline text-white "
+						className="text-xl font-semibold hover:text-gray-700 text-black"
 					>
 						{title}
 					</Link>
 				</div>
 
-				<span className="text-sm text-gray-300">
+				<span className="text-sm text-gray-600">
 					{new Date(date * 1000).toDateString()}
 				</span>
 			</div>
