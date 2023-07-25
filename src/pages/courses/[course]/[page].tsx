@@ -82,13 +82,18 @@ export default function CoursePage({ source, meta, page }: Course) {
 								onError={() => setIsVideoLoaded(false)}
 							/>
 						) : (
-							<div className="w-[90%] sm:w-[70%] mx-auto bg-neutral text-white p-8 rounded-lg shadow-lg">
-								<h1 className="h4 font-bold">
-									Video coming soon!{" "}
-									<Link className="text-primary hover:text-primary-400" href="/discord">
-										Check our progress here
-									</Link>
-								</h1>
+							<div className="prose mx-auto bg-neutral text-white p-8 rounded-lg shadow-lg">
+								<div className="not-prose">
+									<h1 className="h4 font-bold">
+										Video coming soon!{" "}
+										<Link
+											className="text-primary hover:text-primary-400"
+											href="/discord"
+										>
+											Stay tuned on Discord!
+										</Link>
+									</h1>
+								</div>
 							</div>
 						)}
 					</div>

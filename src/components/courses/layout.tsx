@@ -83,7 +83,7 @@ export default function CoursesLayout({
 				</div>
 				<div className="absolute left-0 top-[110%]">
 					<button
-						className="btn bg-neutral btn-square rounded-r-2xl rounded-l-none"
+						className="btn bg-neutral text-white btn-square rounded-r-2xl rounded-l-none"
 						onClick={() => {
 							setIsOpen((isOpen: any) => !isOpen);
 						}}
@@ -113,7 +113,7 @@ export default function CoursesLayout({
 					</button>
 				</div>
 
-				<nav aria-label="Main Navigation">
+				<nav className="pb-20" aria-label="Main Navigation">
 					<Link
 						href="/courses"
 						className="flex btn btn-sm btn-ghost text-left px-8 items-center text-black h6 font-bold ml-2 my-4"
@@ -121,8 +121,8 @@ export default function CoursesLayout({
 						Back to Courses
 					</Link>
 					{meta.modules.map((module) => (
-						<section className="my-4" key={module.name}>
-							<div className="rounded-lg py-4 px-8">
+						<section className="my-4 px-2" key={module.name}>
+							<div className="rounded-lg py-2 px-2">
 								<p className="text-sm font-semibold">
 									{module.name.split(": ")[0]}
 								</p>
@@ -135,7 +135,7 @@ export default function CoursesLayout({
 									key={lesson.name}
 									href={`/courses/${meta.name}/${lesson.name}`}
 									className={clsx(
-										"flex items-center hover:text-gray-500 my-1 py-4 px-4 rounded",
+										"flex items-center hover:text-gray-500 my-1 py-2 px-2 rounded",
 										router.asPath.includes(lesson.name) &&
 											"bg-primary text-white hover:text-white"
 									)}
