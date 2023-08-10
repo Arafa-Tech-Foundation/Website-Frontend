@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const headerLinks = [
 	{
@@ -50,30 +51,39 @@ export default function Header() {
 							</h1>
 						</Link>
 						<div className="md:hidden">
-							<button
-								className="text-primary"
-								onClick={() => setState(!state)}
-							>
-								{state ? (
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										className="h-6 w-6"
-										viewBox="0 0 20 20"
-										fill="currentColor"
-									>
-										<path
-											fillRule="evenodd"
-											d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-											clipRule="evenodd"
-										/>
-									</svg>
-								) : (
-									<FontAwesomeIcon size="lg" icon={faBars} />
-								)}
-							</button>
+							<label className="text-primary swap swap-rotate">
+								<input
+									type="checkbox"
+									onClick={(e) => {
+										setState(!state);
+										console.log(state);
+									}}
+								/>
+
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									className="h-6 w-6 swap-on"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+								>
+									<path
+										fillRule="evenodd"
+										d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+										clipRule="evenodd"
+									/>
+								</svg>
+								<FontAwesomeIcon
+									size="lg"
+									icon={faBars}
+									className="swap-off"
+								/>
+							</label>
 						</div>
 					</div>
-					<div
+					<motion.div
+						initial={{ y: -40, opacity: 0 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.3, ease: "easeInOut" }}
 						className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 px-8 ${
 							state ? "block" : "hidden"
 						}`}
@@ -108,7 +118,7 @@ export default function Header() {
 								</Link>
 							</li>
 						</ul>
-					</div>
+					</motion.div>
 				</div>
 			</nav>
 		</div>
