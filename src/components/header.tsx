@@ -74,30 +74,35 @@ export default function Header() {
 						</div>
 					</div>
 					<div
-						className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+						className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 px-8 ${
 							state ? "block" : "hidden"
 						}`}
 					>
-						<ul className="justify-end items-center space-y-6 pr-6 md:flex md:space-x-6 md:space-y-0">
+						<ul className="justify-end items-center space-y-6 md:space-y-0 md:flex md:space-x-6 font-semibold">
 							{headerLinks.map((item, idx) => {
 								return (
-									<li
-										key={idx}
-										className="text-gray-300 h5 hover:text-primary-600"
-									>
-										<Link
-											href={item.href}
-											className="block"
+									<>
+										<li
+											key={idx}
+											className="text-gray-300 hover:text-primary-600"
 										>
-											{item.name}
-										</Link>
-									</li>
+											<Link
+												href={item.href}
+												className="block"
+											>
+												{item.name}
+											</Link>
+										</li>
+										{idx !== headerLinks.length - 1 && (
+											<div className="w-full h-1 border-t border-gray-200"></div>
+										)}
+									</>
 								);
 							})}
 							<li>
 								<Link
 									href="/discord"
-									className="btn btn-primary w-full"
+									className="btn btn-primary w-full mx-auto"
 								>
 									Join the Community
 								</Link>
