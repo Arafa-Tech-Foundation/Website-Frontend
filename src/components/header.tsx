@@ -78,7 +78,7 @@ export default function Header() {
 							state ? "block" : "hidden"
 						}`}
 					>
-						<ul className="justify-end items-center space-y-6 md:space-y-0 md:flex md:space-x-6 font-semibold">
+						<ul className="justify-end items-center space-y-6 md:space-y-0 md:flex md:space-x-6 font-semibold md:font-normal">
 							{headerLinks.map((item, idx) => {
 								return (
 									<>
@@ -94,7 +94,7 @@ export default function Header() {
 											</Link>
 										</li>
 										{idx !== headerLinks.length - 1 && (
-											<div className="w-full h-1 border-t border-gray-200"></div>
+											<div className="w-full h-1 border-t border-gray-200 md:hidden"></div>
 										)}
 									</>
 								);
